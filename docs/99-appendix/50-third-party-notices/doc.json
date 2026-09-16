@@ -1,0 +1,721 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-2c25e43cfa78c5c44c98c539ee44059c",
+  "title": "Third-Party Notices",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "notices-introduction",
+        "b-third-party-notices-whisper-cpp-ggml-1",
+        "b-third-party-notices-whisper-large-v3-turbo-2",
+        "b-third-party-notices-qwen3-4b-instruct-2507-3",
+        "b-third-party-notices-silero-vad-mit-lice-4",
+        "b-third-party-notices-json-for-modern-c-5",
+        "b-third-party-notices-miniaudio-dr-wav-6",
+        "b-third-party-notices-native-swift-text-helper-7",
+        "b-third-party-notices-direct-versions-are-exac-8",
+        "b-third-party-notices-package-version-li-9-table",
+        "b-third-party-notices-the-table-is-the-resol-10",
+        "b-third-party-notices-mlx-swift-also-vendors-11",
+        "b-third-party-notices-linux-text-helper-12",
+        "b-third-party-notices-llama-cpp-ggml-mi-13",
+        "b-third-party-notices-qwen3-4b-instruct-2507-14",
+        "b-third-party-notices-sotto-is-an-independent-15"
+      ]
+    },
+    "notices-introduction": {
+      "id": "notices-introduction",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "These notices identify the dependencies and model licenses used by Sotto. Original license files and the root notices remain part of the distributed source and server package."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-whisper-cpp-ggml-1": {
+      "id": "b-third-party-notices-whisper-cpp-ggml-1",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "whisper.cpp / ggml",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", MIT license, pinned to v1.9.3 (371b5a7561823ab2bb32142d2751e35e7534727b). Source and license: "
+        },
+        {
+          "insert": "ggml-org/whisper.cpp",
+          "attributes": {
+            "link": "https://github.com/ggml-org/whisper.cpp"
+          }
+        },
+        {
+          "insert": ". Linked statically into the native helper. Its bundled nlohmann/json and WAV decoder retain their upstream notices in source."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-whisper-large-v3-turbo-2": {
+      "id": "b-third-party-notices-whisper-large-v3-turbo-2",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Whisper large-v3-turbo",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", MIT license. "
+        },
+        {
+          "insert": "Model card",
+          "attributes": {
+            "link": "https://huggingface.co/openai/whisper-large-v3-turbo"
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "GGML conversion",
+          "attributes": {
+            "link": "https://huggingface.co/ggerganov/whisper.cpp"
+          }
+        },
+        {
+          "insert": ". Downloaded separately, not committed into this repository. The full-precision model is pinned by revision and SHA-256 in "
+        },
+        {
+          "insert": "SpeechModel.swift",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "download-model.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-qwen3-4b-instruct-2507-3": {
+      "id": "b-third-party-notices-qwen3-4b-instruct-2507-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Qwen3-4B-Instruct-2507",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", Apache-2.0 license. "
+        },
+        {
+          "insert": "Official model card",
+          "attributes": {
+            "link": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507"
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "current MLX 4-bit conversion",
+          "attributes": {
+            "link": "https://huggingface.co/mlx-community/Qwen3-4B-Instruct-2507-4bit/tree/50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b"
+          }
+        },
+        {
+          "insert": ". The non-thinking model is downloaded separately, not committed. Revision, byte counts, and SHA-256 values for all six model/tokenizer/configuration files are pinned in "
+        },
+        {
+          "insert": "TextModel.swift",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; processing metadata identifies the full manifest. Apache-2.0 license text is in "
+        },
+        {
+          "insert": "Resources/Qwen-LICENSE.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-silero-vad-mit-lice-4": {
+      "id": "b-third-party-notices-silero-vad-mit-lice-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Silero VAD",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", MIT license. "
+        },
+        {
+          "insert": "snakers4/silero-vad",
+          "attributes": {
+            "link": "https://github.com/snakers4/silero-vad"
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "GGML conversion",
+          "attributes": {
+            "link": "https://huggingface.co/ggml-org/whisper-vad"
+          }
+        },
+        {
+          "insert": ". The small voice-activity model is bundled with the server package; its download is pinned and verified by "
+        },
+        {
+          "insert": "download-vad.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-json-for-modern-c-5": {
+      "id": "b-third-party-notices-json-for-modern-c-5",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "JSON for Modern C++",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " v3.11.2 (Whisper helper) and v3.11.3 (vendored by MLX Swift), MIT license. "
+        },
+        {
+          "insert": "nlohmann/json",
+          "attributes": {
+            "link": "https://github.com/nlohmann/json"
+          }
+        },
+        {
+          "insert": ". Upstream license/copyright notices are included in "
+        },
+        {
+          "insert": "Resources/JSON-LICENSE.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "Resources/mlx-vendored-LICENSE.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-miniaudio-dr-wav-6": {
+      "id": "b-third-party-notices-miniaudio-dr-wav-6",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "miniaudio / dr_wav",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", MIT No Attribution option, copyright 2025 David Reid. "
+        },
+        {
+          "insert": "mackron/miniaudio",
+          "attributes": {
+            "link": "https://github.com/mackron/miniaudio"
+          }
+        },
+        {
+          "insert": ". Only the WAV decoding component is used; its license is included in the server resources."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-native-swift-text-helper-7": {
+      "id": "b-third-party-notices-native-swift-text-helper-7",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Native Swift text helper"
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-direct-versions-are-exac-8": {
+      "id": "b-third-party-notices-direct-versions-are-exac-8",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Direct versions are exact pins in "
+        },
+        {
+          "insert": "TextEngine/Package.swift",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; the complete resolved graph and commit revisions are in "
+        },
+        {
+          "insert": "TextEngine/Package.resolved",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". License copies come from those exact upstream checkouts and are bundled through "
+        },
+        {
+          "insert": "Resources/*-LICENSE.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-package-version-li-9-table": {
+      "id": "b-third-party-notices-package-version-li-9-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Package",
+          "Version",
+          "License",
+          "Upstream"
+        ],
+        "rows": [
+          [
+            "MLX Swift",
+            "0.31.4",
+            "MIT",
+            [
+              {
+                "insert": "mlx-swift",
+                "attributes": {
+                  "link": "https://github.com/ml-explore/mlx-swift/tree/0.31.4"
+                }
+              }
+            ]
+          ],
+          [
+            "MLX Swift LM",
+            "3.31.4",
+            "MIT",
+            [
+              {
+                "insert": "mlx-swift-lm",
+                "attributes": {
+                  "link": "https://github.com/ml-explore/mlx-swift-lm/tree/3.31.4"
+                }
+              }
+            ]
+          ],
+          [
+            "Swift Transformers",
+            "1.3.0",
+            "Apache-2.0",
+            [
+              {
+                "insert": "swift-transformers",
+                "attributes": {
+                  "link": "https://github.com/huggingface/swift-transformers/tree/1.3.0"
+                }
+              }
+            ]
+          ],
+          [
+            "Swift Hugging Face",
+            "0.10.0",
+            "Apache-2.0",
+            [
+              {
+                "insert": "swift-huggingface",
+                "attributes": {
+                  "link": "https://github.com/huggingface/swift-huggingface/tree/0.10.0"
+                }
+              }
+            ]
+          ],
+          [
+            "Swift Jinja",
+            "2.4.2",
+            "Apache-2.0",
+            [
+              {
+                "insert": "swift-jinja",
+                "attributes": {
+                  "link": "https://github.com/huggingface/swift-jinja/tree/2.4.2"
+                }
+              }
+            ]
+          ],
+          [
+            "Swift Numerics",
+            "1.1.1",
+            "Apache-2.0 with Runtime Library Exception",
+            [
+              {
+                "insert": "swift-numerics",
+                "attributes": {
+                  "link": "https://github.com/apple/swift-numerics/tree/1.1.1"
+                }
+              }
+            ]
+          ],
+          [
+            "Swift Collections",
+            "1.6.0",
+            "Apache-2.0 with Runtime Library Exception",
+            [
+              {
+                "insert": "swift-collections",
+                "attributes": {
+                  "link": "https://github.com/apple/swift-collections/tree/1.6.0"
+                }
+              }
+            ]
+          ],
+          [
+            "Swift Crypto",
+            "4.5.2",
+            "Apache-2.0",
+            [
+              {
+                "insert": "swift-crypto",
+                "attributes": {
+                  "link": "https://github.com/apple/swift-crypto/tree/4.5.2"
+                }
+              }
+            ]
+          ],
+          [
+            "EventSource",
+            "1.5.1",
+            "MIT",
+            [
+              {
+                "insert": "EventSource",
+                "attributes": {
+                  "link": "https://github.com/mattt/EventSource/tree/1.5.1"
+                }
+              }
+            ]
+          ],
+          [
+            "yyjson",
+            "0.12.0",
+            "MIT",
+            [
+              {
+                "insert": "yyjson",
+                "attributes": {
+                  "link": "https://github.com/ibireme/yyjson/tree/0.12.0"
+                }
+              }
+            ]
+          ],
+          [
+            "Swift ASN.1",
+            "1.7.2",
+            "Apache-2.0",
+            [
+              {
+                "insert": "swift-asn1",
+                "attributes": {
+                  "link": "https://github.com/apple/swift-asn1/tree/1.7.2"
+                }
+              }
+            ]
+          ],
+          [
+            "Swift Syntax",
+            "603.0.2",
+            "Apache-2.0 with Runtime Library Exception",
+            [
+              {
+                "insert": "swift-syntax",
+                "attributes": {
+                  "link": "https://github.com/swiftlang/swift-syntax/tree/603.0.2"
+                }
+              }
+            ]
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-third-party-notices-the-table-is-the-resol-10": {
+      "id": "b-third-party-notices-the-table-is-the-resol-10",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The table is the "
+        },
+        {
+          "insert": "resolved package graph",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", not a claim that every target is linked: Swift Syntax belongs to unused upstream macro products, and Swift ASN.1 belongs to CryptoExtras rather than the selected macOS Crypto product. Swift Crypto's selected macOS path uses CryptoKit; its conditional non-Apple BoringSSL targets are not selected. Upstream Crypto/ASN.1 NOTICE texts accompany their license copies. Hub/EventSource dependencies do not authorize network use: Sotto's helper loads tokenizers and models from the local verified directory and starts no server."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-mlx-swift-also-vendors-11": {
+      "id": "b-third-party-notices-mlx-swift-also-vendors-11",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "MLX Swift also vendors "
+        },
+        {
+          "insert": "MLX and MLX C",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " (MIT), "
+        },
+        {
+          "insert": "metal-cpp",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " (Apache-2.0), "
+        },
+        {
+          "insert": "{fmt} 12.1.0",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " (MIT with its upstream optional exception), "
+        },
+        {
+          "insert": "nlohmann/json 3.11.3",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " (MIT), and "
+        },
+        {
+          "insert": "PocketFFT",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " (BSD-3-Clause). Their exact license texts and MLX acknowledgments are preserved in "
+        },
+        {
+          "insert": "Resources/mlx-vendored-LICENSE.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-linux-text-helper-12": {
+      "id": "b-third-party-notices-linux-text-helper-12",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Linux text helper"
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-llama-cpp-ggml-mi-13": {
+      "id": "b-third-party-notices-llama-cpp-ggml-mi-13",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "llama.cpp / ggml",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", MIT, pinned to b10516 ("
+        },
+        {
+          "insert": "b95502ba9aa0eb73a2f4fc8878d7fbe6a847a0b9",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "). "
+        },
+        {
+          "insert": "Source and license",
+          "attributes": {
+            "link": "https://github.com/ggml-org/llama.cpp/tree/b95502ba9aa0eb73a2f4fc8878d7fbe6a847a0b9"
+          }
+        },
+        {
+          "insert": ". Linked into the Linux Qwen helper. Its source retains its bundled dependency notices, including nlohmann/json v3.12.0."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-qwen3-4b-instruct-2507-14": {
+      "id": "b-third-party-notices-qwen3-4b-instruct-2507-14",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Qwen3-4B-Instruct-2507 Q4",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": "K",
+          "attributes": {
+            "bold": true,
+            "italic": true
+          }
+        },
+        {
+          "insert": "M",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", Apache-2.0. The Linux server uses the pinned "
+        },
+        {
+          "insert": "Unsloth GGUF conversion",
+          "attributes": {
+            "link": "https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/tree/a06e946bb6b655725eafa393f4a9745d460374c9"
+          }
+        },
+        {
+          "insert": ". It is downloaded separately and verified by the server; see "
+        },
+        {
+          "insert": "model setup",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/20-server-setup"
+            }
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-third-party-notices-sotto-is-an-independent-15": {
+      "id": "b-third-party-notices-sotto-is-an-independent-15",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Sotto is an independent exploratory project. It is not affiliated with Wispr, OpenAI, or the upstream projects."
+        }
+      ],
+      "children": []
+    }
+  }
+}

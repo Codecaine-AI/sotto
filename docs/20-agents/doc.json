@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-7a53a6cae91a534671622606511f0396",
+  "title": "Agents",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-20-agents-the-product-has-no-auton-1",
+        "b-20-agents-whisper-transcribes-uplo-2",
+        "b-20-agents-qwen-proposes-cleaned-te-3",
+        "b-20-agents-the-archive-worker-is-a-4",
+        "b-20-agents-developer-assistants-sho-5"
+      ]
+    },
+    "b-20-agents-the-product-has-no-auton-1": {
+      "id": "b-20-agents-the-product-has-no-auton-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The product has no autonomous agent framework or background LLM agent. Its persistent Whisper and Qwen helpers perform bounded inference requested by the server."
+        }
+      ],
+      "children": []
+    },
+    "b-20-agents-whisper-transcribes-uplo-2": {
+      "id": "b-20-agents-whisper-transcribes-uplo-2",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Whisper transcribes uploaded audio. It does not open a microphone or network connection."
+        }
+      ],
+      "children": []
+    },
+    "b-20-agents-qwen-proposes-cleaned-te-3": {
+      "id": "b-20-agents-qwen-proposes-cleaned-te-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Qwen proposes cleaned text under the configured prompt. Deterministic server checks decide whether to accept the proposal."
+        }
+      ],
+      "children": []
+    },
+    "b-20-agents-the-archive-worker-is-a-4": {
+      "id": "b-20-agents-the-archive-worker-is-a-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The archive worker is a deterministic Python process. It copies finished records and serves read-only data; it is not an AI agent."
+        }
+      ],
+      "children": []
+    },
+    "b-20-agents-developer-assistants-sho-5": {
+      "id": "b-20-agents-developer-assistants-sho-5",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Developer assistants should inspect "
+        },
+        {
+          "insert": "Current Status",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "00-foundation/20-current-status"
+            }
+          }
+        },
+        {
+          "insert": ", preserve private datasets and unrelated work, and use typed Docs tools for corpus edits. New product agents need explicit definitions here before their behavior is treated as implemented."
+        }
+      ],
+      "children": []
+    }
+  }
+}

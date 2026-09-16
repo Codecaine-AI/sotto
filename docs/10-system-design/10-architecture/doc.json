@@ -1,0 +1,670 @@
+{
+  "schemaVersion": 1,
+  "id": "architecture",
+  "title": "Architecture",
+  "root": "b-architecture-root-28",
+  "blocks": {
+    "b-architecture-root-28": {
+      "id": "b-architecture-root-28",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-architecture-sotto-s-macos-client-han-1",
+        "b-architecture-code-map-2",
+        "b-architecture-component-responsibi-3-table",
+        "b-architecture-the-server-talks-to-help-4",
+        "b-architecture-a-recording-5",
+        "b-architecture-the-client-asks-the-serv-6",
+        "b-architecture-the-client-pins-its-micr-7",
+        "b-architecture-release-stops-capture-d-8",
+        "b-architecture-the-server-runs-whisper-9",
+        "b-architecture-ndjson-events-carry-prog-10",
+        "b-architecture-interrupted-partial-uplo-11",
+        "b-architecture-text-delivery-12",
+        "b-architecture-only-the-new-insertiont-13",
+        "b-architecture-the-mac-rechecks-destina-14",
+        "b-architecture-microphone-capture-uses-15",
+        "b-architecture-settings-16",
+        "b-architecture-scope-where-to-edit-17-table",
+        "b-architecture-shared-saves-use-revisio-18",
+        "b-architecture-the-regular-app-uses-19",
+        "b-architecture-storage-20",
+        "b-architecture-the-server-s-data-dir-21",
+        "b-architecture-text-22",
+        "b-architecture-metadata-includes-device-23",
+        "b-architecture-all-clients-read-shared-24",
+        "b-architecture-only-one-server-may-own-25",
+        "b-architecture-see-the-http-contract-26",
+        "b-architecture-the-separate-transcript-27"
+      ]
+    },
+    "b-architecture-sotto-s-macos-client-han-1": {
+      "id": "b-architecture-sotto-s-macos-client-han-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Sotto's macOS client handles microphone capture, shortcuts, and cursor insertion. An independent HTTP server owns inference, shared settings, and history. Both processes use the same API whether they run on one machine or across the network."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-code-map-2": {
+      "id": "b-architecture-code-map-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Code map"
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-component-responsibi-3-table": {
+      "id": "b-architecture-component-responsibi-3-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Component",
+          "Responsibility"
+        ],
+        "rows": [
+          [
+            [
+              {
+                "insert": "Sources/Sotto",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "SwiftUI/AppKit app, device settings, HTTP client, capture, and guarded delivery."
+          ],
+          [
+            [
+              {
+                "insert": "Sources/SottoCore",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Mac configuration, audio metering, microphone selection, and model manifests."
+          ],
+          [
+            [
+              {
+                "insert": "Sources/SottoAPI",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Shared wire types and limits."
+          ],
+          [
+            [
+              {
+                "insert": "Sources/SottoDomain",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Dictionary, list formatting, rewrite validation, and composition."
+          ],
+          [
+            [
+              {
+                "insert": "Sources/SottoServerKit",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "HTTP routes, authentication, generation lifecycle, storage, and helper management."
+          ],
+          [
+            [
+              {
+                "insert": "Sources/SottoServer",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Server command-line entry point."
+          ],
+          [
+            [
+              {
+                "insert": "Engine",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Persistent whisper.cpp speech helper; Metal on Mac, CPU/CUDA on Linux."
+          ],
+          [
+            [
+              {
+                "insert": "TextEngine",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Persistent Qwen helper; Swift MLX on Mac, llama.cpp on Linux."
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-architecture-the-server-talks-to-help-4": {
+      "id": "b-architecture-the-server-talks-to-help-4",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The server talks to helpers over bounded JSON-lines pipes. Models warm at startup and stay loaded. The client contains no model helpers; it never starts or stops the server. The native application and inference server have no Python runtime dependency. The Codecaine archive worker and Data viewer require Python 3.12 or later."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-a-recording-5": {
+      "id": "b-architecture-a-recording-5",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "A recording"
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-the-client-asks-the-serv-6": {
+      "id": "b-architecture-the-client-asks-the-serv-6",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "The client asks the server to create a generation with its device identity. The server freezes shared settings and admits one active job at a time. Offline, busy, or unavailable speech recognition prevents capture."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-the-client-pins-its-micr-7": {
+      "id": "b-architecture-the-client-pins-its-micr-7",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "The client pins its microphone and uploads acknowledged, sequenced PCM chunks while recording. Inference audio is mono 16 kHz float32; optional original audio keeps the microphone rate/channels as float32."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-release-stops-capture-d-8": {
+      "id": "b-architecture-release-stops-capture-d-8",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Release stops capture, drains uploads, and sends final frame counts. The server checks the complete intervals and seals WAV files. Recordings must be 0.25–180 seconds."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-the-server-runs-whisper-9": {
+      "id": "b-architecture-the-server-runs-whisper-9",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "The server runs Whisper, mechanical cleanup, dictionary rules, and list formatting. Optional Qwen output passes through dictionary rules and deterministic rewrite checks. Rejection or proofreading failure retains the pre-proofreading text."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-ndjson-events-carry-prog-10": {
+      "id": "b-architecture-ndjson-events-carry-prog-10",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "NDJSON events carry progress and the saved final result. The client verifies focus/caret safety, makes one delivery attempt, and reports the outcome separately from inference completion."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-interrupted-partial-uplo-11": {
+      "id": "b-architecture-interrupted-partial-uplo-11",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Interrupted partial uploads expire; a complete upload can finish after the client disconnects. Reconnecting or opening history never pastes an old result. Restarting the server marks unfinished generations failed and retains completed history. There is no offline queue or automatic retry."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-text-delivery-12": {
+      "id": "b-architecture-text-delivery-12",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Text delivery"
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-only-the-new-insertiont-13": {
+      "id": "b-architecture-only-the-new-insertiont-13",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Only the new "
+        },
+        {
+          "insert": "insertionText",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " can be inserted; "
+        },
+        {
+          "insert": "previewText",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " may include earlier list items. Continuation requires a previous generation from the same device and a confirmed client-side cursor anchor. The server checks age and delivery state before reusing context. Invalid context falls back to a standalone take."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-the-mac-rechecks-destina-14": {
+      "id": "b-architecture-the-mac-rechecks-destina-14",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The Mac rechecks destination, selection, protected fields, modifiers, and clipboard state before delivery. Unsafe destinations use clipboard or preview fallback. Only confirmed insertion advances cursor-based continuation. Editor text and Accessibility handles stay on the Mac."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-microphone-capture-uses-15": {
+      "id": "b-architecture-microphone-capture-uses-15",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Microphone capture uses input-only Core Audio without changing system routing or playback volume. Route changes apply to the next take. Release, cancellation, sleep/lock, or device loss ends capture."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-settings-16": {
+      "id": "b-architecture-settings-16",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Settings"
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-scope-where-to-edit-17-table": {
+      "id": "b-architecture-scope-where-to-edit-17-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Scope",
+          "Where to edit",
+          "What it owns"
+        ],
+        "rows": [
+          [
+            "This Mac",
+            [
+              {
+                "insert": "This Mac",
+                "attributes": {
+                  "bold": true
+                }
+              },
+              {
+                "insert": " and "
+              },
+              {
+                "insert": "Microphone",
+                "attributes": {
+                  "bold": true
+                }
+              }
+            ],
+            "Endpoint/token, device name, shortcut, launch at login, microphone priority/selection."
+          ],
+          [
+            "Shared server",
+            [
+              {
+                "insert": "Server preferences",
+                "attributes": {
+                  "bold": true
+                }
+              }
+            ],
+            "Language, cleanup prompt, vocabulary, dictionary, proofreading toggle, original-audio retention."
+          ],
+          [
+            "Server process",
+            "Command arguments or environment",
+            [
+              {
+                "insert": "Bind address, port, data directory, token file, helper/model paths. See "
+              },
+              {
+                "insert": "server setup",
+                "attributes": {
+                  "link": "../Server/README.md"
+                }
+              },
+              {
+                "insert": "."
+              }
+            ]
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-architecture-shared-saves-use-revisio-18": {
+      "id": "b-architecture-shared-saves-use-revisio-18",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Shared saves use revisions to reject stale concurrent edits. Settings are snapshotted when the server accepts a take; changes affect future recordings. Update shared settings through the UI/API rather than editing files while the server runs."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-the-regular-app-uses-19": {
+      "id": "b-architecture-the-regular-app-uses-19",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The regular app uses "
+        },
+        {
+          "insert": "~/Library/Application Support/Sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; Dev uses "
+        },
+        {
+          "insert": "~/Library/Application Support/Sotto Dev",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". "
+        },
+        {
+          "insert": "SOTTO_CLIENT_DATA_DIR",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " overrides either, and the dev runner selects "
+        },
+        {
+          "insert": ".local/client",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". "
+        },
+        {
+          "insert": "config.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " stores shortcut/microphone settings; "
+        },
+        {
+          "insert": "client.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " stores endpoint/device identity. Tokens live in separate release/Dev Keychain services, scoped to the endpoint and client directory. "
+        },
+        {
+          "insert": "SOTTO_SERVER_URL",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " overrides the saved endpoint for a run. Valid manual "
+        },
+        {
+          "insert": "config.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " edits are reloaded; invalid files leave the last good configuration active."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-storage-20": {
+      "id": "b-architecture-storage-20",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Storage"
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-the-server-s-data-dir-21": {
+      "id": "b-architecture-the-server-s-data-dir-21",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The server's "
+        },
+        {
+          "insert": "--data-dir",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " (normally "
+        },
+        {
+          "insert": ".local/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " in development) contains:"
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-text-22": {
+      "id": "b-architecture-text-22",
+      "type": "code",
+      "props": {
+        "language": "text"
+      },
+      "text": [
+        {
+          "insert": "preferences.json\ngenerations/<UUID>/\n  metadata.json\n  transcript.txt\n  raw.txt\n  clean.txt\n  inference.wav\n  original.wav"
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-metadata-includes-device-23": {
+      "id": "b-architecture-metadata-includes-device-23",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Metadata includes device identity, settings snapshot, raw/final text, insertion/preview text, model and processing details, and any delivery receipt. "
+        },
+        {
+          "insert": "transcript.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " contains the current take's final text. Inference audio is always retained for completed takes; original audio is optional and defaults on. The retention toggle does not remove existing files, and there is no automatic history expiry."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-all-clients-read-shared-24": {
+      "id": "b-architecture-all-clients-read-shared-24",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "All clients read shared, paginated history. Deleting an inactive generation deletes its server artifacts. Failed takes can retain metadata and sealed audio; partial upload files are internal and cannot be downloaded. Client audio copies are temporary."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-only-one-server-may-own-25": {
+      "id": "b-architecture-only-one-server-may-own-25",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Only one server may own a data directory. Back up preferences and generation directories together. Sotto does not add filesystem encryption; protect this directory as you would the recordings it contains. Authentication and remote transport are described in the "
+        },
+        {
+          "insert": "server guide",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/20-server-setup"
+            }
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-see-the-http-contract-26": {
+      "id": "b-architecture-see-the-http-contract-26",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "See the "
+        },
+        {
+          "insert": "HTTP contract",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/20-http-api"
+            }
+          }
+        },
+        {
+          "insert": " for request details and "
+        },
+        {
+          "insert": "text correction",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/30-text-correction"
+            }
+          }
+        },
+        {
+          "insert": " for behavior and limitations."
+        }
+      ],
+      "children": []
+    },
+    "b-architecture-the-separate-transcript-27": {
+      "id": "b-architecture-the-separate-transcript-27",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The separate "
+        },
+        {
+          "insert": "Transcript Archive",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/40-transcript-archive"
+            }
+          }
+        },
+        {
+          "insert": " preserves records after deletion from operational history."
+        }
+      ],
+      "children": []
+    }
+  }
+}

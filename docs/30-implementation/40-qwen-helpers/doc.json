@@ -1,0 +1,419 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-e0b449afc959b0ff05096b17f2767984",
+  "title": "Qwen Helpers",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-readme-the-server-packages-sot-1",
+        "b-readme-build-with-scripts-buil-2",
+        "b-readme-protocol-3",
+        "b-readme-after-verifying-loading-4",
+        "b-readme-json-5",
+        "b-readme-an-error-contains-type-6",
+        "b-readme-bounds-and-lifecycle-7",
+        "b-readme-request-64-kib-transcr-8",
+        "b-readme-context-8-192-tokens-in-9",
+        "b-readme-inference-15-second-hel-10",
+        "b-readme-user-text-and-custom-pro-11",
+        "b-readme-request-state-is-cleared-12",
+        "b-readme-diagnostics-use-stderr-a-13",
+        "b-readme-verify-14",
+        "b-readme-with-a-built-package-and-15",
+        "b-readme-sh-16",
+        "b-readme-this-selects-the-platfor-17",
+        "b-readme-the-suites-use-synthetic-18"
+      ]
+    },
+    "b-readme-the-server-packages-sot-1": {
+      "id": "b-readme-the-server-packages-sot-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The server packages "
+        },
+        {
+          "insert": "sotto-text-engine",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " using native Swift MLX on macOS and llama.cpp on Linux. Both run Qwen3-4B-Instruct-2507, serve the same JSON-lines protocol, and remain loaded between requests. They read local model files and never open a microphone, network connection, or chat session."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-build-with-scripts-buil-2": {
+      "id": "b-readme-build-with-scripts-buil-2",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Build with "
+        },
+        {
+          "insert": "scripts/build-server.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; see "
+        },
+        {
+          "insert": "model setup",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/20-server-setup"
+            }
+          }
+        },
+        {
+          "insert": ". The Mac helper requires its adjacent "
+        },
+        {
+          "insert": "mlx.metallib",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and resource bundles. "
+        },
+        {
+          "insert": "scripts/build-text-engine.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " builds that package through Xcode; plain "
+        },
+        {
+          "insert": "swift build",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " does not package its shaders. Linux builds the separate CMake project because its ggml version differs from Whisper's."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-protocol-3": {
+      "id": "b-readme-protocol-3",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Protocol"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-after-verifying-loading-4": {
+      "id": "b-readme-after-verifying-loading-4",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "After verifying/loading the model, the helper emits a "
+        },
+        {
+          "insert": "ready",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " JSON object with "
+        },
+        {
+          "insert": "engineVersion",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Requests and responses are newline-delimited UTF-8 JSON:"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-json-5": {
+      "id": "b-readme-json-5",
+      "type": "code",
+      "props": {
+        "language": "json"
+      },
+      "text": [
+        {
+          "insert": "{\"type\":\"correct\",\"id\":\"example\",\"text\":\"i use code ex.\",\"terms\":[\"Codex\"],\"language\":\"en\",\"systemPrompt\":\"Return only the cleaned transcript. Preserve wording and use preferred names only when they match.\"}\n{\"type\":\"result\",\"id\":\"example\",\"text\":\"I use Codex.\",\"elapsed\":0.2}"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-an-error-contains-type-6": {
+      "id": "b-readme-an-error-contains-type-6",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "An error contains "
+        },
+        {
+          "insert": "type: \"error\"",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "message",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and the request "
+        },
+        {
+          "insert": "id",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " when available. Failed requests never return a partial rewrite. The server supplies the snapshotted cleanup prompt on every request and validates each proposed result before delivery. Helpers have no fallback behavior prompt."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-bounds-and-lifecycle-7": {
+      "id": "b-readme-bounds-and-lifecycle-7",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Bounds and lifecycle"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-request-64-kib-transcr-8": {
+      "id": "b-readme-request-64-kib-transcr-8",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Request: 64 KiB; transcript: 24 KiB; nonempty system prompt: 4 KiB. Up to 256 terms, 256 bytes each, 16 KiB total. Server policy further caps text at 6,000 characters and model hints at 80 terms/4 KiB."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-context-8-192-tokens-in-9": {
+      "id": "b-readme-context-8-192-tokens-in-9",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Context: 8,192 tokens including role framing, prompt, JSON input, and the 2,048-token output reservation. Greedy decoding; overflow, output exhaustion, and empty output fail rather than truncate."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-inference-15-second-hel-10": {
+      "id": "b-readme-inference-15-second-hel-10",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Inference: 15-second helper deadline. The MLX helper adds a two-second process-exit backstop; the server resets either hung helper at 18 seconds and bounds proofreading startup at 30 seconds."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-user-text-and-custom-pro-11": {
+      "id": "b-readme-user-text-and-custom-pro-11",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "User text and custom prompts cannot introduce structural control-token IDs. Semantic model mistakes are still possible; "
+        },
+        {
+          "insert": "rewrite guards",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/30-text-correction"
+            }
+          }
+        },
+        {
+          "insert": " determine whether output is accepted."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-request-state-is-cleared-12": {
+      "id": "b-readme-request-state-is-cleared-12",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Request state is cleared after each correction. Cancellation of active work terminates the process. Quit, stdin EOF, and parent death release the model. The server retains idle warm helpers."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-diagnostics-use-stderr-a-13": {
+      "id": "b-readme-diagnostics-use-stderr-a-13",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Diagnostics use stderr and omit transcripts. The server drains them without storing them."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-verify-14": {
+      "id": "b-readme-verify-14",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Verify"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-with-a-built-package-and-15": {
+      "id": "b-readme-with-a-built-package-and-15",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "With a built package and "
+        },
+        {
+          "insert": "SOTTO_TEXT_MODEL",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " set to its model directory/file:"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-16": {
+      "id": "b-readme-sh-16",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "./scripts/test-corrections.sh"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-this-selects-the-platfor-17": {
+      "id": "b-readme-this-selects-the-platfor-17",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This selects the platform's harness and exports the canonical default from "
+        },
+        {
+          "insert": "build/server/sotto-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". To test a custom prompt, add "
+        },
+        {
+          "insert": "--prompt /absolute/path/to/prompt.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; the file is used exactly, including any trailing newlines. Use "
+        },
+        {
+          "insert": "--server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " when running "
+        },
+        {
+          "insert": "test-text-engine.py",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " or "
+        },
+        {
+          "insert": "test-llama-engine.py",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " directly against a different server build."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-the-suites-use-synthetic-18": {
+      "id": "b-readme-the-suites-use-synthetic-18",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The suites use synthetic text to check corrections, numbers/negations, names, literal role markers, bounds, request isolation, and process shutdown. Portable Swift tests cover server lifecycle and output validation without model files. These checks do not establish microphone or cross-app insertion behavior."
+        }
+      ],
+      "children": []
+    }
+  }
+}

@@ -2,6 +2,7 @@ import { afterEach, describe, expect, test } from "bun:test";
 import { createHash } from "node:crypto";
 import { chmod, mkdtemp, readFile, rm, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
+import { fileURLToPath } from "node:url";
 import { join } from "node:path";
 import {
   NativeInference,
@@ -204,7 +205,7 @@ describe("native inference subprocess protocol", () => {
     const parent = Bun.spawn(
       [
         process.execPath,
-        new URL("./fixtures/native-shutdown-parent.ts", import.meta.url).pathname,
+        fileURLToPath(new URL("./fixtures/native-shutdown-parent.ts", import.meta.url)),
         executable,
         model,
       ],

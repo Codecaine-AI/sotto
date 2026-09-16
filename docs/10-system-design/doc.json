@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-75060c46da71b02bbf7fe56083935323",
+  "title": "System Design",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-10-system-design-the-native-client-owns-c-1",
+        "b-10-system-design-architecture-doc-10-sy-2",
+        "b-10-system-design-http-api-doc-10-system-3",
+        "b-10-system-design-text-correction-doc-10-4",
+        "b-10-system-design-transcript-archive-doc-5"
+      ]
+    },
+    "b-10-system-design-the-native-client-owns-c-1": {
+      "id": "b-10-system-design-the-native-client-owns-c-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The native client owns capture and guarded text insertion. The model server owns inference and operational history, while a separate archive worker preserves portable records and serves the Data viewer."
+        }
+      ],
+      "children": []
+    },
+    "b-10-system-design-architecture-doc-10-sy-2": {
+      "id": "b-10-system-design-architecture-doc-10-sy-2",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Architecture",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/10-architecture"
+            }
+          }
+        },
+        {
+          "insert": ": client/server ownership, settings, and operational storage."
+        }
+      ],
+      "children": []
+    },
+    "b-10-system-design-http-api-doc-10-system-3": {
+      "id": "b-10-system-design-http-api-doc-10-system-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "HTTP API",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/20-http-api"
+            }
+          }
+        },
+        {
+          "insert": ": wire contracts and live recording limits."
+        }
+      ],
+      "children": []
+    },
+    "b-10-system-design-text-correction-doc-10-4": {
+      "id": "b-10-system-design-text-correction-doc-10-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Text Correction",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/30-text-correction"
+            }
+          }
+        },
+        {
+          "insert": ": dictionary processing, proofreading, and preservation checks."
+        }
+      ],
+      "children": []
+    },
+    "b-10-system-design-transcript-archive-doc-5": {
+      "id": "b-10-system-design-transcript-archive-doc-5",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Transcript Archive",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/40-transcript-archive"
+            }
+          }
+        },
+        {
+          "insert": ": durable dataset, provenance, and read-only viewing."
+        }
+      ],
+      "children": []
+    }
+  }
+}

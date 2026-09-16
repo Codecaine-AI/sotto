@@ -1,0 +1,455 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-b2c710ac80f392a45b12b9cef5618b22",
+  "title": "Local Setup",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-10-local-setup-this-guide-describes-the-1",
+        "b-10-local-setup-open-your-data-2",
+        "b-10-local-setup-open-start-sotto-comma-3",
+        "b-10-local-setup-choose-data-in-sotto-4",
+        "b-10-local-setup-for-dictation-open-di-5",
+        "b-10-local-setup-the-updated-app-may-need-6",
+        "b-10-local-setup-permanent-archive-7",
+        "b-10-local-setup-the-archive-is-users-f-8",
+        "b-10-local-setup-each-record-contains-ra-9",
+        "b-10-local-setup-the-archive-has-no-artif-10",
+        "b-10-local-setup-new-completed-failed-a-11",
+        "b-10-local-setup-installation-12",
+        "b-10-local-setup-fork-https-github-com-13",
+        "b-10-local-setup-source-users-ford-git-14",
+        "b-10-local-setup-working-branch-codex-s-15",
+        "b-10-local-setup-app-applications-sott-16",
+        "b-10-local-setup-dictation-server-http-17",
+        "b-10-local-setup-upstream-pr-4-is-incorp-18",
+        "b-10-local-setup-startup-and-cutover-19",
+        "b-10-local-setup-startup-at-login-is-off-20",
+        "b-10-local-setup-wispr-history-was-migrat-21",
+        "b-10-local-setup-verification-22",
+        "b-10-local-setup-see-sotto-migration-re-23",
+        "b-10-local-setup-six-archive-tests-and-fo-24",
+        "local-signing-validation-scope",
+        "relocation-verified-10-local-setup"
+      ]
+    },
+    "b-10-local-setup-this-guide-describes-the-1": {
+      "id": "b-10-local-setup-this-guide-describes-the-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This guide describes the Codecaine installation on Ford's Mac. Use the installed Sotto client for dictation and the shared archive for retained transcripts."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-open-your-data-2": {
+      "id": "b-10-local-setup-open-your-data-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Open Your Data"
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-open-start-sotto-comma-3": {
+      "id": "b-10-local-setup-open-start-sotto-comma-3",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Open "
+        },
+        {
+          "insert": "Start Sotto.command",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " in this folder."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-choose-data-in-sotto-4": {
+      "id": "b-10-local-setup-choose-data-in-sotto-4",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Choose "
+        },
+        {
+          "insert": "Data",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " in Sotto to browse the shared transcript archive."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-for-dictation-open-di-5": {
+      "id": "b-10-local-setup-for-dictation-open-di-5",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "For dictation, open Dictation, allow Microphone and Accessibility in macOS, focus a text field, hold the configured key, speak, and release. This Mac shows the current key."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-the-updated-app-may-need-6": {
+      "id": "b-10-local-setup-the-updated-app-may-need-6",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "For client changes, run "
+        },
+        {
+          "insert": "./scripts/rebuild-local.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " from the repository root. The "
+        },
+        {
+          "insert": "Development",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/40-development"
+            }
+          }
+        },
+        {
+          "insert": " guide covers one-time certificate setup, how signing preserves permissions, recovery for stale Accessibility entries, and verification commands. The local certificate is already configured on this Mac."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-permanent-archive-7": {
+      "id": "b-10-local-setup-permanent-archive-7",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Permanent Archive"
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-the-archive-is-users-f-8": {
+      "id": "b-10-local-setup-the-archive-is-users-f-8",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The archive is "
+        },
+        {
+          "insert": "/Users/Ford/Transcripts",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". It is local to this Mac pending a cloud-folder choice. It lives outside the repository and is usable by other local tools. Browser viewer: http://127.0.0.1:8392."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-each-record-contains-ra-9": {
+      "id": "b-10-local-setup-each-record-contains-ra-9",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Each record contains "
+        },
+        {
+          "insert": "raw.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "clean.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "metadata.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", original source versions, and available attachments. Missing original text remains marked as missing. The Data page supports full-archive search, source filters, raw/clean comparison, audio playback, screenshots, all saved fields, dictionaries, original export files, and migration checks."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-the-archive-has-no-artif-10": {
+      "id": "b-10-local-setup-the-archive-has-no-artif-10",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The archive has no artifact-size cap. Its one-time Wispr migration bypasses the legacy upstream HTTP importer's 8 MiB restriction. Sotto's existing live dictation limit remains 180 seconds per take; this is separate from archive storage."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-new-completed-failed-a-11": {
+      "id": "b-10-local-setup-new-completed-failed-a-11",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "New completed, failed, and cancelled Sotto records are copied every three seconds. Deleting a record in Sotto does not delete its archive. The searchable SQLite index is a disposable local cache; portable files are authoritative. Use one writer on this Mac."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-installation-12": {
+      "id": "b-10-local-setup-installation-12",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Installation"
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-fork-https-github-com-13": {
+      "id": "b-10-local-setup-fork-https-github-com-13",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Fork: https://github.com/Codecaine-AI/sotto"
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-source-users-ford-git-14": {
+      "id": "b-10-local-setup-source-users-ford-git-14",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Source: "
+        },
+        {
+          "insert": "/Users/Ford/Github Repos/Codecaine/utilities/sotto",
+          "attributes": {
+            "code": true
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-working-branch-codex-s-15": {
+      "id": "b-10-local-setup-working-branch-codex-s-15",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Working branch: "
+        },
+        {
+          "insert": "codex/shared-transcript-archive",
+          "attributes": {
+            "code": true
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-app-applications-sott-16": {
+      "id": "b-10-local-setup-app-applications-sott-16",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "App: "
+        },
+        {
+          "insert": "/Applications/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-dictation-server-http-17": {
+      "id": "b-10-local-setup-dictation-server-http-17",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Dictation server: http://127.0.0.1:8391"
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-upstream-pr-4-is-incorp-18": {
+      "id": "b-10-local-setup-upstream-pr-4-is-incorp-18",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Upstream PR #5, the Bun/TypeScript backend refactor, is incorporated. The archive and Data page changes remain local. The rebuild installer retains previous client apps under .local/install-backups."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-startup-and-cutover-19": {
+      "id": "b-10-local-setup-startup-and-cutover-19",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Startup and Cutover"
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-startup-at-login-is-off-20": {
+      "id": "b-10-local-setup-startup-at-login-is-off-20",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The installed app, dictation server, and archive worker start at login through the configured LaunchAgents. Quitting Sotto leaves the server and archive worker running."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-wispr-history-was-migrat-21": {
+      "id": "b-10-local-setup-wispr-history-was-migrat-21",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Wispr Flow is quit and removed from login startup. Its nightly WisprSync job is disabled. A final import and integrity check preserved the available history and dictionary entries. The app and source data remain installed. Only new Sotto data is monitored automatically."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-verification-22": {
+      "id": "b-10-local-setup-verification-22",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Verification"
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-see-sotto-migration-re-23": {
+      "id": "b-10-local-setup-see-sotto-migration-re-23",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "See "
+        },
+        {
+          "insert": "Sotto Migration Report.md",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " for source counts, cutoff timing, metadata comparisons, and integrity checks."
+        }
+      ],
+      "children": []
+    },
+    "b-10-local-setup-six-archive-tests-and-fo-24": {
+      "id": "b-10-local-setup-six-archive-tests-and-fo-24",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Six archive tests and fourteen focused server tests pass. Two real-audio recordings passed recognition, cleanup, raw/clean file equality, repeat-import checks, and archive integrity verification."
+        }
+      ],
+      "children": []
+    },
+    "local-signing-validation-scope": {
+      "id": "local-signing-validation-scope",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The installed client's changed-build test retained the same certificate-based signing requirement, Microphone and Accessibility grants, and an active hotkey listener. The user confirmed dictation works after the rebuild. A full macOS reboot has not been tested. Preserve the local certificate for future rebuilds."
+        }
+      ],
+      "children": []
+    },
+    "relocation-verified-10-local-setup": {
+      "id": "relocation-verified-10-local-setup",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The repository is installed at /Users/Ford/Github Repos/Codecaine/utilities/sotto. The updated launcher and both background services use that path. Codecaine Docs discovers this corpus as sotto-9daa755a. Both engines and the archive worker were rechecked after relocation; Qwen needed one startup retry. The original installed app remains at /Applications/Sotto.app."
+        }
+      ],
+      "children": []
+    }
+  }
+}

@@ -1,0 +1,452 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-e6a51ff5678bd8b39dfc5f8bbb8142f3",
+  "title": "Migration Verification",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-30-migration-verification-this-report-records-the-1",
+        "b-30-migration-verification-result-2",
+        "b-30-migration-verification-passed-the-permanen-3",
+        "b-30-migration-verification-open-start-sotto-comma-4",
+        "b-30-migration-verification-sources-checked-5",
+        "b-30-migration-verification-source-records-check-6-table",
+        "b-30-migration-verification-repeated-records-share-a-7",
+        "b-30-migration-verification-text-metadata-and-medi-8",
+        "b-30-migration-verification-each-record-stores-raw-9",
+        "b-30-migration-verification-no-text-or-dates-are-inv-10",
+        "b-30-migration-verification-there-are-1-215-entries-11",
+        "b-30-migration-verification-the-three-wav-files-that-12",
+        "b-30-migration-verification-bytes-integrity-13-table",
+        "b-30-migration-verification-the-new-archive-has-no-14",
+        "b-30-migration-verification-final-verification-check-15",
+        "b-30-migration-verification-cutover-and-ongoing-capt-16",
+        "b-30-migration-verification-migration-began-septembe-17",
+        "b-30-migration-verification-only-sotto-is-monitored-18",
+        "b-30-migration-verification-wispr-flow-and-the-exist-19",
+        "b-30-migration-verification-software-validation-20",
+        "b-30-migration-verification-six-archive-tests-and-fo-21",
+        "b-30-migration-verification-upstream-pr-4-https-22",
+        "b-30-migration-verification-live-microphone-capture-23"
+      ]
+    },
+    "b-30-migration-verification-this-report-records-the-1": {
+      "id": "b-30-migration-verification-this-report-records-the-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This report records the completed one-time migration and its verification. It does not imply that later Wispr recordings are continuously imported."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-result-2": {
+      "id": "b-30-migration-verification-result-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Result"
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-passed-the-permanen-3": {
+      "id": "b-30-migration-verification-passed-the-permanen-3",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Passed.",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " The permanent archive is "
+        },
+        {
+          "insert": "/Users/Ford/Transcripts",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", outside the Sotto repository. It contains 26,275 archive entries, with explicit raw and clean text files, original metadata versions, and available attachments. This is a local folder; cloud synchronization is pending a destination choice."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-open-start-sotto-comma-4": {
+      "id": "b-30-migration-verification-open-start-sotto-comma-4",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Open "
+        },
+        {
+          "insert": "Start Sotto.command",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", then choose "
+        },
+        {
+          "insert": "Data",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ". The viewer is also available at http://127.0.0.1:8392."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-sources-checked-5": {
+      "id": "b-30-migration-verification-sources-checked-5",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Sources Checked"
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-source-records-check-6-table": {
+      "id": "b-30-migration-verification-source-records-check-6-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Source",
+          "Records checked",
+          "Result"
+        ],
+        "rows": [
+          [
+            "WisprSync export",
+            "26,263",
+            "Every exported metadata object preserved exactly by value; original listed files copied and hashed"
+          ],
+          [
+            "Current Wispr database",
+            "26,274",
+            "All 63 History fields matched for every row"
+          ],
+          [
+            "September 15 Wispr backup",
+            "26,160",
+            "All 63 History fields matched for every row"
+          ],
+          [
+            "Dictionary",
+            "672 entries per database",
+            "Every field matched"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-30-migration-verification-repeated-records-share-a-7": {
+      "id": "b-30-migration-verification-repeated-records-share-a-7",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Repeated records share archive folders when their source IDs match. Rows without valid IDs are retained; unidentified rows from different database files remain separate to avoid guessing that they are the same recording. Therefore, archive-entry counts are not a count of unique spoken utterances."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-text-metadata-and-medi-8": {
+      "id": "b-30-migration-verification-text-metadata-and-medi-8",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Text, Metadata, and Media"
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-each-record-stores-raw-9": {
+      "id": "b-30-migration-verification-each-record-stores-raw-9",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Each record stores "
+        },
+        {
+          "insert": "raw.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "clean.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "metadata.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Original ASR text is the raw version. Current Wispr clean text is selected from pasted, server-finalized, formatted, then ASR text. All other source text variants remain in metadata. Sotto raw and clean files mirror its raw recognition and final accepted text."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-no-text-or-dates-are-inv-10": {
+      "id": "b-30-migration-verification-no-text-or-dates-are-inv-10",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "No text or dates are invented. Missing text is represented by an empty portable text file and an explicit null in metadata. The archive contains 26 entries with unknown dates, including source rows without valid identifiers."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-there-are-1-215-entries-11": {
+      "id": "b-30-migration-verification-there-are-1-215-entries-11",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "There are 1,215 entries with audio and 190 with screenshots. Source versions retain original SQLite types, every History field, and streamed media references. The archive also preserves 92 export-level files, including dictionaries, manifests, indexes, and run reports."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-the-three-wav-files-that-12": {
+      "id": "b-30-migration-verification-the-three-wav-files-that-12",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The three WAV files that exceed the old importer limit were compared with source bytes and passed SHA-256 checks:"
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-bytes-integrity-13-table": {
+      "id": "b-30-migration-verification-bytes-integrity-13-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Bytes",
+          "Integrity"
+        ],
+        "rows": [
+          [
+            "9,344,300",
+            "Exact match"
+          ],
+          [
+            "8,985,388",
+            "Exact match"
+          ],
+          [
+            "8,560,172",
+            "Exact match"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-30-migration-verification-the-new-archive-has-no-14": {
+      "id": "b-30-migration-verification-the-new-archive-has-no-14",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The new archive has "
+        },
+        {
+          "insert": "no artifact-size cap",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ". It streams files in 1 MiB chunks. The chunk size does not limit the file size. Legacy upstream HTTP import code still contains its old bound and is not used by this migration or exposed as the history import action. Sotto's separate live dictation limit remains 180 seconds per take."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-final-verification-check-15": {
+      "id": "b-30-migration-verification-final-verification-check-15",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Final verification checked raw/clean equality, source metadata hashes, attachment hashes and byte counts across all 26,275 records. It passed at "
+        },
+        {
+          "insert": "2026-09-16T15:01:23.378246Z",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Duplicate descriptors for identical files were consolidated without deleting any files or source versions."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-cutover-and-ongoing-capt-16": {
+      "id": "b-30-migration-verification-cutover-and-ongoing-capt-16",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Cutover and Ongoing Capture"
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-migration-began-septembe-17": {
+      "id": "b-30-migration-verification-migration-began-septembe-17",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Migration began September 16, 2026 at 09:48 AM CDT. Each database was read through a consistent SQLite snapshot. A subsequent independent comparison found zero new or changed current rows and zero changed backup rows at verification time. The exact checks are in "
+        },
+        {
+          "insert": "Sotto Migration Verification.json",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-only-sotto-is-monitored-18": {
+      "id": "b-30-migration-verification-only-sotto-is-monitored-18",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Only Sotto is monitored by the new worker. Finished recordings are archived every three seconds, and archived copies survive deletion from Sotto. Raw/clean archive equality and repeat-copy behavior passed for two real-audio test recordings in an isolated test dataset. Production data contains no synthetic test recordings."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-wispr-flow-and-the-exist-19": {
+      "id": "b-30-migration-verification-wispr-flow-and-the-exist-19",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Wispr Flow and the existing nightly WisprSync job remain unchanged. Any Wispr recordings made after this migration require a final catch-up export before retiring Wispr. The archive's file format remains portable; search uses a separate rebuildable local cache. One Mac writes the archive."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-software-validation-20": {
+      "id": "b-30-migration-verification-software-validation-20",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Software Validation"
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-six-archive-tests-and-fo-21": {
+      "id": "b-30-migration-verification-six-archive-tests-and-fo-21",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Six archive tests and fourteen focused Sotto server tests pass. Both rebuilt app and server builds pass. Both installed inference engines report ready. The Data page includes search, source filters, raw/clean comparison, audio, screenshots, all record fields, original metadata versions, dictionary files, and migration evidence."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-upstream-pr-4-https-22": {
+      "id": "b-30-migration-verification-upstream-pr-4-https-22",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Upstream "
+        },
+        {
+          "insert": "PR #4",
+          "attributes": {
+            "link": "https://github.com/davis7dotsh/sotto/pull/4"
+          }
+        },
+        {
+          "insert": " is incorporated. Changes are local on "
+        },
+        {
+          "insert": "codex/shared-transcript-archive",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " in the "
+        },
+        {
+          "insert": "Codecaine fork",
+          "attributes": {
+            "link": "https://github.com/Codecaine-AI/sotto"
+          }
+        },
+        {
+          "insert": " and have not been pushed."
+        }
+      ],
+      "children": []
+    },
+    "b-30-migration-verification-live-microphone-capture-23": {
+      "id": "b-30-migration-verification-live-microphone-capture-23",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Live microphone capture and insertion still require macOS permissions and a user dictation test. Startup at login is off; use the launcher after logging in."
+        }
+      ],
+      "children": []
+    }
+  }
+}

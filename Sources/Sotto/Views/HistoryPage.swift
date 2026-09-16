@@ -64,12 +64,8 @@ struct HistoryPage: View {
                     .font(.caption)
                     .foregroundStyle(SottoPalette.muted)
                 Spacer()
-                Button("Import Wispr Flow history") {
-                    showingWisprFlowImport = true
-                    controller.prepareWisprFlowImport()
-                }
-                .disabled(controller.isBusy)
-                .accessibilityIdentifier("history.import-wispr-flow")
+                Link("Open full transcript archive", destination: URL(string: "http://127.0.0.1:8392")!)
+                    .accessibilityIdentifier("history.open-archive")
                 if controller.isLoadingHistory { ProgressView().controlSize(.mini) }
                 Button("Load older") {
                     controller.errorMessage = nil

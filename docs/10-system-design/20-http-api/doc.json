@@ -1,0 +1,738 @@
+{
+  "schemaVersion": 1,
+  "id": "client-server-contract",
+  "title": "HTTP API",
+  "root": "b-client-server-contract-root-19",
+  "blocks": {
+    "b-client-server-contract-root-19": {
+      "id": "b-client-server-contract-root-19",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-client-server-contract-api-version-1-default-p-1",
+        "b-client-server-contract-routes-2",
+        "b-client-server-contract-route-request-resp-3-table",
+        "b-client-server-contract-errors-are-apierrorresp-4",
+        "b-client-server-contract-generation-semantics-5",
+        "b-client-server-contract-server-owns-settings-dic-6",
+        "b-client-server-contract-inference-audio-is-mono-7",
+        "b-client-server-contract-sequence-counts-are-inde-8",
+        "b-client-server-contract-native-helpers-remain-se-9",
+        "b-client-server-contract-continuationid-reference-10",
+        "b-client-server-contract-a-lost-connection-during-11",
+        "b-client-server-contract-api-result-bytes-and-met-12",
+        "b-client-server-contract-shared-original-audio-se-13",
+        "b-client-server-contract-shared-preferences-14",
+        "b-client-server-contract-get-put-use-revision-15",
+        "b-client-server-contract-field-default-limi-16-table",
+        "b-client-server-contract-for-on-disk-layout-and-c-17"
+      ]
+    },
+    "b-client-server-contract-api-version-1-default-p-1": {
+      "id": "b-client-server-contract-api-version-1-default-p-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "API version 1, default port "
+        },
+        {
+          "insert": "8391",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ". JSON uses ISO-8601 dates and the wire types in "
+        },
+        {
+          "insert": "`Sources/SottoAPI/API.swift`",
+          "attributes": {
+            "reference": {
+              "kind": "source",
+              "path": "Sources/SottoAPI/API.swift"
+            }
+          }
+        },
+        {
+          "insert": ". macOS and Linux expose the same API. See "
+        },
+        {
+          "insert": "server setup",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/20-server-setup"
+            }
+          }
+        },
+        {
+          "insert": " for authentication and endpoint configuration."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-routes-2": {
+      "id": "b-client-server-contract-routes-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Routes"
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-route-request-resp-3-table": {
+      "id": "b-client-server-contract-route-request-resp-3-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Route",
+          "Request / response"
+        ],
+        "rows": [
+          [
+            [
+              {
+                "insert": "GET /v1/health",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "ServerHealth",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; server reachability differs from ready inference. Lightweight health contains no user data."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "GET /v1/preferences",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "PreferencesSnapshot",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "PUT /v1/preferences",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "PreferencesSnapshot",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " with expected revision; validates and returns incremented snapshot, 409 if stale."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "POST /v1/generations",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "CreateGenerationRequest",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " → "
+              },
+              {
+                "insert": "GenerationRecord",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " with server UUID and frozen settings. Idempotent requestID scoped to device. Admission occurs before microphone capture."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "POST /v1/generations/:id/audio/:kind?sequence=0&sampleRate=16000&channels=1",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "Binary little-endian interleaved float32 PCM, ≤1 MiB per request. "
+              },
+              {
+                "insert": "kind",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " is "
+              },
+              {
+                "insert": "inference",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " or "
+              },
+              {
+                "insert": "original",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ". Every request has sequence/format; format fixed per stream. Exact repeated chunk idempotent; gaps/conflicting repeats reject. → "
+              },
+              {
+                "insert": "AudioChunkReceipt",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "POST /v1/generations/:id/finish",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "FinishGenerationRequest",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " with exact frame counts. All chunks must be acknowledged first. Optional previous continuation generation ID. Seals WAV artifacts atomically and submits processing. → "
+              },
+              {
+                "insert": "GenerationRecord",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "GET /v1/generations/:id/events",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "application/x-ndjson",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", each line a full "
+              },
+              {
+                "insert": "GenerationRecord",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; emit current state, updates, and two-second heartbeats until terminal. Disconnecting after complete upload does not cancel inference."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "GET /v1/generations/:id",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "GenerationRecord",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "GET /v1/generations?limit=50&before=CURSOR",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "GenerationPage",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", descending creation order, bounded limit/cursor."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "POST /v1/generations/:id/cancel",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "Explicit cancellation, terminal idempotency, → "
+              },
+              {
+                "insert": "GenerationRecord",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "POST /v1/generations/:id/delivery",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "DeliveryReceipt",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; store actual client outcome separately from inference completion. → "
+              },
+              {
+                "insert": "GenerationRecord",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "GET /v1/generations/:id/artifacts/:filename",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Allowlisted original.wav, inference.wav, transcript.txt, raw.txt, clean.txt, metadata.json, and declared imported artifacts."
+          ],
+          [
+            [
+              {
+                "insert": "DELETE /v1/generations/:id",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Explicit history removal; active generation cannot be deleted. 204."
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-client-server-contract-errors-are-apierrorresp-4": {
+      "id": "b-client-server-contract-errors-are-apierrorresp-4",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Errors are "
+        },
+        {
+          "insert": "APIErrorResponse",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; relevant codes 400 invalid input, 401 auth, 404 missing, 409 stale/conflict/busy, 413 limits, 503 unavailable. Bearer authorization on data routes if token configured; nonloopback server binds require a token. Remote connections use HTTPS; localhost and explicit Tailscale endpoints can use HTTP. No credentials in URLs or diagnostics."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-generation-semantics-5": {
+      "id": "b-client-server-contract-generation-semantics-5",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Generation semantics"
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-server-owns-settings-dic-6": {
+      "id": "b-client-server-contract-server-owns-settings-dic-6",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Server owns settings/dictionary, inference, formatting, proofreading, rewrite guards, composition, artifacts and history. Client owns only ephemeral capture/AX anchors and device preferences."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-inference-audio-is-mono-7": {
+      "id": "b-client-server-contract-inference-audio-is-mono-7",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Inference audio is mono 16k float32. Original is input microphone format normalized to interleaved float32, retained/uploaded only if the accepted settings snapshot says keepOriginalAudio. Both audio intervals must match. Min take 0.25 s, max 180 s. Only sealed complete uploads run inference."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-sequence-counts-are-inde-8": {
+      "id": "b-client-server-contract-sequence-counts-are-inde-8",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Sequence counts are independent for each audio kind. Server handles incomplete upload expiry, bounded disk and request buffers, validates byte/frame counts and formats, and never accepts caller filesystem paths."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-native-helpers-remain-se-9": {
+      "id": "b-client-server-contract-native-helpers-remain-se-9",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Native helpers remain separate persistent processes (independent ggml versions). Whisper everywhere; macOS Qwen MLX; Linux Qwen llama.cpp/GGUF. Server applies current deterministic domain logic; client inserts returned insertionText once with existing destination/caret checks."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-continuationid-reference-10": {
+      "id": "b-client-server-contract-continuationid-reference-10",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "ContinuationID references a completed prior generation from the same device and is sent only if the client has an exact confirmed caret anchor. Server checks age and valid delivery or test/control-only state before reusing its stored continuation. Deleted, stale, or invalid context falls back to standalone composition without discarding the new recording. No editor text/AX handles go over the wire."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-a-lost-connection-during-11": {
+      "id": "b-client-server-contract-a-lost-connection-during-11",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "A lost connection during capture/upload stops capture, clears client temporary buffers, and leaves the server to cancel/expire the partial generation. No offline queue or retry UI. Once upload is complete, server may finish independently; later viewing history does not paste."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-api-result-bytes-and-met-12": {
+      "id": "b-client-server-contract-api-result-bytes-and-met-12",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "API result bytes and metadata are server-owned. All clients read the same history, tagged with the original device ID/name."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-shared-original-audio-se-13": {
+      "id": "b-client-server-contract-shared-original-audio-se-13",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Shared original-audio setting defaults on; inference audio always retained for completed generations. Changes affect future takes. Local server storage is a configurable persistent data directory; hosted deployments mount durable storage."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-shared-preferences-14": {
+      "id": "b-client-server-contract-shared-preferences-14",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Shared preferences"
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-get-put-use-revision-15": {
+      "id": "b-client-server-contract-get-put-use-revision-15",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "GET/PUT use "
+        },
+        {
+          "insert": "{ \"revision\": N, \"preferences\": { ... } }",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". A save must include the current revision; successful validation returns the incremented snapshot. Active generations keep their admission-time snapshot."
+        }
+      ],
+      "children": []
+    },
+    "b-client-server-contract-field-default-limi-16-table": {
+      "id": "b-client-server-contract-field-default-limi-16-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Field",
+          "Default / limit"
+        ],
+        "rows": [
+          [
+            [
+              {
+                "insert": "language",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "en",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; "
+              },
+              {
+                "insert": "auto",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " and the languages declared in "
+              },
+              {
+                "insert": "ServerPreferences",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "proofreadingPrompt",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Editable default; nonempty, at most 4,096 UTF-8 bytes."
+          ],
+          [
+            [
+              {
+                "insert": "vocabulary",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Recognition hints; at most 16 KiB."
+          ],
+          [
+            [
+              {
+                "insert": "dictionary",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Up to 32 named lists, 500 terms, eight aliases per term. Conflicting mappings reject."
+          ],
+          [
+            [
+              {
+                "insert": "textCorrectionEnabled",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "true",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; toggles Qwen, preserving dictionary/list processing when off."
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "keepOriginalAudio",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "true",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; affects future uploads and retention, not existing artifacts."
+              }
+            ]
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-client-server-contract-for-on-disk-layout-and-c-17": {
+      "id": "b-client-server-contract-for-on-disk-layout-and-c-17",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "For on-disk layout and client-owned settings, see "
+        },
+        {
+          "insert": "architecture",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/10-architecture"
+            }
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    }
+  }
+}

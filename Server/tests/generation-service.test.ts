@@ -148,6 +148,17 @@ test("seals WAV, completes pipeline, delivery, artifact and history deletion", a
   const final = await completed(service, record.id);
   expect(final.status).toBe("completed");
   expect(final.finalText).toBe("Hello Codex.");
+  for (const [filename, text] of [
+    ["raw.txt", final.rawText],
+    ["clean.txt", final.finalText],
+  ] as const) {
+    const artifact = await service.artifact(record.id, filename);
+    try {
+      expect((await artifact.readFile()).toString()).toBe(text);
+    } finally {
+      await artifact.close();
+    }
+  }
   expect(final.inferenceAudio).toMatchObject({ frameCount: 4000, byteCount: 16044 });
   const wav = await readFile(join(path, "generations", record.id, "inference.wav"));
   expect(wav.subarray(0, 4).toString()).toBe("RIFF");

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-3ee138c25a5d15c4fe3b5768f194a3c1",
+  "title": "Guides",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-40-guides-this-guides-tier-contain-1",
+        "b-40-guides-local-setup-doc-40-gui-2",
+        "b-40-guides-server-setup-doc-40-gu-3",
+        "b-40-guides-archive-operations-doc-4",
+        "b-40-guides-development-doc-40-gui-5"
+      ]
+    },
+    "b-40-guides-this-guides-tier-contain-1": {
+      "id": "b-40-guides-this-guides-tier-contain-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This guides tier contains operating procedures. System Design owns behavioral contracts, and these guides provide the commands needed to run and verify them."
+        }
+      ],
+      "children": []
+    },
+    "b-40-guides-local-setup-doc-40-gui-2": {
+      "id": "b-40-guides-local-setup-doc-40-gui-2",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Local Setup",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/10-local-setup"
+            }
+          }
+        },
+        {
+          "insert": ": installed paths, permissions, launcher, and cutover."
+        }
+      ],
+      "children": []
+    },
+    "b-40-guides-server-setup-doc-40-gu-3": {
+      "id": "b-40-guides-server-setup-doc-40-gu-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Server Setup",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/20-server-setup"
+            }
+          }
+        },
+        {
+          "insert": ": model downloads, builds, remote access, and containers."
+        }
+      ],
+      "children": []
+    },
+    "b-40-guides-archive-operations-doc-4": {
+      "id": "b-40-guides-archive-operations-doc-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Archive Operations",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/30-archive-operations"
+            }
+          }
+        },
+        {
+          "insert": ": migration, verification, and worker installation."
+        }
+      ],
+      "children": []
+    },
+    "b-40-guides-development-doc-40-gui-5": {
+      "id": "b-40-guides-development-doc-40-gui-5",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Development",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/40-development"
+            }
+          }
+        },
+        {
+          "insert": ": upstream build and development entry points."
+        }
+      ],
+      "children": []
+    }
+  }
+}

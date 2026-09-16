@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-7291be39ca779ec039d20c9e6d421e66",
+  "title": "Foundation",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-00-foundation-sotto-is-codecaine-s-loc-1",
+        "b-00-foundation-product-direction-doc-2",
+        "b-00-foundation-current-status-doc-00-3"
+      ]
+    },
+    "b-00-foundation-sotto-is-codecaine-s-loc-1": {
+      "id": "b-00-foundation-sotto-is-codecaine-s-loc-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Sotto is Codecaine’s local dictation product, built from the davis7dotsh/sotto fork. The project replaces reliance on Wispr Flow while preserving an inspectable, portable transcript archive."
+        }
+      ],
+      "children": []
+    },
+    "b-00-foundation-product-direction-doc-2": {
+      "id": "b-00-foundation-product-direction-doc-2",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Product Direction",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "00-foundation/10-product-direction"
+            }
+          }
+        },
+        {
+          "insert": ": ownership, scope, and accepted decisions."
+        }
+      ],
+      "children": []
+    },
+    "b-00-foundation-current-status-doc-00-3": {
+      "id": "b-00-foundation-current-status-doc-00-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Current Status",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "00-foundation/20-current-status"
+            }
+          }
+        },
+        {
+          "insert": ": installed behavior, verification, and open work."
+        }
+      ],
+      "children": []
+    }
+  }
+}

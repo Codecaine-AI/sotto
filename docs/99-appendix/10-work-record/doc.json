@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-3174ff5a1468b2bb134a7b8b3ccb3775",
+  "title": "Work Record",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-10-work-record-this-record-captures-wor-1",
+        "b-10-work-record-fork-and-local-installat-2",
+        "b-10-work-record-forked-davis7dotsh-sott-3",
+        "b-10-work-record-resolved-xcode-first-lau-4",
+        "b-10-work-record-built-the-native-app-and-5",
+        "b-10-work-record-ran-real-audio-pipeline-6",
+        "b-10-work-record-audit-and-direction-7",
+        "b-10-work-record-the-review-compared-upst-8",
+        "b-10-work-record-the-working-branch-code-9",
+        "b-10-work-record-archive-and-viewer-deliv-10",
+        "b-10-work-record-the-implementation-added-11",
+        "b-10-work-record-a-staged-migration-copie-12",
+        "b-10-work-record-six-archive-tests-fourt-13",
+        "b-10-work-record-storage-and-backup-decis-14",
+        "b-10-work-record-ford-explained-that-drop-15",
+        "b-10-work-record-documentation-and-reloca-16",
+        "b-10-work-record-the-documentation-migrat-17",
+        "b-10-work-record-the-requested-destinatio-18",
+        "b-10-work-record-outstanding-state-19",
+        "b-10-work-record-the-archive-and-viewer-c-20",
+        "relocation-verified-10-work-record"
+      ]
+    },
+    "b-10-work-record-this-record-captures-wor-1": {
+      "id": "b-10-work-record-this-record-captures-wor-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This record captures work completed during the September 15–16, 2026 setup and migration. Ford explicitly requested that project history and current status be preserved in Codecaine Docs."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-fork-and-local-installat-2": {
+      "id": "b-10-work-record-fork-and-local-installat-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Fork and Local Installation"
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-forked-davis7dotsh-sott-3": {
+      "id": "b-10-work-record-forked-davis7dotsh-sott-3",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Forked "
+        },
+        {
+          "insert": "davis7dotsh/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " to "
+        },
+        {
+          "insert": "Codecaine-AI/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and cloned it under "
+        },
+        {
+          "insert": "Codecaine/tools/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", with origin and upstream remotes."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-resolved-xcode-first-lau-4": {
+      "id": "b-10-work-record-resolved-xcode-first-lau-4",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Resolved Xcode first-launch setup and installed the Metal toolchain. Downloaded and verified pinned Whisper and Qwen model artifacts."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-built-the-native-app-and-5": {
+      "id": "b-10-work-record-built-the-native-app-and-5",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Built the native app and server, installed "
+        },
+        {
+          "insert": "/Applications/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and configured the loopback server on port 8391. Login startup remained off."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-ran-real-audio-pipeline-6": {
+      "id": "b-10-work-record-ran-real-audio-pipeline-6",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Ran real-audio pipeline tests. Live microphone and cross-app insertion remain dependent on permissions and a user test."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-audit-and-direction-7": {
+      "id": "b-10-work-record-audit-and-direction-7",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Audit and Direction"
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-the-review-compared-upst-8": {
+      "id": "b-10-work-record-the-review-compared-upst-8",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The review compared upstream PR #4 with WisprSync revision "
+        },
+        {
+          "insert": "8f24c4af5042fbb4d2d1de2348e8dd07b6aafc1a",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". It found that the legacy importer could omit three WAVs above 8 MiB, reject undated records, skip invalid IDs, and omit WisprSync export evidence. The initial audit proposed named datasets; Ford selected one permanent raw/clean archive and a one-time Wispr migration instead."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-the-working-branch-code-9": {
+      "id": "b-10-work-record-the-working-branch-code-9",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The working branch "
+        },
+        {
+          "insert": "codex/shared-transcript-archive",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " incorporated upstream merge "
+        },
+        {
+          "insert": "c1d5f0bbaff19a1559621943dff49ba89b4a96a0",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The TypeScript replacement in PR #5 was not used."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-archive-and-viewer-deliv-10": {
+      "id": "b-10-work-record-archive-and-viewer-deliv-10",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Archive and Viewer Delivery"
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-the-implementation-added-11": {
+      "id": "b-10-work-record-the-implementation-added-11",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The implementation added streamed unlimited-size archive files, all typed source fields, source and media versions, dictionary/export evidence, stable IDs, explicit null dates, a rebuildable local index, and a loopback Data viewer. The native app gained Data navigation; finished server records gained raw.txt and clean.txt artifacts."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-a-staged-migration-copie-12": {
+      "id": "b-10-work-record-a-staged-migration-copie-12",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "A staged migration copied WisprSync, then live SQLite and the September 15 backup. Independent verification compared every field, all metadata objects from the export, and large-media hashes. Duplicate descriptors were normalized without deleting files. The verified archive moved to "
+        },
+        {
+          "insert": "/Users/Ford/Transcripts",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-six-archive-tests-fourt-13": {
+      "id": "b-10-work-record-six-archive-tests-fourt-13",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Six archive tests, fourteen server tests, app/server builds, and two isolated real-audio-to-archive tests passed. The previous installed app and server were retained in "
+        },
+        {
+          "insert": ".local/install-backups",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Both production engines became ready after a second server restart. The Data page was verified with real archive counts and raw/clean details; synthetic records stayed outside production data."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-storage-and-backup-decis-14": {
+      "id": "b-10-work-record-storage-and-backup-decis-14",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Storage and Backup Decision"
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-ford-explained-that-drop-15": {
+      "id": "b-10-work-record-ford-explained-that-drop-15",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Ford explained that Dropbox was intended for automatic backup, but its permissions are troublesome, and a home NAS is planned. The working archive remains local. No automatic backup, NAS connection, cloud copy of the new archive, restore test, or retirement of Wispr has occurred."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-documentation-and-reloca-16": {
+      "id": "b-10-work-record-documentation-and-reloca-16",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Documentation and Relocation"
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-the-documentation-migrat-17": {
+      "id": "b-10-work-record-the-documentation-migrat-17",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The documentation migration preserves all ten first-party Markdown documents and the task's setup, audit, and migration evidence. Original Markdown remains intact for provenance and upstream compatibility. Native Docs becomes the maintained reference. Vendor dependency documentation remains in its own repositories."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-the-requested-destinatio-18": {
+      "id": "b-10-work-record-the-requested-destinatio-18",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The requested destination is "
+        },
+        {
+          "insert": "Codecaine/utilities/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Relocation is complete only after the repository, launch services, launcher outputs, archive installation metadata, Docs discovery, and both runtime health checks use that location."
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-outstanding-state-19": {
+      "id": "b-10-work-record-outstanding-state-19",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Outstanding State"
+        }
+      ],
+      "children": []
+    },
+    "b-10-work-record-the-archive-and-viewer-c-20": {
+      "id": "b-10-work-record-the-archive-and-viewer-c-20",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The archive and viewer code remain local, uncommitted, and unpushed. Live dictation permissions/testing, final Wispr cutover, versioned backup and restore verification, and future product development remain open. See "
+        },
+        {
+          "insert": "Current Status",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "00-foundation/20-current-status"
+            }
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "relocation-verified-10-work-record": {
+      "id": "relocation-verified-10-work-record",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Relocation completed on September 16, 2026. The repository moved to /Users/Ford/Github Repos/Codecaine/utilities/sotto with identical HEAD and Git worktree state at the move boundary. Both submodules resolve. Old build caches were preserved in .local/relocation-backup/build-cache, and the next build uses fresh paths. Server and archive plists, launcher copies, archive installation metadata, setup outputs, and Docs discovery use the new path. The dataset stayed at /Users/Ford/Transcripts. All six archive tests passed after the move. Qwen required one retry after its first cold start; both inference engines and the archive worker then reported healthy. All 26 native Docs pages pass completion checks and the link checker reports zero stale references."
+        }
+      ],
+      "children": []
+    }
+  }
+}

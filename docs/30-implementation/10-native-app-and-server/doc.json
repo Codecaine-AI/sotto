@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-2975b13fd2d356d94c373b8820d23bb6",
+  "title": "Native App and Server",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-10-native-app-and-server-the-native-client-and-se-1",
+        "b-10-native-app-and-server-decisions-2",
+        "b-10-native-app-and-server-the-data-page-embeds-a-n-3",
+        "b-10-native-app-and-server-sottowindowview-swift-4",
+        "b-10-native-app-and-server-generationservice-swift-5",
+        "b-10-native-app-and-server-generationservicetests-6",
+        "b-10-native-app-and-server-the-app-is-installed-sep-7"
+      ]
+    },
+    "b-10-native-app-and-server-the-native-client-and-se-1": {
+      "id": "b-10-native-app-and-server-the-native-client-and-se-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The native client and server realize the "
+        },
+        {
+          "insert": "Architecture",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/10-architecture"
+            }
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "HTTP API",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/20-http-api"
+            }
+          }
+        },
+        {
+          "insert": " in "
+        },
+        {
+          "insert": "Sources/Sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "Sources/SottoServerKit",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-10-native-app-and-server-decisions-2": {
+      "id": "b-10-native-app-and-server-decisions-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Decisions"
+        }
+      ],
+      "children": []
+    },
+    "b-10-native-app-and-server-the-data-page-embeds-a-n-3": {
+      "id": "b-10-native-app-and-server-the-data-page-embeds-a-n-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The Data page embeds a nonpersistent WKWebView and opens the loopback archive viewer. This keeps dataset browsing independent of inference. "
+        },
+        {
+          "insert": "TranscriptDataPage.swift",
+          "attributes": {
+            "reference": {
+              "kind": "source",
+              "path": "Sources/Sotto/Views/TranscriptDataPage.swift"
+            }
+          }
+        },
+        {
+          "insert": " owns navigation restrictions and offline recovery."
+        }
+      ],
+      "children": []
+    },
+    "b-10-native-app-and-server-sottowindowview-swift-4": {
+      "id": "b-10-native-app-and-server-sottowindowview-swift-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "SottoWindowView.swift",
+          "attributes": {
+            "reference": {
+              "kind": "source",
+              "path": "Sources/Sotto/Views/SottoWindowView.swift"
+            }
+          }
+        },
+        {
+          "insert": " adds Data navigation. "
+        },
+        {
+          "insert": "HistoryPage.swift",
+          "attributes": {
+            "reference": {
+              "kind": "source",
+              "path": "Sources/Sotto/Views/HistoryPage.swift"
+            }
+          }
+        },
+        {
+          "insert": " routes full history migration to the archive rather than the limited legacy importer."
+        }
+      ],
+      "children": []
+    },
+    "b-10-native-app-and-server-generationservice-swift-5": {
+      "id": "b-10-native-app-and-server-generationservice-swift-5",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "GenerationService.swift",
+          "attributes": {
+            "reference": {
+              "kind": "source",
+              "path": "Sources/SottoServerKit/GenerationService.swift"
+            }
+          }
+        },
+        {
+          "insert": " writes raw.txt and clean.txt before terminal metadata and allows downloading them. Metadata is the worker's publication marker."
+        }
+      ],
+      "children": []
+    },
+    "b-10-native-app-and-server-generationservicetests-6": {
+      "id": "b-10-native-app-and-server-generationservicetests-6",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "GenerationServiceTests.swift",
+          "attributes": {
+            "reference": {
+              "kind": "source",
+              "path": "Tests/SottoServerTests/GenerationServiceTests.swift"
+            }
+          }
+        },
+        {
+          "insert": " checks raw and clean artifacts against actual pipeline results. The upstream import implementation remains for compatibility."
+        }
+      ],
+      "children": []
+    },
+    "b-10-native-app-and-server-the-app-is-installed-sep-7": {
+      "id": "b-10-native-app-and-server-the-app-is-installed-sep-7",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The app is installed separately under "
+        },
+        {
+          "insert": "/Applications/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; moving the checkout requires updating server/helper paths and launchers, not moving the installed app. Build caches containing the original checkout path were preserved in .local/relocation-backup/build-cache. Fresh build directories prevent stale absolute paths on future builds; the next full native build may take longer."
+        }
+      ],
+      "children": []
+    }
+  }
+}

@@ -1,0 +1,626 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-d9989f55693a98f8717e21e74bbe05b9",
+  "title": "Documentation Inventory",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-60-documentation-inventory-the-migration-covers-all-1",
+        "b-60-documentation-inventory-coverage-2",
+        "b-60-documentation-inventory-docs-architecture-md-m-3",
+        "b-60-documentation-inventory-docs-client-server-cont-4",
+        "b-60-documentation-inventory-docs-text-correction-md-5",
+        "b-60-documentation-inventory-engine-readme-md-maps-6",
+        "b-60-documentation-inventory-textengine-readme-md-m-7",
+        "b-60-documentation-inventory-users-ford-documents-c-8",
+        "b-60-documentation-inventory-server-readme-md-maps-9",
+        "b-60-documentation-inventory-scripts-archive-readme-10",
+        "b-60-documentation-inventory-readme-md-maps-to-40-11",
+        "b-60-documentation-inventory-users-ford-documents-c-12",
+        "b-60-documentation-inventory-users-ford-documents-c-13",
+        "b-60-documentation-inventory-docs-wispr-flow-import-14",
+        "b-60-documentation-inventory-third-party-notices-md-15",
+        "b-60-documentation-inventory-scope-16",
+        "b-60-documentation-inventory-vendor-documentation-mo-17",
+        "b-60-documentation-inventory-maintenance-18",
+        "b-60-documentation-inventory-use-the-connected-docs-t-19"
+      ]
+    },
+    "b-60-documentation-inventory-the-migration-covers-all-1": {
+      "id": "b-60-documentation-inventory-the-migration-covers-all-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The migration covers all first-party Markdown documentation in this checkout plus the setup, data audit, and migration report from the task outputs. Original Markdown files remain unchanged, except for added navigation pointers after migration; the source hashes below identify the imported versions."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-coverage-2": {
+      "id": "b-60-documentation-inventory-coverage-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Coverage"
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-docs-architecture-md-m-3": {
+      "id": "b-60-documentation-inventory-docs-architecture-md-m-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "docs/architecture.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "10-architecture",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/10-architecture"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "af69fe1b47ece2abdc24c51b7448267377517cf36c695a52633e03169a2bcbf1",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-docs-client-server-cont-4": {
+      "id": "b-60-documentation-inventory-docs-client-server-cont-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "docs/client-server-contract.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "20-http-api",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/20-http-api"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "a810f2bc5000563af1c4c6d43683125152409e7e398fa12ab599380115b84b15",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-docs-text-correction-md-5": {
+      "id": "b-60-documentation-inventory-docs-text-correction-md-5",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "docs/text-correction.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "30-text-correction",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/30-text-correction"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "7b2d589c65ff9e9a417b86edbd5e4f5cc9991759be7eadc7820f11a136d607c2",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-engine-readme-md-maps-6": {
+      "id": "b-60-documentation-inventory-engine-readme-md-maps-6",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Engine/README.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "30-whisper-helper",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "30-implementation/30-whisper-helper"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "67efb75a01d68b7d769d9eeb1dac364ef171133cdba89020b2e77ede6115f6b1",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-textengine-readme-md-m-7": {
+      "id": "b-60-documentation-inventory-textengine-readme-md-m-7",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "TextEngine/README.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "40-qwen-helpers",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "30-implementation/40-qwen-helpers"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "48af0bfe444a678ffc774f7bcb5f3a1c8118e6681f0628733ca50478615950bf",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-users-ford-documents-c-8": {
+      "id": "b-60-documentation-inventory-users-ford-documents-c-8",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "/Users/Ford/Documents/Codex/2026-09-15/i-x20/outputs/Sotto Setup.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "10-local-setup",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/10-local-setup"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "cf9f594011038c9e6ddb4673945996bf12411e824ef9c59c6f25abe04a84ab58",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-server-readme-md-maps-9": {
+      "id": "b-60-documentation-inventory-server-readme-md-maps-9",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Server/README.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "20-server-setup",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/20-server-setup"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "d476082bd28ecc21babb886ac03a48caab2a4d40f5cffb719a65919b3095bbd3",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-scripts-archive-readme-10": {
+      "id": "b-60-documentation-inventory-scripts-archive-readme-10",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "scripts/archive/README.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "30-archive-operations",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/30-archive-operations"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "f9d02ffc568d68fc2dd283181108a65b86ceb7a45f6f34e67d67efe2357b52cf",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-readme-md-maps-to-40-11": {
+      "id": "b-60-documentation-inventory-readme-md-maps-to-40-11",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "README.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "40-development",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/40-development"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "c6e25d48ede01bb5e6e081cd12f5ad057d1b52c6e95369d2486ed72aff176a0b",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-users-ford-documents-c-12": {
+      "id": "b-60-documentation-inventory-users-ford-documents-c-12",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "/Users/Ford/Documents/Codex/2026-09-15/i-x20/outputs/Sotto Data Audit.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "20-initial-audit",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/20-initial-audit"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "4e1265ec9f4d442695d5aacb2fc232edf0d1d4d017f814119c5efe0a20eead5b",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-users-ford-documents-c-13": {
+      "id": "b-60-documentation-inventory-users-ford-documents-c-13",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "/Users/Ford/Documents/Codex/2026-09-15/i-x20/outputs/Sotto Migration Report.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "30-migration-verification",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/30-migration-verification"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "04c4f1e500e55e5159c4069a0787f4d83476291fc749e3cccacaf93740970a5e",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-docs-wispr-flow-import-14": {
+      "id": "b-60-documentation-inventory-docs-wispr-flow-import-14",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "docs/wispr-flow-import-plan.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "40-upstream-import-plan",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/40-upstream-import-plan"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "e8bcc47bfd74644b4fcfe8e103c07b8046bd2d118f5b0e7747efc4bca6cba540",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-third-party-notices-md-15": {
+      "id": "b-60-documentation-inventory-third-party-notices-md-15",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "THIRD_PARTY_NOTICES.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " maps to "
+        },
+        {
+          "insert": "50-third-party-notices",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/50-third-party-notices"
+            }
+          }
+        },
+        {
+          "insert": ". Source SHA-256: "
+        },
+        {
+          "insert": "1bc3fc91fab209ad07327db4e232bc112c887ff4311d09ade05311ed193e6c2a",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-scope-16": {
+      "id": "b-60-documentation-inventory-scope-16",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Scope"
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-vendor-documentation-mo-17": {
+      "id": "b-60-documentation-inventory-vendor-documentation-mo-17",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Vendor documentation, model binaries, private transcripts, and generated build caches are not copied into the Docs corpus. The user dataset remains outside Git. The original JSON verification evidence stays with the dataset and task outputs; this corpus preserves its aggregate results and limits."
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-maintenance-18": {
+      "id": "b-60-documentation-inventory-maintenance-18",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Maintenance"
+        }
+      ],
+      "children": []
+    },
+    "b-60-documentation-inventory-use-the-connected-docs-t-19": {
+      "id": "b-60-documentation-inventory-use-the-connected-docs-t-19",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Use the connected Docs tools or their supported CLI bridge. Begin a task, read the page, apply typed operations with the current revision hash, run completion checks, and end the task. Never hand-edit doc.json or component sidecars. Native pages are canonical; retained Markdown is a migration reference."
+        }
+      ],
+      "children": []
+    }
+  }
+}

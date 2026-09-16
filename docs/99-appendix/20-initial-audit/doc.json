@@ -1,0 +1,1022 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-b90411e07c77a6fe4a6eca26a367a1e1",
+  "title": "Initial Data Audit",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-20-initial-audit-historical-audit-preser-1",
+        "b-20-initial-audit-reviewed-september-16-2-2",
+        "b-20-initial-audit-conclusion-3",
+        "b-20-initial-audit-sotto-pr-4-preserves-ra-4",
+        "b-20-initial-audit-the-codecaine-clone-and-5",
+        "b-20-initial-audit-revisions-reviewed-6",
+        "b-20-initial-audit-sotto-pr-4-import-loc-7",
+        "b-20-initial-audit-local-codecaine-sotto-re-8",
+        "b-20-initial-audit-wisprsync-https-gith-9",
+        "b-20-initial-audit-pr-5-the-typescript-se-10",
+        "b-20-initial-audit-actual-import-structure-11",
+        "b-20-initial-audit-the-importer-reads-wisp-12",
+        "b-20-initial-audit-text-13",
+        "b-20-initial-audit-the-source-wispr-id-is-r-14",
+        "b-20-initial-audit-field-coverage-15",
+        "b-20-initial-audit-data-pr-behavior-d-16-table",
+        "b-20-initial-audit-this-is-broader-than-a-f-17",
+        "b-20-initial-audit-sotto-s-own-settings-f-18",
+        "b-20-initial-audit-findings-against-ford-s-19",
+        "b-20-initial-audit-the-latest-saved-wisprsy-20",
+        "b-20-initial-audit-three-existing-wav-fil-21",
+        "b-20-initial-audit-twenty-four-existing-r-22",
+        "b-20-initial-audit-one-live-history-row-h-23",
+        "b-20-initial-audit-no-current-raw-transcr-24",
+        "b-20-initial-audit-the-existing-export-co-25",
+        "b-20-initial-audit-the-bounded-source-archi-26",
+        "b-20-initial-audit-viewer-gaps-27",
+        "b-20-initial-audit-the-pr-s-history-page-di-28",
+        "b-20-initial-audit-proposed-codecaine-desig-29",
+        "b-20-initial-audit-preserve-the-archive-30",
+        "b-20-initial-audit-support-wisprsync-export-31",
+        "b-20-initial-audit-keep-original-source-dat-32",
+        "b-20-initial-audit-make-datasets-explicit-33",
+        "b-20-initial-audit-recommended-definition-34",
+        "b-20-initial-audit-each-dataset-should-expo-35",
+        "b-20-initial-audit-this-definition-is-propo-36",
+        "b-20-initial-audit-add-a-data-viewer-37",
+        "b-20-initial-audit-provide-a-dedicated-data-38",
+        "b-20-initial-audit-the-record-detail-should-39",
+        "b-20-initial-audit-all-transcript-variants-40",
+        "b-20-initial-audit-audio-playback-screensh-41",
+        "b-20-initial-audit-context-quality-measure-42",
+        "b-20-initial-audit-original-typed-source-ro-43",
+        "b-20-initial-audit-dataset-membership-reco-44",
+        "b-20-initial-audit-imported-wispr-data-and-45",
+        "b-20-initial-audit-suggested-implementation-46",
+        "b-20-initial-audit-incorporate-the-merged-i-47",
+        "b-20-initial-audit-close-preservation-gaps-48",
+        "b-20-initial-audit-add-archive-queries-dat-49",
+        "b-20-initial-audit-build-the-fuller-data-vi-50",
+        "b-20-initial-audit-evidence-and-limits-51",
+        "b-20-initial-audit-this-review-used-source-52",
+        "b-20-initial-audit-reader-and-typed-field-53",
+        "b-20-initial-audit-import-limits-and-archi-54",
+        "b-20-initial-audit-server-validation-and-d-55",
+        "b-20-initial-audit-history-viewer-https-56",
+        "b-20-initial-audit-wisprsync-metadata-mapp-57"
+      ]
+    },
+    "b-20-initial-audit-historical-audit-preser-1": {
+      "id": "b-20-initial-audit-historical-audit-preser-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Historical audit, preserved as evidence. Its preimplementation status and named-dataset proposal were superseded by the delivered permanent archive. Do not use its old counts or recommendations as current state."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-reviewed-september-16-2-2": {
+      "id": "b-20-initial-audit-reviewed-september-16-2-2",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Reviewed September 16, 2026. This is a read-only review and a proposed direction, not an implemented change."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-conclusion-3": {
+      "id": "b-20-initial-audit-conclusion-3",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Conclusion"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-sotto-pr-4-preserves-ra-4": {
+      "id": "b-20-initial-audit-sotto-pr-4-preserves-ra-4",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Sotto PR #4 preserves raw transcripts and the underlying Wispr Flow metadata for ordinary, successfully imported records. It does "
+        },
+        {
+          "insert": "not",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " reproduce the complete WisprSync dataset. Three WAV files in Ford's export exceed the import limit, and 24 exported records have no timestamp and would fail to import. Dataset manifests, indexes, run history, and WisprSync-specific metadata are not imported."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-the-codecaine-clone-and-5": {
+      "id": "b-20-initial-audit-the-codecaine-clone-and-5",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The Codecaine clone and installed app still predate this change. Only upstream references were fetched for this review. No merge, rebuild, production import, or data migration was performed."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-revisions-reviewed-6": {
+      "id": "b-20-initial-audit-revisions-reviewed-6",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Revisions Reviewed"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-sotto-pr-4-import-loc-7": {
+      "id": "b-20-initial-audit-sotto-pr-4-import-loc-7",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Sotto PR #4: Import local Wispr Flow history into Sotto",
+          "attributes": {
+            "link": "https://github.com/davis7dotsh/sotto/pull/4"
+          }
+        },
+        {
+          "insert": ", merged September 15, 2026 at 23:32:55 UTC. Upstream revision "
+        },
+        {
+          "insert": "c1d5f0bbaff19a1559621943dff49ba89b4a96a0",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-local-codecaine-sotto-re-8": {
+      "id": "b-20-initial-audit-local-codecaine-sotto-re-8",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Local Codecaine Sotto revision "
+        },
+        {
+          "insert": "5c78a70cb9e5fd8dccaa81ecd8af4b60ca5f9ff2",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-wisprsync-https-gith-9": {
+      "id": "b-20-initial-audit-wisprsync-https-gith-9",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "WisprSync",
+          "attributes": {
+            "link": "https://github.com/fjooord/WisprSync/tree/8f24c4af5042fbb4d2d1de2348e8dd07b6aafc1a"
+          }
+        },
+        {
+          "insert": ", local revision "
+        },
+        {
+          "insert": "8f24c4af5042fbb4d2d1de2348e8dd07b6aafc1a",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". This is the same revision credited by the PR."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-pr-5-the-typescript-se-10": {
+      "id": "b-20-initial-audit-pr-5-the-typescript-se-10",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "PR #5, the TypeScript server replacement, was still open. Its unmerged implementation is not the basis of these conclusions."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-actual-import-structure-11": {
+      "id": "b-20-initial-audit-actual-import-structure-11",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Actual Import Structure"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-the-importer-reads-wisp-12": {
+      "id": "b-20-initial-audit-the-importer-reads-wisp-12",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The importer reads "
+        },
+        {
+          "insert": "Wispr Flow/flow.sqlite",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and complete "
+        },
+        {
+          "insert": "backup-*.sqlite",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " files. It does not read the WisprSync export folder. Import is manually invoked from History and may be repeated; the PR does not add scheduled sync."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-text-13": {
+      "id": "b-20-initial-audit-text-13",
+      "type": "code",
+      "props": {
+        "language": "text"
+      },
+      "text": [
+        {
+          "insert": "<Sotto server data directory>/\n  generations/<Sotto UUID>/\n    metadata.json       # Sotto history record, including rawText and importedSource\n    transcript.txt      # Selected display/final transcript\n    source.json         # Typed History columns and source row versions\n    source.wav          # Available supported WAV, subject to size limit\n    opus.json           # Available Opus packet representation\n    screenshot.png      # Available supported screenshot\n  imports/wispr-flow/\n    dictionary.json\n    dictionary-versions/<SHA-256>.json\n    staging/            # Temporary imports, not completed records"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-the-source-wispr-id-is-r-14": {
+      "id": "b-20-initial-audit-the-source-wispr-id-is-r-14",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The source Wispr ID is retained even though the generation directory receives a new Sotto UUID. Media files are conditional."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-field-coverage-15": {
+      "id": "b-20-initial-audit-field-coverage-15",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Field Coverage"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-data-pr-behavior-d-16-table": {
+      "id": "b-20-initial-audit-data-pr-behavior-d-16-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Data",
+          "PR behavior",
+          "Difference from WisprSync"
+        ],
+        "rows": [
+          [
+            "Raw recognition",
+            [
+              {
+                "insert": "asrText",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " goes into "
+              },
+              {
+                "insert": "metadata.json.rawText",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " and the typed source row"
+              }
+            ],
+            [
+              {
+                "insert": "No separate "
+              },
+              {
+                "insert": "raw_transcript.txt",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            "Transcript variants",
+            "Source rows preserve formatted, edited, pasted, fallback, and other text fields",
+            [
+              {
+                "insert": "transcript.txt",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " chooses pasted, server-finalized, formatted, then ASR text; it is not necessarily WisprSync's formatted transcript"
+              }
+            ]
+          ],
+          [
+            "Context, quality, edits, timestamps",
+            [
+              {
+                "insert": "SELECT *",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " preserves SQLite column names, types, and values in "
+              },
+              {
+                "insert": "source.json",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", subject to archive bounds"
+              }
+            ],
+            "WisprSync's normalized nested structure and derived values are not reproduced"
+          ],
+          [
+            "Audio and images",
+            "WAV, Opus data, and PNG are archived with hashes when accepted",
+            "8 MiB per artifact; only one byte version per media filename is retained; conflicting versions are recorded as omissions"
+          ],
+          [
+            "Dictionary and dataset history",
+            "Typed Dictionary rows and dictionary versions are archived separately",
+            "No WisprSync manifest, JSONL indexes, run reports, retained-record status, exporter version, export timestamp, or original WisprSync integrity hashes"
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-20-initial-audit-this-is-broader-than-a-f-17": {
+      "id": "b-20-initial-audit-this-is-broader-than-a-f-17",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This is broader than a fixed field whitelist: the current live History table has 63 columns, and the reader attempts to preserve all of them. SQLite integers, reals, nulls, text, and blobs retain explicit types. Invalid UTF-8 text is stored as bytes. Nested JSON text remains the original string rather than WisprSync's parsed representation."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-sotto-s-own-settings-f-18": {
+      "id": "b-20-initial-audit-sotto-s-own-settings-f-18",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Sotto's own "
+        },
+        {
+          "insert": "settings",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " field on an imported record is the Sotto server's settings snapshot at import. It must not be presented as the settings Wispr used to create that recording."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-findings-against-ford-s-19": {
+      "id": "b-20-initial-audit-findings-against-ford-s-19",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Findings Against Ford's Local Data"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-the-latest-saved-wisprsy-20": {
+      "id": "b-20-initial-audit-the-latest-saved-wisprsy-20",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The latest saved WisprSync manifest reported "
+        },
+        {
+          "insert": "26,263 records, 1,182 records with audio, 190 with screenshots, and 672 dictionary entries",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", with a successful run at "
+        },
+        {
+          "insert": "2026-09-16T05:00:06.255Z",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". These are time-specific counts."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-three-existing-wav-fil-21": {
+      "id": "b-20-initial-audit-three-existing-wav-fil-21",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Three existing WAV files will be omitted.",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " Their sizes are 9,344,300, 8,985,388, and 8,560,172 bytes. All exceed 8,388,608 bytes. The WisprSync export contains all three files at those sizes; the available Wispr backup has the same oversized lengths. A smaller backup WAV cannot recover them under this limit."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-twenty-four-existing-r-22": {
+      "id": "b-20-initial-audit-twenty-four-existing-r-22",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Twenty-four existing records have no timestamp.",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " WisprSync retains them under its unknown-time structure. All 24 are already in the export, and none has a timestamp in the available backup. Sotto requires a usable date and would fail these records. These 24 exported records contain no ASR/formatted/edited/pasted text, but their metadata still belongs to the archive."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-one-live-history-row-h-23": {
+      "id": "b-20-initial-audit-one-live-history-row-h-23",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "One live History row has no valid UUID.",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " Sotto skips such rows and reports a warning. The current export contains valid UUIDs. This is a separate source-completeness issue, not evidence that an exported transcript is missing."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-no-current-raw-transcr-24": {
+      "id": "b-20-initial-audit-no-current-raw-transcr-24",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "No current raw transcript hits the 64 KiB request limit.",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " The largest observed raw ASR field is 5,054 bytes. The largest nonmedia source field observed is 15,534 bytes. This checks individual live fields; it does not prove every combined versioned "
+        },
+        {
+          "insert": "source.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " will fit the limit indefinitely."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-the-existing-export-co-25": {
+      "id": "b-20-initial-audit-the-existing-export-co-25",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "The existing export contains no IDs absent from the live database at inspection time.",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " This reduces the immediate risk of losing archive-only sessions through direct database import. It does not make importing the export redundant: its files, export metadata, and historical run records are separate information."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-the-bounded-source-archi-26": {
+      "id": "b-20-initial-audit-the-bounded-source-archi-26",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The bounded source archive targets about 7 MiB, reserving space below the server's 8 MiB limit. Oversized values can become size/hash summaries, and older row versions can be omitted with explicit partial-provenance markers. "
+        },
+        {
+          "insert": "builtInAudio",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " bytes are not archived by this implementation. That column is empty in the inspected live data."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-viewer-gaps-27": {
+      "id": "b-20-initial-audit-viewer-gaps-27",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Viewer Gaps"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-the-pr-s-history-page-di-28": {
+      "id": "b-20-initial-audit-the-pr-s-history-page-di-28",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The PR's History page displays the selected final transcript, raw ASR when different, basic date/source/status/duration information, names of stored text variants, and file-opening controls. It does not provide a full typed metadata inspector, side-by-side transcript variants, dataset management, or field-based search across the whole archive. Important data can exist in "
+        },
+        {
+          "insert": "source.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " without being visible as a usable field in History."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-proposed-codecaine-desig-29": {
+      "id": "b-20-initial-audit-proposed-codecaine-desig-29",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Proposed Codecaine Design"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-preserve-the-archive-30": {
+      "id": "b-20-initial-audit-preserve-the-archive-30",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Preserve the Archive"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-support-wisprsync-export-31": {
+      "id": "b-20-initial-audit-support-wisprsync-export-31",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Support WisprSync exports and live Wispr imports as distinct sources. Preserve original WisprSync metadata, indexes, manifests, run reports, and media bytes. Keep unknown dates and unusual source IDs explicitly represented. Preserve unsupported media as opaque files even when playback is unavailable. Use streaming transfer and storage for large files, with clear failure states rather than a successful-looking partial archive."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-keep-original-source-dat-32": {
+      "id": "b-20-initial-audit-keep-original-source-dat-32",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Keep original source data separate from normalized fields and derived model output. Every normalized field should identify its source record/version. Retain observed media versions by content hash. A completeness report should count records, fields, files, bytes, and omissions for each import."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-make-datasets-explicit-33": {
+      "id": "b-20-initial-audit-make-datasets-explicit-33",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Make Datasets Explicit"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-recommended-definition-34": {
+      "id": "b-20-initial-audit-recommended-definition-34",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Recommended definition: a dataset is a named collection of records drawn from the archive, with saved versions for reproducible export. A record can belong to multiple datasets without duplicating its media."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-each-dataset-should-expo-35": {
+      "id": "b-20-initial-audit-each-dataset-should-expo-35",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Each dataset should expose its purpose, source coverage, membership or selection rules, counts, schema version, completeness, and export manifest. Saved versions should freeze the selected record and artifact versions, so a later Wispr edit or Sotto reprocessing does not silently change an earlier dataset export."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-this-definition-is-propo-36": {
+      "id": "b-20-initial-audit-this-definition-is-propo-36",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This definition is proposed and awaiting the user's preference."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-add-a-data-viewer-37": {
+      "id": "b-20-initial-audit-add-a-data-viewer-37",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Add a Data Viewer"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-provide-a-dedicated-data-38": {
+      "id": "b-20-initial-audit-provide-a-dedicated-data-38",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Provide a dedicated Data page with an all-records table and dataset navigation. Search and filters must cover the entire archive, not just loaded history rows."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-the-record-detail-should-39": {
+      "id": "b-20-initial-audit-the-record-detail-should-39",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The record detail should expose:"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-all-transcript-variants-40": {
+      "id": "b-20-initial-audit-all-transcript-variants-40",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "All transcript variants, including raw, formatted, edited, pasted, and model proposals, with comparisons."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-audio-playback-screensh-41": {
+      "id": "b-20-initial-audit-audio-playback-screensh-41",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Audio playback, screenshots, every stored artifact, and file size/hash/status."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-context-quality-measure-42": {
+      "id": "b-20-initial-audit-context-quality-measure-42",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Context, quality measurements, edit information, and timing fields grouped for reading."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-original-typed-source-ro-43": {
+      "id": "b-20-initial-audit-original-typed-source-ro-43",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Original typed source rows and source versions, plus normalized metadata and import omissions."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-dataset-membership-reco-44": {
+      "id": "b-20-initial-audit-dataset-membership-reco-44",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Dataset membership, record provenance, and portable export controls."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-imported-wispr-data-and-45": {
+      "id": "b-20-initial-audit-imported-wispr-data-and-45",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Imported Wispr data and native Sotto recordings need a shared browsing contract, while retaining their source-specific fields. A field absent from Sotto's capture process must appear as unavailable; it must never be inferred from unrelated import-time settings."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-suggested-implementation-46": {
+      "id": "b-20-initial-audit-suggested-implementation-46",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Suggested Implementation Order"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-incorporate-the-merged-i-47": {
+      "id": "b-20-initial-audit-incorporate-the-merged-i-47",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Incorporate the merged importer into an isolated development branch and verify its import behavior."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-close-preservation-gaps-48": {
+      "id": "b-20-initial-audit-close-preservation-gaps-48",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Close preservation gaps and prove byte/field coverage against representative records, including the oversized audio and undated cases above."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-add-archive-queries-dat-49": {
+      "id": "b-20-initial-audit-add-archive-queries-dat-49",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Add archive queries, dataset definitions, and versioned exports."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-build-the-fuller-data-vi-50": {
+      "id": "b-20-initial-audit-build-the-fuller-data-vi-50",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Build the fuller data viewer over those APIs and verify it with realistic record counts."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-evidence-and-limits-51": {
+      "id": "b-20-initial-audit-evidence-and-limits-51",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Evidence and Limits"
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-this-review-used-source-52": {
+      "id": "b-20-initial-audit-this-review-used-source-52",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This review used source inspection, aggregate read-only SQLite/export checks, and a Swift check using the importer's date parsing rules. It did not run a production import or newly execute the PR's full test suite. The upstream tests explicitly cover typed fields, read-only snapshots, omitted large artifacts, partial provenance, malformed IDs, enrichment, and dictionary limits. The Docs connection was unavailable; the review uses executable source as its evidence."
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-reader-and-typed-field-53": {
+      "id": "b-20-initial-audit-reader-and-typed-field-53",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Reader and typed field preservation",
+          "attributes": {
+            "link": "https://github.com/davis7dotsh/sotto/blob/c1d5f0bbaff19a1559621943dff49ba89b4a96a0/Sources/Sotto/WisprFlowSourceReader.swift#L252"
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-import-limits-and-archi-54": {
+      "id": "b-20-initial-audit-import-limits-and-archi-54",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Import limits and archive types",
+          "attributes": {
+            "link": "https://github.com/davis7dotsh/sotto/blob/c1d5f0bbaff19a1559621943dff49ba89b4a96a0/Sources/SottoAPI/API.swift#L213"
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-server-validation-and-d-55": {
+      "id": "b-20-initial-audit-server-validation-and-d-55",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Server validation and durable archive writes",
+          "attributes": {
+            "link": "https://github.com/davis7dotsh/sotto/blob/c1d5f0bbaff19a1559621943dff49ba89b4a96a0/Sources/SottoServerKit/GenerationService.swift#L411"
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-history-viewer-https-56": {
+      "id": "b-20-initial-audit-history-viewer-https-56",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "History viewer",
+          "attributes": {
+            "link": "https://github.com/davis7dotsh/sotto/blob/c1d5f0bbaff19a1559621943dff49ba89b4a96a0/Sources/Sotto/Views/HistoryPage.swift#L145"
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-20-initial-audit-wisprsync-metadata-mapp-57": {
+      "id": "b-20-initial-audit-wisprsync-metadata-mapp-57",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "WisprSync metadata mapping",
+          "attributes": {
+            "link": "https://github.com/fjooord/WisprSync/blob/8f24c4af5042fbb4d2d1de2348e8dd07b6aafc1a/wisprsync/export/metadata.py"
+          }
+        }
+      ],
+      "children": []
+    }
+  }
+}

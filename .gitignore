@@ -21,3 +21,8 @@ __pycache__/
 *.pfx
 *.gguf
 *.safetensors
+
+# Generated Codecaine Docs indexes, recovery journals, and migration reports
+.index/
+.changesets/
+docs-migrate-report.json

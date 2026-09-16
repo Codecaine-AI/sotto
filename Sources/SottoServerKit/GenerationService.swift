@@ -385,7 +385,7 @@ public actor GenerationService {
 
     public func artifact(_ id: UUID, filename: String) throws -> URL {
         let record = try get(id)
-        let allowed = ["metadata.json", "transcript.txt", "inference.wav", "original.wav"]
+        let allowed = ["metadata.json", "transcript.txt", "raw.txt", "clean.txt", "inference.wav", "original.wav"]
             + (record.importedSource?.artifactNames.map(\.rawValue) ?? [])
         guard allowed.contains(filename), filename != "inference.wav" || record.inferenceAudio != nil,
               filename != "original.wav" || record.originalAudio != nil,
@@ -819,6 +819,12 @@ public actor GenerationService {
         let data = try SottoAPI.encoder().encode(record)
         guard data.count <= Self.maximumMetadataBytes else {
             throw ServiceError(413, "metadata_too_large", "The generation metadata exceeded its 1 MiB storage limit.")
+        }
+        // Raw and clean files are explicit, portable parts of every finished take.
+        // metadata.json is written last; the archive worker uses it as the commit marker.
+        if record.status.isTerminal {
+            try writePrivate(Data(record.rawText.utf8), to: directory(record.id).appendingPathComponent("raw.txt"))
+            try writePrivate(Data(record.finalText.utf8), to: directory(record.id).appendingPathComponent("clean.txt"))
         }
         try data.write(to: directory(record.id).appendingPathComponent("metadata.json"), options: .atomic)
         publish(record)

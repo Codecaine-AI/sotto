@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-e6af0cc659f01f00e9d155c0987fad4e",
+  "title": "Transcript Archive",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-40-transcript-archive-the-archive-is-the-autho-1",
+        "b-40-transcript-archive-preservation-contract-2",
+        "b-40-transcript-archive-every-entry-has-metadat-3",
+        "b-40-transcript-archive-source-versions-and-atta-4",
+        "b-40-transcript-archive-media-is-streamed-in-1-m-5",
+        "b-40-transcript-archive-the-migration-reads-the-6",
+        "b-40-transcript-archive-current-wispr-clean-text-7",
+        "b-40-transcript-archive-runtime-behavior-8",
+        "b-40-transcript-archive-the-worker-polls-sotto-e-9",
+        "b-40-transcript-archive-sotto-writes-explicit-ra-10",
+        "b-40-transcript-archive-data-viewer-11",
+        "b-40-transcript-archive-the-read-only-viewer-bin-12",
+        "b-40-transcript-archive-storage-and-backup-13",
+        "b-40-transcript-archive-users-ford-transcripts-14",
+        "b-40-transcript-archive-automatic-backup-is-not-15"
+      ]
+    },
+    "b-40-transcript-archive-the-archive-is-the-autho-1": {
+      "id": "b-40-transcript-archive-the-archive-is-the-autho-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The archive is the authoritative portable dataset for historical Wispr records and finished Sotto recordings. Search uses a separate rebuildable SQLite cache; original files remain usable without the viewer."
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-preservation-contract-2": {
+      "id": "b-40-transcript-archive-preservation-contract-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Preservation Contract"
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-every-entry-has-metadat-3": {
+      "id": "b-40-transcript-archive-every-entry-has-metadat-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Every entry has "
+        },
+        {
+          "insert": "metadata.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "raw.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "clean.txt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Metadata distinguishes null from empty text, records the selected clean variant, and retains other variants."
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-source-versions-and-atta-4": {
+      "id": "b-40-transcript-archive-source-versions-and-atta-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Source versions and attachments use SHA-256 names. Original SQLite types and all available History columns are retained. Repeated identical attachments share a file, with original names retained in metadata."
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-media-is-streamed-in-1-m-5": {
+      "id": "b-40-transcript-archive-media-is-streamed-in-1-m-5",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Media is streamed in 1 MiB chunks without a file-size ceiling. Missing dates stay null. Invalid IDs receive stable safe names; missing IDs include source filename and row ID to avoid guessing cross-file identity."
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-the-migration-reads-the-6": {
+      "id": "b-40-transcript-archive-the-migration-reads-the-6",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The migration reads the existing WisprSync export, a consistent read-only snapshot of the live database, and complete backups. Export manifests, indexes, run history, dictionary rows, original hashes, and listed files survive."
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-current-wispr-clean-text-7": {
+      "id": "b-40-transcript-archive-current-wispr-clean-text-7",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Current Wispr clean text selects nonempty pasted text, server-finalized text, formatted text, then ASR text. Sotto uses its actual raw recognition and final accepted result."
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-runtime-behavior-8": {
+      "id": "b-40-transcript-archive-runtime-behavior-8",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Runtime Behavior"
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-the-worker-polls-sotto-e-9": {
+      "id": "b-40-transcript-archive-the-worker-polls-sotto-e-9",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The worker polls Sotto every three seconds and archives completed, failed, and cancelled records. It records source metadata versions and available sealed audio. A missing referenced file produces a visible error and a retry; removing an operational recording never removes its archived copy. The worker does not monitor Wispr after migration."
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-sotto-writes-explicit-ra-10": {
+      "id": "b-40-transcript-archive-sotto-writes-explicit-ra-10",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Sotto writes explicit raw and clean files before publishing terminal metadata. The worker uses metadata changes to discover updates. This is one writer on this Mac; synchronizing the folder does not establish multiwriter safety."
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-data-viewer-11": {
+      "id": "b-40-transcript-archive-data-viewer-11",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Data Viewer"
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-the-read-only-viewer-bin-12": {
+      "id": "b-40-transcript-archive-the-read-only-viewer-bin-12",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The read-only viewer binds to "
+        },
+        {
+          "insert": "127.0.0.1:8392",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". It provides full-archive raw/clean/app search, source filtering, 50-record pages, all transcript variants, typed source fields, audio playback, screenshots, hashes, source versions, dictionary files, and dataset evidence. Foreign Host and Origin requests and path escapes are rejected. Unknown attachment formats download as opaque bytes."
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-storage-and-backup-13": {
+      "id": "b-40-transcript-archive-storage-and-backup-13",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Storage and Backup"
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-users-ford-transcripts-14": {
+      "id": "b-40-transcript-archive-users-ford-transcripts-14",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "/Users/Ford/Transcripts",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " is the working archive. The local search cache remains in the repository's ignored "
+        },
+        {
+          "insert": ".local/archive-cache",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The existing three-minute live recording limit and legacy HTTP import bound are independent of unlimited archive artifact storage."
+        }
+      ],
+      "children": []
+    },
+    "b-40-transcript-archive-automatic-backup-is-not-15": {
+      "id": "b-40-transcript-archive-automatic-backup-is-not-15",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Automatic backup is not configured. Dropbox is a proposed backup destination because Ford wants automatic off-device protection; permissions concerns favor keeping the working archive local. A home NAS is planned. Version retention, scheduling, backup-failure visibility, and a restore test still require implementation. No cloud upload or NAS setup has been completed."
+        }
+      ],
+      "children": []
+    }
+  }
+}

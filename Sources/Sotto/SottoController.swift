@@ -1,5 +1,6 @@
 import AppKit
 import Combine
+import OSLog
 import SottoAPI
 import SottoCore
 import ServiceManagement
@@ -1063,6 +1064,9 @@ final class SottoController: ObservableObject {
             hotkey.stop()
             isHotkeyActive = false
         }
+        Logger(subsystem: "dev.davis.murmur", category: "permissions").notice(
+            "Permissions refreshed: microphone=\(current.microphone), accessibility=\(current.accessibility), inputMonitoring=\(current.inputMonitoring), hotkey=\(self.isHotkeyActive)"
+        )
     }
 
     func requestMicrophone() {

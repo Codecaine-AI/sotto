@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-8545600cd57e3c188a764a07da6bda6f",
+  "title": "Current Status",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-20-current-status-the-codecaine-fork-inst-1",
+        "b-20-current-status-installed-state-2",
+        "b-20-current-status-area-state-evidenc-3-table",
+        "b-20-current-status-data-coverage-4",
+        "b-20-current-status-the-verified-migration-c-5",
+        "b-20-current-status-the-archive-has-1-215-en-6",
+        "b-20-current-status-both-database-dictionari-7",
+        "b-20-current-status-all-three-wav-files-abov-8",
+        "b-20-current-status-six-archive-tests-and-fo-9",
+        "b-20-current-status-open-work-10",
+        "b-20-current-status-grant-or-confirm-microph-11",
+        "b-20-current-status-choose-and-implement-ver-12",
+        "b-20-current-status-run-a-final-catch-up-imp-13",
+        "b-20-current-status-review-and-commit-the-lo-14",
+        "b-20-current-status-automatic-launch-at-logi-15",
+        "relocation-verified-20-current-status"
+      ]
+    },
+    "b-20-current-status-the-codecaine-fork-inst-1": {
+      "id": "b-20-current-status-the-codecaine-fork-inst-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The Codecaine fork, installed Sotto app, dictation server, and archive viewer are working on this Mac. This page records the current handoff; the dated evidence is retained in "
+        },
+        {
+          "insert": "Work Record",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/10-work-record"
+            }
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-installed-state-2": {
+      "id": "b-20-current-status-installed-state-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Installed State"
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-area-state-evidenc-3-table": {
+      "id": "b-20-current-status-area-state-evidenc-3-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Area",
+          "State",
+          "Evidence or limitation"
+        ],
+        "rows": [
+          [
+            "Repository",
+            "Relocated and verified",
+            [
+              {
+                "insert": "/Users/Ford/Github Repos/Codecaine/utilities/sotto",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; branch "
+              },
+              {
+                "insert": "codex/shared-transcript-archive",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; changes remain uncommitted and unpushed"
+              }
+            ]
+          ],
+          [
+            "Upstream",
+            "PR #4 incorporated",
+            [
+              {
+                "insert": "HEAD "
+              },
+              {
+                "insert": "c1d5f0bbaff19a1559621943dff49ba89b4a96a0",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; PR #5 was excluded from this implementation"
+              }
+            ]
+          ],
+          [
+            "App",
+            "Installed",
+            [
+              {
+                "insert": "/Applications/Sotto.app",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; Data page opened and inspected"
+              }
+            ]
+          ],
+          [
+            "Dictation server",
+            "Ready",
+            "Loopback port 8391; Whisper and Qwen report ready"
+          ],
+          [
+            "Archive",
+            "Verified and running",
+            [
+              {
+                "insert": "/Users/Ford/Transcripts",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; viewer on loopback port 8392"
+              }
+            ]
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-20-current-status-data-coverage-4": {
+      "id": "b-20-current-status-data-coverage-4",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Data Coverage"
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-the-verified-migration-c-5": {
+      "id": "b-20-current-status-the-verified-migration-c-5",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The verified migration contains 26,275 archive entries. It includes 26,263 WisprSync export records, all 63 History fields for 26,274 current database rows, and all fields for 26,160 backup rows. Sources overlap, so these counts must not be added. Unidentified rows from distinct database files remain separate."
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-the-archive-has-1-215-en-6": {
+      "id": "b-20-current-status-the-archive-has-1-215-en-6",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The archive has 1,215 entries with audio, 190 with screenshots, and 26 with unknown dates."
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-both-database-dictionari-7": {
+      "id": "b-20-current-status-both-database-dictionari-7",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Both database dictionaries contain 672 entries. Original export manifests, indexes, and run reports remain available."
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-all-three-wav-files-abov-8": {
+      "id": "b-20-current-status-all-three-wav-files-abov-8",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "All three WAV files above 8 MiB passed byte-for-byte SHA-256 comparison. Their sizes are 9,344,300, 8,985,388, and 8,560,172 bytes."
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-six-archive-tests-and-fo-9": {
+      "id": "b-20-current-status-six-archive-tests-and-fo-9",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Six archive tests and fourteen focused server tests passed. Both builds and two isolated real-audio-to-archive tests passed."
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-open-work-10": {
+      "id": "b-20-current-status-open-work-10",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Open Work"
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-grant-or-confirm-microph-11": {
+      "id": "b-20-current-status-grant-or-confirm-microph-11",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Grant or confirm Microphone and Accessibility permissions in the rebuilt app, then verify real microphone capture and insertion into another app."
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-choose-and-implement-ver-12": {
+      "id": "b-20-current-status-choose-and-implement-ver-12",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Choose and implement versioned automatic backup, including a restore test. Dropbox and the planned NAS are future destinations, not active backups."
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-run-a-final-catch-up-imp-13": {
+      "id": "b-20-current-status-run-a-final-catch-up-imp-13",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Run a final catch-up import for any Wispr recordings after the migration before retiring Wispr. Do not disable its exporter without that cutover decision."
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-review-and-commit-the-lo-14": {
+      "id": "b-20-current-status-review-and-commit-the-lo-14",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Review and commit the local archive, viewer, and documentation changes, then decide when to push the branch."
+        }
+      ],
+      "children": []
+    },
+    "b-20-current-status-automatic-launch-at-logi-15": {
+      "id": "b-20-current-status-automatic-launch-at-logi-15",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Automatic launch at login remains off. The launcher starts the server and archive worker for the current login session. The local archive is not an off-device backup."
+        }
+      ],
+      "children": []
+    },
+    "relocation-verified-20-current-status": {
+      "id": "relocation-verified-20-current-status",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Documentation and relocation are complete. All 26 native pages pass completion checks with no findings, all document/source references resolve, and all six archive tests pass from the new checkout. Both engines and the archive worker report healthy after relocation. Qwen cold-start readiness failed on the first launch and succeeded after one restart; diagnose that intermittent startup issue if it recurs."
+        }
+      ],
+      "children": []
+    }
+  }
+}

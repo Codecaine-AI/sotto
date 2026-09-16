@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-e90d8a241ba9dbcdfb4d8bfdd293d437",
+  "title": "Project Evidence",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-99-appendix-this-appendix-preserves-1",
+        "b-99-appendix-work-record-doc-99-app-2",
+        "b-99-appendix-initial-data-audit-doc-3",
+        "b-99-appendix-migration-verification-4",
+        "b-99-appendix-upstream-import-plan-d-5",
+        "b-99-appendix-third-party-notices-do-6",
+        "b-99-appendix-documentation-inventory-7"
+      ]
+    },
+    "b-99-appendix-this-appendix-preserves-1": {
+      "id": "b-99-appendix-this-appendix-preserves-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This appendix preserves the work history and original audit requested by Ford. Dated reports are evidence of a particular stage, not current product contracts; Current Status owns the active handoff."
+        }
+      ],
+      "children": []
+    },
+    "b-99-appendix-work-record-doc-99-app-2": {
+      "id": "b-99-appendix-work-record-doc-99-app-2",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Work Record",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/10-work-record"
+            }
+          }
+        },
+        {
+          "insert": ": decisions, completed work, and outstanding setup."
+        }
+      ],
+      "children": []
+    },
+    "b-99-appendix-initial-data-audit-doc-3": {
+      "id": "b-99-appendix-initial-data-audit-doc-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Initial Data Audit",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/20-initial-audit"
+            }
+          }
+        },
+        {
+          "insert": ": historical findings and superseded proposals."
+        }
+      ],
+      "children": []
+    },
+    "b-99-appendix-migration-verification-4": {
+      "id": "b-99-appendix-migration-verification-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Migration Verification",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/30-migration-verification"
+            }
+          }
+        },
+        {
+          "insert": ": source coverage and integrity evidence."
+        }
+      ],
+      "children": []
+    },
+    "b-99-appendix-upstream-import-plan-d-5": {
+      "id": "b-99-appendix-upstream-import-plan-d-5",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Upstream Import Plan",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/40-upstream-import-plan"
+            }
+          }
+        },
+        {
+          "insert": ": retained legacy design and its limits."
+        }
+      ],
+      "children": []
+    },
+    "b-99-appendix-third-party-notices-do-6": {
+      "id": "b-99-appendix-third-party-notices-do-6",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Third-Party Notices",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/50-third-party-notices"
+            }
+          }
+        },
+        {
+          "insert": ": licenses and attribution."
+        }
+      ],
+      "children": []
+    },
+    "b-99-appendix-documentation-inventory-7": {
+      "id": "b-99-appendix-documentation-inventory-7",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Documentation Inventory",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/60-documentation-inventory"
+            }
+          }
+        },
+        {
+          "insert": ": migration coverage and source provenance."
+        }
+      ],
+      "children": []
+    }
+  }
+}

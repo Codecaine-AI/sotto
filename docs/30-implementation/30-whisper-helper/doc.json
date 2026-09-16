@@ -1,0 +1,451 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-127ff65a9715fec0a9527bc336feea8c",
+  "title": "Whisper Helper",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-readme-sotto-engine-is-the-se-1",
+        "b-readme-protocol-2",
+        "b-readme-after-loading-whisper-an-3",
+        "b-readme-json-4",
+        "b-readme-language-defaults-to-5",
+        "b-readme-vocabularyterms-is-an-6",
+        "b-readme-wav-input-must-be-mono-1-7",
+        "b-readme-progress-type-prog-8",
+        "b-readme-results-contain-type-9",
+        "b-readme-errors-contain-type-e-10",
+        "b-readme-requests-are-bounded-to-11",
+        "b-readme-decoding-and-lifecycle-12",
+        "b-readme-a-cpu-silero-pass-reject-13",
+        "b-readme-the-server-keeps-the-mod-14",
+        "b-readme-verify-15",
+        "b-readme-sh-16",
+        "b-readme-the-test-harness-exercis-17"
+      ]
+    },
+    "b-readme-sotto-engine-is-the-se-1": {
+      "id": "b-readme-sotto-engine-is-the-se-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "sotto-engine",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " is the server's persistent whisper.cpp process. It reads audio files supplied by the server; it never opens a microphone or network connection. Builds use Metal on macOS and CPU or CUDA on Linux. See "
+        },
+        {
+          "insert": "server setup",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/20-server-setup"
+            }
+          }
+        },
+        {
+          "insert": " for packaging and models."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-protocol-2": {
+      "id": "b-readme-protocol-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Protocol"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-after-loading-whisper-an-3": {
+      "id": "b-readme-after-loading-whisper-an-3",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "After loading Whisper and Silero VAD, the helper emits a "
+        },
+        {
+          "insert": "ready",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " JSON object with an "
+        },
+        {
+          "insert": "engineVersion",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Send one UTF-8 JSON object per line on stdin; replies are flushed JSON lines on stdout. Diagnostics go to stderr without transcript text."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-json-4": {
+      "id": "b-readme-json-4",
+      "type": "code",
+      "props": {
+        "language": "json"
+      },
+      "text": [
+        {
+          "insert": "{\"type\":\"transcribe\",\"id\":\"request-1\",\"path\":\"/absolute/path/to/recording.wav\",\"language\":\"en\",\"vocabularyTerms\":[\"Sotto\",\"SwiftUI\",\"Metal\"]}"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-language-defaults-to-5": {
+      "id": "b-readme-language-defaults-to-5",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "language",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " defaults to "
+        },
+        {
+          "insert": "en",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; "
+        },
+        {
+          "insert": "auto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " enables language detection."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-vocabularyterms-is-an-6": {
+      "id": "b-readme-vocabularyterms-is-an-6",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "vocabularyTerms",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " is an ordered list of recognition hints. Whole terms are fitted into the loaded model's token budget. Responses report "
+        },
+        {
+          "insert": "includedTerms",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "omittedTerms",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "tokenCount",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "tokenBudget",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-wav-input-must-be-mono-1-7": {
+      "id": "b-readme-wav-input-must-be-mono-1-7",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "WAV input must be mono 16 kHz PCM16 or float32, 0.2–180 seconds long. The HTTP server uses a 0.25-second minimum."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-progress-type-prog-8": {
+      "id": "b-readme-progress-type-prog-8",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Progress: "
+        },
+        {
+          "insert": "{\"type\":\"progress\",\"id\":\"request-1\",\"value\":0.5}",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-results-contain-type-9": {
+      "id": "b-readme-results-contain-type-9",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Results contain "
+        },
+        {
+          "insert": "type: \"result\"",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "id",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "text",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", audio "
+        },
+        {
+          "insert": "duration",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", processing "
+        },
+        {
+          "insert": "elapsed",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", detected "
+        },
+        {
+          "insert": "language",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and hint diagnostics."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-errors-contain-type-e-10": {
+      "id": "b-readme-errors-contain-type-e-10",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Errors contain "
+        },
+        {
+          "insert": "type: \"error\"",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "message",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and a request "
+        },
+        {
+          "insert": "id",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " when available. Requests are processed sequentially."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-requests-are-bounded-to-11": {
+      "id": "b-readme-requests-are-bounded-to-11",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Requests are bounded to 1 MiB. Vocabulary allows at most 8,192 terms, 16 KiB per term, and 384 KiB total; actual model hints usually fit much less. Silence returns a successful empty transcript."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-decoding-and-lifecycle-12": {
+      "id": "b-readme-decoding-and-lifecycle-12",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Decoding and lifecycle"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-a-cpu-silero-pass-reject-13": {
+      "id": "b-readme-a-cpu-silero-pass-reject-13",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "A CPU Silero pass rejects nonspeech (threshold 0.5, minimum speech segment 120 ms). If speech is detected, Whisper receives the complete recording. Decoding uses beam search 5, temperature 0, and internal timestamp tokens; the returned transcript is plain text. Segments above Whisper's no-speech threshold are excluded. This remains probabilistic and can miss quiet speech."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-the-server-keeps-the-mod-14": {
+      "id": "b-readme-the-server-keeps-the-mod-14",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The server keeps the model warm. Terminating the helper cancels active work. "
+        },
+        {
+          "insert": "{\"type\":\"quit\"}",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", stdin EOF, or parent death releases it. Native dependencies and Metal source are embedded in the speech executable."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-verify-15": {
+      "id": "b-readme-verify-15",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Verify"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-16": {
+      "id": "b-readme-sh-16",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "./scripts/build-server.sh\npython3 scripts/test-engine.py --help"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-the-test-harness-exercis-17": {
+      "id": "b-readme-the-test-harness-exercis-17",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The test harness exercises protocol bounds, public sample recordings, vocabulary, passage retention, and process lifetime. For the full API path, use "
+        },
+        {
+          "insert": "scripts/smoke-test.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " against an idle Dev server."
+        }
+      ],
+      "children": []
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transcripts · Codecaine</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script defer src="/app.js"></script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <p class="eyebrow">CODECAINE · DATA</p>
+        <h1>Transcripts</h1>
+        <p class="subtitle">
+          Your words, from first recognition to final text.
+        </p>
+      </div>
+      <button id="refresh">Refresh</button>
+    </header>
+    <section id="stats" aria-label="Archive summary"></section>
+    <p id="health" role="status"></p>
+    <details id="dataset-details">
+      <summary>Dataset, migration checks, and original export files</summary>
+      <div id="dataset"></div>
+    </details>
+    <main>
+      <aside>
+        <div class="filters">
+          <input
+            id="search"
+            type="search"
+            placeholder="Search every transcript…"
+            aria-label="Search every transcript"
+          /><select id="source" aria-label="Source">
+            <option value="">All sources</option>
+            <option value="sotto">Sotto</option>
+            <option value="wispr-flow">Wispr history</option>
+          </select>
+        </div>
+        <div class="listheading">
+          <span id="count"></span><span>Newest first</span>
+        </div>
+        <div id="records"></div>
+        <nav>
+          <button id="previous">Previous</button><span id="page"></span
+          ><button id="next">Next</button>
+        </nav>
+      </aside>
+      <article id="detail">
+        <div class="empty">
+          <h2>Choose a recording</h2>
+          <p>
+            Compare raw and clean text. Inspect every source field and
+            attachment.
+          </p>
+        </div>
+      </article>
+    </main>
+    <footer>
+      <span id="root"></span
+      ><span
+        >Portable files · Original metadata retained · No file-size cap</span
+      >
+    </footer>
+  </body>
+</html>

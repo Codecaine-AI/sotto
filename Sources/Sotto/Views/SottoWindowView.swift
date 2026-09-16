@@ -4,6 +4,7 @@ import SwiftUI
 private enum SottoPage: String, CaseIterable, Identifiable {
     case dictation = "Dictation"
     case history = "History"
+    case data = "Data"
     case microphone = "Microphone"
     case server = "Server preferences"
     case device = "This Mac"
@@ -13,6 +14,7 @@ private enum SottoPage: String, CaseIterable, Identifiable {
         switch self {
         case .dictation: "waveform"
         case .history: "clock.arrow.circlepath"
+        case .data: "tray.full"
         case .microphone: "mic"
         case .server: "server.rack"
         case .device: "laptopcomputer"
@@ -69,6 +71,7 @@ struct SottoWindowView: View {
                 case .dictation:
                     DictationPage(controller: controller, showPreferences: { page = .device }, showHistory: { page = .history })
                 case .history: HistoryPage(controller: controller)
+                case .data: TranscriptDataPage()
                 case .microphone: MicrophonePage(controller: controller)
                 case .server: ServerPreferencesPage(controller: controller)
                 case .device: DevicePreferencesPage(controller: controller)

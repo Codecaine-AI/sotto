@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-47a76134211496d98faa1887f0bb37d6",
+  "title": "Product Direction",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-10-product-direction-the-product-captures-spe-1",
+        "b-10-product-direction-accepted-decisions-2",
+        "b-10-product-direction-the-permanent-archive-co-3",
+        "b-10-product-direction-archive-data-is-a-first-4",
+        "b-10-product-direction-the-archive-has-no-artif-5",
+        "b-10-product-direction-the-working-archive-stay-6",
+        "b-10-product-direction-the-fork-lives-under-co-7",
+        "b-10-product-direction-boundaries-8",
+        "b-10-product-direction-the-archive-is-a-single-9",
+        "b-10-product-direction-see-archive-design-doc-10"
+      ]
+    },
+    "b-10-product-direction-the-product-captures-spe-1": {
+      "id": "b-10-product-direction-the-product-captures-spe-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The product captures speech, preserves the original recognition, and produces cleaned text for insertion. Ford intends to stop using Wispr Flow and develop this Sotto fork as the replacement."
+        }
+      ],
+      "children": []
+    },
+    "b-10-product-direction-accepted-decisions-2": {
+      "id": "b-10-product-direction-accepted-decisions-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Accepted Decisions"
+        }
+      ],
+      "children": []
+    },
+    "b-10-product-direction-the-permanent-archive-co-3": {
+      "id": "b-10-product-direction-the-permanent-archive-co-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The permanent archive contains historical Wispr data and future Sotto recordings, with raw and clean formats, every available source field, and attachments."
+        }
+      ],
+      "children": []
+    },
+    "b-10-product-direction-archive-data-is-a-first-4": {
+      "id": "b-10-product-direction-archive-data-is-a-first-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Archive data is a first-class dataset with its own manifest, source evidence, integrity reports, and Data page. Named curated collections were proposed during the audit but were not selected for this phase."
+        }
+      ],
+      "children": []
+    },
+    "b-10-product-direction-the-archive-has-no-artif-5": {
+      "id": "b-10-product-direction-the-archive-has-no-artif-5",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The archive has no artifact-size cap. It must retain oversized audio, unknown dates, malformed source IDs, and source versions rather than silently omit them."
+        }
+      ],
+      "children": []
+    },
+    "b-10-product-direction-the-working-archive-stay-6": {
+      "id": "b-10-product-direction-the-working-archive-stay-6",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The working archive stays local at "
+        },
+        {
+          "insert": "/Users/Ford/Transcripts",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Dropbox was intended as automatic backup. A home NAS is planned, but no backup destination, schedule, or retention policy has been configured."
+        }
+      ],
+      "children": []
+    },
+    "b-10-product-direction-the-fork-lives-under-co-7": {
+      "id": "b-10-product-direction-the-fork-lives-under-co-7",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The fork lives under "
+        },
+        {
+          "insert": "Codecaine/utilities/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Preserve upstream attribution and keep personal data, model weights, and local runtime configuration out of Git."
+        }
+      ],
+      "children": []
+    },
+    "b-10-product-direction-boundaries-8": {
+      "id": "b-10-product-direction-boundaries-8",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Boundaries"
+        }
+      ],
+      "children": []
+    },
+    "b-10-product-direction-the-archive-is-a-single-9": {
+      "id": "b-10-product-direction-the-archive-is-a-single-9",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The archive is a single-writer file dataset. Cloud synchronization, multiwriter coordination, curated dataset releases, continuous Wispr import, and changing Sotto's 180-second live recording limit are not implemented. The existing Wispr installation and nightly WisprSync export are unchanged."
+        }
+      ],
+      "children": []
+    },
+    "b-10-product-direction-see-archive-design-doc-10": {
+      "id": "b-10-product-direction-see-archive-design-doc-10",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "See "
+        },
+        {
+          "insert": "Archive Design",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/40-transcript-archive"
+            }
+          }
+        },
+        {
+          "insert": " for preservation behavior and "
+        },
+        {
+          "insert": "Current Status",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "00-foundation/20-current-status"
+            }
+          }
+        },
+        {
+          "insert": " for remaining work."
+        }
+      ],
+      "children": []
+    }
+  }
+}

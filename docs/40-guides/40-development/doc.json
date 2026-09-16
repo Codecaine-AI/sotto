@@ -1,0 +1,1123 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-0629a210182c69bd6e06821b46e0d88d",
+  "title": "Development",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-readme-this-guide-retains-the-u-1",
+        "b-readme-hold-a-key-speak-and-r-2",
+        "b-readme-the-dev-runner-builds-3",
+        "b-readme-get-started-on-one-mac-4",
+        "b-readme-you-need-apple-silicon-5",
+        "b-readme-sh-6",
+        "b-readme-download-the-pinned-whi-7",
+        "b-readme-sh-8",
+        "b-readme-use-your-own-model-paths-9",
+        "b-readme-grant-sotto-dev-micr-10",
+        "b-readme-wait-for-the-server-to-b-11",
+        "b-readme-change-the-shortcut-unde-12",
+        "b-readme-test-microphone-show-13",
+        "b-readme-use-a-server-on-another-14",
+        "b-readme-follow-the-server-guide-15",
+        "b-readme-sh-16",
+        "b-readme-set-its-url-and-token-un-17",
+        "b-readme-daily-development-18",
+        "b-readme-sh-19",
+        "b-readme-keep-the-model-path-expo-20",
+        "b-readme-the-dev-runner-stores-sh-21",
+        "b-readme-all-connected-macs-share-22",
+        "local-signing-heading",
+        "local-signing-purpose",
+        "signing-everyday-command",
+        "signing-everyday-result",
+        "signing-first-setup-heading",
+        "local-signing-setup",
+        "local-signing-adopt",
+        "local-signing-rebuild",
+        "local-signing-limits",
+        "signing-mechanism-heading",
+        "signing-mechanism",
+        "signing-identity-storage",
+        "signing-build-behavior",
+        "signing-installer-behavior",
+        "signing-recovery-heading",
+        "signing-recovery-condition",
+        "signing-recovery-remove",
+        "signing-recovery-add",
+        "signing-recovery-check",
+        "signing-recovery-stop",
+        "signing-verify-heading",
+        "signing-verify-commands",
+        "signing-verify-expectations",
+        "signing-verified-scope",
+        "signing-preserve-heading",
+        "signing-preserve",
+        "signing-backup",
+        "b-readme-reference-23",
+        "b-readme-server-setup-and-models-24",
+        "b-readme-architecture-configura-25",
+        "b-readme-dictionary-and-cleanup-26",
+        "b-readme-http-api-docs-client-s-27",
+        "b-readme-whisper-helper-engine-28",
+        "b-readme-mit-license-third-29"
+      ]
+    },
+    "b-readme-this-guide-retains-the-u-1": {
+      "id": "b-readme-this-guide-retains-the-u-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This guide retains the upstream development instructions. Codecaine’s archive worker additionally requires Python 3.12 or later; the installed local setup is described in "
+        },
+        {
+          "insert": "Local Setup",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/10-local-setup"
+            }
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-hold-a-key-speak-and-r-2": {
+      "id": "b-readme-hold-a-key-speak-and-r-2",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Hold a key, speak, and release to insert your dictation. Sotto is a native macOS app backed by a model server running on the same Mac, another Mac, or Linux. Audio uploads while you speak; the server returns progress and one finished transcript."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-the-dev-runner-builds-3": {
+      "id": "b-readme-the-dev-runner-builds-3",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The dev runner builds Sotto Dev with separate settings and permissions. For the installed daily-use app, use "
+        },
+        {
+          "insert": "./scripts/rebuild-local.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " after the one-time signing setup described below. Both clients connect to an independently running server."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-get-started-on-one-mac-4": {
+      "id": "b-readme-get-started-on-one-mac-4",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Get started on one Mac"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-you-need-apple-silicon-5": {
+      "id": "b-readme-you-need-apple-silicon-5",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "You need Apple Silicon, macOS 14+, full Xcode 26+ with the Metal compiler, CMake, and Git. Xcode provides Swift; the build requires Swift 6.2+. The upstream native pipeline uses Python for tests; the Codecaine archive worker also requires Python 3.12 or later."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-6": {
+      "id": "b-readme-sh-6",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "git clone --recurse-submodules https://github.com/Codecaine-AI/sotto.git\ncd sotto"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-download-the-pinned-whi-7": {
+      "id": "b-readme-download-the-pinned-whi-7",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Download the pinned Whisper and Qwen models",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/20-server-setup"
+            }
+          }
+        },
+        {
+          "insert": " into "
+        },
+        {
+          "insert": ".local/models",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", then build and start:"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-8": {
+      "id": "b-readme-sh-8",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "export SOTTO_SPEECH_MODEL=\"$PWD/.local/models/ggml-large-v3-turbo.bin\"\nexport SOTTO_TEXT_MODEL=\"$PWD/.local/models/Qwen3-4B-Instruct-2507-MLX-4bit\"\n./scripts/run-dev.sh"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-use-your-own-model-paths-9": {
+      "id": "b-readme-use-your-own-model-paths-9",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Use your own model paths if they are already installed. The script builds the server and client, starts "
+        },
+        {
+          "insert": "http://localhost:8391",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", and opens "
+        },
+        {
+          "insert": "build/Sotto Dev.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The first build fetches dependencies and the small Silero speech detector."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-grant-sotto-dev-micr-10": {
+      "id": "b-readme-grant-sotto-dev-micr-10",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Grant "
+        },
+        {
+          "insert": "Sotto Dev",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " Microphone and Accessibility permissions."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-wait-for-the-server-to-b-11": {
+      "id": "b-readme-wait-for-the-server-to-b-11",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Wait for the server to be ready. Focus a text field, hold "
+        },
+        {
+          "insert": "Right Option",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", speak, and release."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-change-the-shortcut-unde-12": {
+      "id": "b-readme-change-the-shortcut-unde-12",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Change the shortcut under "
+        },
+        {
+          "insert": "This Mac",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", choose inputs under "
+        },
+        {
+          "insert": "Microphone",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", and edit shared cleanup instructions or dictionary entries under "
+        },
+        {
+          "insert": "Server preferences",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-test-microphone-show-13": {
+      "id": "b-readme-test-microphone-show-13",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Test microphone",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " shows a result in Sotto without inserting it. Fn/Globe is also supported; set macOS "
+        },
+        {
+          "insert": "Keyboard → Press Globe key to → Do Nothing",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " if its system action conflicts."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-use-a-server-on-another-14": {
+      "id": "b-readme-use-a-server-on-another-14",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Use a server on another machine"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-follow-the-server-guide-15": {
+      "id": "b-readme-follow-the-server-guide-15",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Follow the "
+        },
+        {
+          "insert": "server guide",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/20-server-setup"
+            }
+          }
+        },
+        {
+          "insert": " for macOS, Linux, or containers. On the client Mac, build and open only the app:"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-16": {
+      "id": "b-readme-sh-16",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "./scripts/build-app.sh\nopen \"build/Sotto.app\""
+        }
+      ],
+      "children": []
+    },
+    "b-readme-set-its-url-and-token-un-17": {
+      "id": "b-readme-set-its-url-and-token-un-17",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Set its URL and token under "
+        },
+        {
+          "insert": "This Mac",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ". Use HTTPS for remote hosts, or HTTP with the server's literal Tailscale IP on your connected tailnet. The client needs no model weights or GPU for inference."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-daily-development-18": {
+      "id": "b-readme-daily-development-18",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Daily development"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-19": {
+      "id": "b-readme-sh-19",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "./scripts/run-dev.sh start --skip-build   # Start existing builds\n./scripts/run-dev.sh status\n./scripts/run-dev.sh stop\n./scripts/run-dev.sh restart             # Rebuild and restart the server\nswift test\n./scripts/smoke-test.sh                  # Real HTTP/audio test; server must be idle\n./scripts/test-corrections.sh            # Real Qwen helper checks"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-keep-the-model-path-expo-20": {
+      "id": "b-readme-keep-the-model-path-expo-20",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Keep the model-path exports set when starting the server or running helper checks. For frequent changes to the installed app, use the local signing workflow below. The development runner remains a separate app and preference directory."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-the-dev-runner-stores-sh-21": {
+      "id": "b-readme-the-dev-runner-stores-sh-21",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The dev runner stores shared history/settings in "
+        },
+        {
+          "insert": ".local/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", device preferences in "
+        },
+        {
+          "insert": ".local/client",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and logs in "
+        },
+        {
+          "insert": ".local/server.log",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Keep experiment notes and generated artifacts under the ignored "
+        },
+        {
+          "insert": ".local/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " directory too. Quitting the app leaves the server running. Recordings require an online, available server and have a three-minute limit."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-all-connected-macs-share-22": {
+      "id": "b-readme-all-connected-macs-share-22",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "All connected Macs share history, tagged by device. Both original and inference audio are kept by default; "
+        },
+        {
+          "insert": "Keep original microphone audio",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " changes original retention for future takes. Back up the server data directory to preserve history."
+        }
+      ],
+      "children": []
+    },
+    "local-signing-heading": {
+      "id": "local-signing-heading",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Rebuild the Installed App"
+        }
+      ],
+      "children": []
+    },
+    "local-signing-purpose": {
+      "id": "local-signing-purpose",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Use the installed-app workflow for frequent client customizations. Finish any active dictation before rebuilding, because installation quits and reopens Sotto. Run commands from the repository root."
+        }
+      ],
+      "children": []
+    },
+    "signing-everyday-command": {
+      "id": "signing-everyday-command",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "cd \"/Users/Ford/Github Repos/Codecaine/utilities/sotto\"\n./scripts/rebuild-local.sh"
+        }
+      ],
+      "children": []
+    },
+    "signing-everyday-result": {
+      "id": "signing-everyday-result",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The command builds and signs a release client, checks its identity, keeps a rollback copy, and reopens /Applications/Sotto.app. Wait for \"Installed and opened\" and \"No macOS permissions were reset.\" Then test one sentence with the configured hold key. Routine rebuilds do not need the setup or adoption commands."
+        }
+      ],
+      "children": []
+    },
+    "signing-first-setup-heading": {
+      "id": "signing-first-setup-heading",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Set Up Signing Once"
+        }
+      ],
+      "children": []
+    },
+    "local-signing-setup": {
+      "id": "local-signing-setup",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Once per Mac, run "
+        },
+        {
+          "insert": "python3 scripts/setup-local-signing.py",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Approve a Keychain prompt for codesign to use Sotto Local Development if one appears. Initial setup verifies the same signing requirement on two distinct probe binaries. If configuration already exists, setup reuses it without rerunning those probes."
+        }
+      ],
+      "children": []
+    },
+    "local-signing-adopt": {
+      "id": "local-signing-adopt",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Install with "
+        },
+        {
+          "insert": "./scripts/rebuild-local.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". If deliberately switching an existing install to this certificate, use "
+        },
+        {
+          "insert": "./scripts/rebuild-local.sh --adopt-identity",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " for that first replacement. Restore permissions with the steps below if required. Do not use adoption to bypass an unexplained identity mismatch."
+        }
+      ],
+      "children": []
+    },
+    "local-signing-rebuild": {
+      "id": "local-signing-rebuild",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Verify Sotto → This Mac shows Microphone and Accessibility as Allowed. Test dictation in a text field before making further changes."
+        }
+      ],
+      "children": []
+    },
+    "local-signing-limits": {
+      "id": "local-signing-limits",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The installer updates the desktop client only. Backend changes require a separate server rebuild and restart. The server and archive worker keep running while the client is replaced."
+        }
+      ],
+      "children": []
+    },
+    "signing-mechanism-heading": {
+      "id": "signing-mechanism-heading",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Why Permissions Survive Rebuilds"
+        }
+      ],
+      "children": []
+    },
+    "signing-mechanism": {
+      "id": "signing-mechanism",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "macOS checks an app's saved code requirement when applying privacy grants. Ad-hoc signing can bind that requirement to an executable hash that changes on rebuild. The local setup explicitly pins the bundle identifier dev.davis.murmur and the certificate fingerprint instead. A changed executable can satisfy the same requirement."
+        }
+      ],
+      "children": []
+    },
+    "signing-identity-storage": {
+      "id": "signing-identity-storage",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The self-signed certificate is named Sotto Local Development and is created with a ten-year validity period by "
+        },
+        {
+          "insert": "scripts/setup-local-signing.py",
+          "attributes": {
+            "code": true,
+            "reference": {
+              "kind": "source",
+              "path": "scripts/setup-local-signing.py"
+            }
+          }
+        },
+        {
+          "insert": ". Its private key is imported as non-extractable into the login Keychain. "
+        },
+        {
+          "insert": "~/.config/sotto/signing.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " stores public identity metadata and the Keychain path. The adjacent "
+        },
+        {
+          "insert": "local-signing-certificate.pem",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " is public and cannot replace a lost private key. No Apple developer account is needed. This setup does not provide notarized distribution."
+        }
+      ],
+      "children": []
+    },
+    "signing-build-behavior": {
+      "id": "signing-build-behavior",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "scripts/build-app.sh",
+          "attributes": {
+            "code": true,
+            "reference": {
+              "kind": "source",
+              "path": "scripts/build-app.sh"
+            }
+          }
+        },
+        {
+          "insert": " reads the pinned configuration unless "
+        },
+        {
+          "insert": "SOTTO_SIGNING_IDENTITY",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " explicitly overrides it. When using that configuration, a missing key or signing error fails the build instead of falling back to ad-hoc signing. Direct builds without configuration retain the upstream Apple Development or ad-hoc fallback."
+        }
+      ],
+      "children": []
+    },
+    "signing-installer-behavior": {
+      "id": "signing-installer-behavior",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "scripts/rebuild-local.sh",
+          "attributes": {
+            "code": true,
+            "reference": {
+              "kind": "source",
+              "path": "scripts/rebuild-local.sh"
+            }
+          }
+        },
+        {
+          "insert": " calls "
+        },
+        {
+          "insert": "scripts/install-local.py",
+          "attributes": {
+            "code": true,
+            "reference": {
+              "kind": "source",
+              "path": "scripts/install-local.py"
+            }
+          }
+        },
+        {
+          "insert": ". The installer requires the saved configuration and ignores the "
+        },
+        {
+          "insert": "SOTTO_SIGNING_IDENTITY",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " environment override. It verifies the built and staged bundles and compares the installed signing requirement before replacement. Identity changes require explicit adoption. It never runs "
+        },
+        {
+          "insert": "tccutil",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " or resets permissions."
+        }
+      ],
+      "children": []
+    },
+    "signing-recovery-heading": {
+      "id": "signing-recovery-heading",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Repair an Old Accessibility Entry"
+        }
+      ],
+      "children": []
+    },
+    "signing-recovery-condition": {
+      "id": "signing-recovery-condition",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "After the first identity change, System Settings can show an enabled switch while Sotto still reports access denied. A toggle alone may retain the old code requirement. Use this repair only for that mismatch, not after every rebuild. A password prompt is not required if Settings already permits the change."
+        }
+      ],
+      "children": []
+    },
+    "signing-recovery-remove": {
+      "id": "signing-recovery-remove",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Open System Settings → Privacy & Security → Accessibility. Select Sotto.app and click the minus button. This removes the permission entry, not the application."
+        }
+      ],
+      "children": []
+    },
+    "signing-recovery-add": {
+      "id": "signing-recovery-add",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Click the plus button, select /Applications/Sotto.app, and click Open. Ensure its switch is on and approve any macOS authentication prompt."
+        }
+      ],
+      "children": []
+    },
+    "signing-recovery-check": {
+      "id": "signing-recovery-check",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "In Sotto → This Mac, click Check again. Confirm Accessibility is Allowed. If the display stays stale, quit and reopen Sotto, then check again."
+        }
+      ],
+      "children": []
+    },
+    "signing-recovery-stop": {
+      "id": "signing-recovery-stop",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "If access remains denied, inspect the signing requirement and permission logs before changing certificates or resetting grants. Sotto Dev has a separate identity. Grant access to the installed Sotto.app used by this workflow."
+        }
+      ],
+      "children": []
+    },
+    "signing-verify-heading": {
+      "id": "signing-verify-heading",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Check a Rebuild"
+        }
+      ],
+      "children": []
+    },
+    "signing-verify-commands": {
+      "id": "signing-verify-commands",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "codesign --verify --deep --strict /Applications/Sotto.app\ncodesign -d -r- /Applications/Sotto.app\nshasum -a 256 /Applications/Sotto.app/Contents/MacOS/Sotto\n/usr/bin/log show --last 5m --style compact \\\n  --predicate 'subsystem == \"dev.davis.murmur\" AND category == \"permissions\"'"
+        }
+      ],
+      "children": []
+    },
+    "signing-verify-expectations": {
+      "id": "signing-verify-expectations",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Compare the requirement and executable SHA-256 before and after a source change. The hash should change while the certificate-based designated requirement stays identical. The current installed process should log microphone=true, accessibility=true, and hotkey=true. Input Monitoring need not be separately granted when Accessibility already allows the hotkey listener."
+        }
+      ],
+      "children": []
+    },
+    "signing-verified-scope": {
+      "id": "signing-verified-scope",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Changed-build replacement and app restart have been verified with permissions preserved. The user also confirmed dictation works. Full macOS reboot persistence remains untested. Local test evidence is retained under "
+        },
+        {
+          "insert": ".local/signing-validation/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and is not included in Git."
+        }
+      ],
+      "children": []
+    },
+    "signing-preserve-heading": {
+      "id": "signing-preserve-heading",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Preserve the Identity and Recover a Build"
+        }
+      ],
+      "children": []
+    },
+    "signing-preserve": {
+      "id": "signing-preserve",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Keep the existing Keychain identity, public signing configuration, bundle identifier, and /Applications/Sotto.app path. Do not regenerate the certificate for ordinary source changes. Copying only the repository or public certificate to another Mac does not transfer the private key. A new certificate or a lost key requires intentional adoption and may require permission approval again."
+        }
+      ],
+      "children": []
+    },
+    "signing-backup": {
+      "id": "signing-backup",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Each replacement retains the previous app in "
+        },
+        {
+          "insert": ".local/install-backups/<timestamp>/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and prints that rollback path. To restore one, quit Sotto, preserve the current app, and copy the chosen backup to /Applications/Sotto.app before reopening. A backup signed with an older identity can require permission repair. Backup copies contain the client application, not server history or the transcript archive."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-reference-23": {
+      "id": "b-readme-reference-23",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Reference"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-server-setup-and-models-24": {
+      "id": "b-readme-server-setup-and-models-24",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Server setup and models",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/20-server-setup"
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-readme-architecture-configura-25": {
+      "id": "b-readme-architecture-configura-25",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Architecture, configuration, and storage",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/10-architecture"
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-readme-dictionary-and-cleanup-26": {
+      "id": "b-readme-dictionary-and-cleanup-26",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Dictionary and cleanup instructions",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/30-text-correction"
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-readme-http-api-docs-client-s-27": {
+      "id": "b-readme-http-api-docs-client-s-27",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "HTTP API",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/20-http-api"
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-readme-whisper-helper-engine-28": {
+      "id": "b-readme-whisper-helper-engine-28",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Whisper helper",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "30-implementation/30-whisper-helper"
+            }
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "Qwen helpers",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "30-implementation/40-qwen-helpers"
+            }
+          }
+        }
+      ],
+      "children": []
+    },
+    "b-readme-mit-license-third-29": {
+      "id": "b-readme-mit-license-third-29",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "MIT",
+          "attributes": {
+            "link": "LICENSE"
+          }
+        },
+        {
+          "insert": " · "
+        },
+        {
+          "insert": "Third-party notices",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/50-third-party-notices"
+            }
+          }
+        }
+      ],
+      "children": []
+    }
+  }
+}

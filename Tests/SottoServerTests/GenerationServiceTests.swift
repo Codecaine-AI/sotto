@@ -31,6 +31,10 @@ final class GenerationServiceTests: XCTestCase {
             XCTAssertEqual(completed.continuation?.list?.nextNumber, 5)
             let transcript = try await service.artifact(record.id, filename: "transcript.txt")
             XCTAssertEqual(try String(contentsOf: transcript, encoding: .utf8), formatted)
+            let raw = try await service.artifact(record.id, filename: "raw.txt")
+            let clean = try await service.artifact(record.id, filename: "clean.txt")
+            XCTAssertEqual(try String(contentsOf: raw, encoding: .utf8), source)
+            XCTAssertEqual(try String(contentsOf: clean, encoding: .utf8), formatted)
         }
     }
 

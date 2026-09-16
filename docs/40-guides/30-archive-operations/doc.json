@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-f45076d9bb43a0f85a3ea4d1c2c76e0d",
+  "title": "Archive Operations",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-readme-the-archive-is-the-perma-1",
+        "b-readme-structure-2",
+        "b-readme-text-3",
+        "b-readme-metadata-distinguishes-m-4",
+        "b-readme-the-portable-archive-is-5",
+        "b-readme-the-original-upstream-wi-6",
+        "b-readme-commands-7",
+        "b-readme-python-3-12-or-later-is-8",
+        "b-readme-sh-9",
+        "b-readme-use-backup-repeatedl-10",
+        "b-readme-python3-scripts-archive-11",
+        "b-readme-the-viewer-is-read-only-12",
+        "b-readme-verification-13",
+        "b-readme-sh-14",
+        "b-readme-tests-cover-oversized-au-15"
+      ]
+    },
+    "b-readme-the-archive-is-the-perma-1": {
+      "id": "b-readme-the-archive-is-the-perma-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The archive is the permanent, portable home for historical Wispr records and new Sotto recordings. The one-time migration reads the existing WisprSync export and read-only SQLite snapshots. After migration, only Sotto is monitored. The worker copies new finished recordings every three seconds and retries failures. Deleting a source recording does not delete its archived copy."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-structure-2": {
+      "id": "b-readme-structure-2",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Structure"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-text-3": {
+      "id": "b-readme-text-3",
+      "type": "code",
+      "props": {
+        "language": "text"
+      },
+      "text": [
+        {
+          "insert": "<archive>/\n  dataset.json\n  migration.json\n  verification.json\n  records/\n    wispr-flow/<source-id>/\n      metadata.json\n      raw.txt\n      clean.txt\n      source_versions/<sha256>.json\n      artifacts/<sha256>.<extension>\n    sotto/<generation-id>/\n      metadata.json\n      raw.txt\n      clean.txt\n      source_versions/<sha256>.json\n      artifacts/<sha256>.<extension>\n  sources/\n    wisprsync-export/<manifest-hash>/  # Original manifest, indexes, run reports\n    wispr-flow/dictionary-<sha256>.json"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-metadata-distinguishes-m-4": {
+      "id": "b-readme-metadata-distinguishes-m-4",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Metadata distinguishes missing text from empty text, records the chosen clean-text variant, and retains all available transcript variants. Unknown dates remain null; invalid or missing source IDs receive stable safe identifiers and remain represented in original source metadata. Files are copied in 1 MiB chunks with SHA-256 verification; this is a transfer buffer, not a file-size limit. Competing source versions and attachments are retained by hash. The database used for search lives in the local cache, outside a cloud-synced archive, and can be rebuilt from the files."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-the-portable-archive-is-5": {
+      "id": "b-readme-the-portable-archive-is-5",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The portable archive is separate from Sotto's operational history. Sotto records raw.txt and clean.txt alongside each finished recording before publishing metadata. The archive worker then copies the complete metadata and audio. The Data page shows archive health and any copy failure. Closing the app does not stop the worker. The archive is intended for one writer on this Mac; sharing its folder does not make simultaneous writers safe."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-the-original-upstream-wi-6": {
+      "id": "b-readme-the-original-upstream-wi-6",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The original upstream Wispr importer remains in source for compatibility, with its bounded HTTP contract. Our one-time migration does not use that importer or its 8 MiB limit. The Codecaine UI directs users to the full archive instead."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-commands-7": {
+      "id": "b-readme-commands-7",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Commands"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-python-3-12-or-later-is-8": {
+      "id": "b-readme-python-3-12-or-later-is-8",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Python 3.12 or later is required. Run from the repository root; replace the example paths."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-9": {
+      "id": "b-readme-sh-9",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "python3 scripts/archive/archive.py --root /path/to/Transcripts --cache .local/archive-cache migrate \\\n  --wisprsync /path/to/wispr_sync --wispr-db /path/to/flow.sqlite \\\n  --backup /path/to/backup.sqlite\npython3 scripts/archive/archive.py --root /path/to/Transcripts --cache .local/archive-cache verify\npython3 scripts/archive/archive.py --root /path/to/Transcripts --cache .local/archive-cache serve \\\n  --sotto-data .local/server"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-use-backup-repeatedl-10": {
+      "id": "b-readme-use-backup-repeatedl-10",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Use "
+        },
+        {
+          "insert": "--backup",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " repeatedly for additional complete backups. A failed migration leaves "
+        },
+        {
+          "insert": "migration.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " marked failed and can be retried; original sources are unchanged. Inspect verification before retiring the old exporter."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-python3-scripts-archive-11": {
+      "id": "b-readme-python3-scripts-archive-11",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "python3 scripts/archive/install.py --root /path/to/Transcripts",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " configures the worker for the current login session and updates "
+        },
+        {
+          "insert": ".local/Start Sotto.command",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". It does not enable launch at login. That launcher starts both dictation and archive services. The Data page and browser viewer use "
+        },
+        {
+          "insert": "http://127.0.0.1:8392",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-the-viewer-is-read-only-12": {
+      "id": "b-readme-the-viewer-is-read-only-12",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The viewer is read-only, binds only to loopback, rejects foreign Host/Origin headers, validates file paths, and serves audio with byte ranges. It supports full-archive search, source filters, pagination, raw/clean text, attachments, grouped source fields, and every retained metadata version. It does not send data to a hosted service."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-verification-13": {
+      "id": "b-readme-verification-13",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Verification"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-14": {
+      "id": "b-readme-sh-14",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "python3 -m unittest discover -s scripts/archive -p 'test_*.py' -v\nswift test --filter GenerationServiceTests"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-tests-cover-oversized-au-15": {
+      "id": "b-readme-tests-cover-oversized-au-15",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Tests cover oversized audio, null dates, arbitrary typed fields, dictionary preservation, original hash preservation, retry after missing files, retention after source deletion, index rebuilding, pagination, search, audio byte ranges, path traversal, and cross-origin access."
+        }
+      ],
+      "children": []
+    }
+  }
+}

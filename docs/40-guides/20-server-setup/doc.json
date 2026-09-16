@@ -1,0 +1,1121 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-6a658855f18fb1557df5fc29b7c11c3f",
+  "title": "Server Setup",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-readme-the-server-is-an-indepen-1",
+        "b-readme-server-speech-proo-2-table",
+        "b-readme-models-3",
+        "b-readme-run-these-commands-from-4",
+        "b-readme-whisper-on-either-platf-5",
+        "b-readme-sh-6",
+        "b-readme-this-installs-and-verifi-7",
+        "b-readme-qwen-on-macos-8",
+        "b-readme-the-mlx-directory-must-c-9",
+        "b-readme-sh-10",
+        "b-readme-sources-sottocore-textm-11",
+        "b-readme-qwen-on-linux-12",
+        "b-readme-sh-13",
+        "b-readme-expected-size-2-497-281-14",
+        "b-readme-build-15",
+        "b-readme-initialize-submodules-wi-16",
+        "b-readme-linux-requires-swift-6-2-17",
+        "b-readme-sh-18",
+        "b-readme-output-is-build-server-19",
+        "b-readme-sotto-build-jobs-contr-20",
+        "b-readme-run-21",
+        "b-readme-from-the-repository-root-22",
+        "b-readme-sh-23",
+        "b-readme-on-linux-replace-the-la-24",
+        "b-readme-check-curl-http-local-25",
+        "b-readme-argument-environment-26-table",
+        "b-readme-the-dev-runner-fixes-its-27",
+        "b-readme-remote-access-28",
+        "b-readme-bind-to-a-reachable-addr-29",
+        "b-readme-use-an-https-reverse-pro-30",
+        "b-readme-http-is-accepted-for-loc-31",
+        "b-readme-ordinary-lan-ips-require-32",
+        "b-readme-keep-the-data-directory-33",
+        "b-readme-containers-34",
+        "b-readme-build-from-the-repositor-35",
+        "b-readme-sh-36",
+        "b-readme-cuda-architectures-c-37",
+        "b-readme-mount-a-directory-contai-38",
+        "b-readme-sh-39",
+        "b-readme-for-a-gpu-server-use-s-40",
+        "b-readme-verify-41",
+        "b-readme-sh-42",
+        "b-readme-the-http-smoke-test-need-43"
+      ]
+    },
+    "b-readme-the-server-is-an-indepen-1": {
+      "id": "b-readme-the-server-is-an-indepen-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The server is an independent HTTP process that owns models, shared preferences, recordings, and history. For same-Mac development, start with the "
+        },
+        {
+          "insert": "quick start",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/40-development"
+            }
+          }
+        },
+        {
+          "insert": ". This guide covers model installation and running the server separately."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-server-speech-proo-2-table": {
+      "id": "b-readme-server-speech-proo-2-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Server",
+          "Speech",
+          "Proofreading"
+        ],
+        "rows": [
+          [
+            "Apple Silicon macOS",
+            "Whisper large-v3-turbo / whisper.cpp / Metal",
+            "Qwen3-4B-Instruct-2507 / Swift MLX / 4-bit"
+          ],
+          [
+            "Linux x86_64 or ARM64",
+            "Whisper large-v3-turbo / whisper.cpp / CPU or CUDA",
+            [
+              {
+                "insert": "Qwen3-4B-Instruct-2507 / llama.cpp / Q4"
+              },
+              {
+                "insert": "K",
+                "attributes": {
+                  "italic": true
+                }
+              },
+              {
+                "insert": "M"
+              }
+            ]
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-readme-models-3": {
+      "id": "b-readme-models-3",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Models"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-run-these-commands-from-4": {
+      "id": "b-readme-run-these-commands-from-4",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Run these commands from the repository root. Weights use about 4 GB of disk; runtime memory also includes model state and inference buffers. The server verifies pinned files before loading and keeps models warm. It does not download large weights automatically."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-whisper-on-either-platf-5": {
+      "id": "b-readme-whisper-on-either-platf-5",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Whisper, on either platform"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-6": {
+      "id": "b-readme-sh-6",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "SOTTO_MODEL_DIR=\"$PWD/.local/models\" ./scripts/download-model.sh"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-this-installs-and-verifi-7": {
+      "id": "b-readme-this-installs-and-verifi-7",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "This installs and verifies "
+        },
+        {
+          "insert": "ggml-large-v3-turbo.bin",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The URL, revision, and checksum are pinned in "
+        },
+        {
+          "insert": "scripts/download-model.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "Sources/SottoCore/SpeechModel.swift",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The server build separately downloads the pinned Silero VAD model."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-qwen-on-macos-8": {
+      "id": "b-readme-qwen-on-macos-8",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Qwen on macOS"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-the-mlx-directory-must-c-9": {
+      "id": "b-readme-the-mlx-directory-must-c-9",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The MLX directory must contain exactly the six files listed below. Download the pinned revision:"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-10": {
+      "id": "b-readme-sh-10",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "(\n  set -e\n  sotto_qwen_dir=\"$PWD/.local/models/Qwen3-4B-Instruct-2507-MLX-4bit\"\n  sotto_qwen_url=\"https://huggingface.co/mlx-community/Qwen3-4B-Instruct-2507-4bit/resolve/50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b\"\n  mkdir -p \"$sotto_qwen_dir\"\n  for file in model.safetensors config.json tokenizer.json tokenizer_config.json generation_config.json chat_template.jinja; do\n    curl --fail --location --retry 3 --output \"$sotto_qwen_dir/$file\" \"$sotto_qwen_url/$file\"\n  done\n)"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sources-sottocore-textm-11": {
+      "id": "b-readme-sources-sottocore-textm-11",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Sources/SottoCore/TextModel.swift",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " defines the six-file size/hash manifest; the MLX helper verifies it before becoming ready. Use regular files, with no extra files or symlinks in the model directory."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-qwen-on-linux-12": {
+      "id": "b-readme-qwen-on-linux-12",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Qwen on Linux"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-13": {
+      "id": "b-readme-sh-13",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "mkdir -p .local/models\ncurl --fail --location --retry 3 \\\n  --output .local/models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf \\\n  https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/resolve/a06e946bb6b655725eafa393f4a9745d460374c9/Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-expected-size-2-497-281-14": {
+      "id": "b-readme-expected-size-2-497-281-14",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Expected size: 2,497,281,120 bytes. SHA-256: "
+        },
+        {
+          "insert": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The server verifies both before loading."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-build-15": {
+      "id": "b-readme-build-15",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Build"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-initialize-submodules-wi-16": {
+      "id": "b-readme-initialize-submodules-wi-16",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Initialize submodules with "
+        },
+        {
+          "insert": "git submodule update --init --recursive",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". macOS requires Apple Silicon and full Xcode with its Metal compiler; the complete client/server build uses Xcode 26+ and Swift 6.2+. If Metal is missing, run "
+        },
+        {
+          "insert": "xcodebuild -downloadComponent MetalToolchain",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-linux-requires-swift-6-2-17": {
+      "id": "b-readme-linux-requires-swift-6-2-17",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Linux requires Swift 6.2+, a C/C++ toolchain, CMake, Git, curl, pkg-config, and libcurl development headers. CUDA builds also need a compatible NVIDIA driver and CUDA toolkit. The "
+        },
+        {
+          "insert": "Dockerfile",
+          "attributes": {
+            "link": "Dockerfile"
+          }
+        },
+        {
+          "insert": " provides a pinned build environment."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-18": {
+      "id": "b-readme-sh-18",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "./scripts/build-server.sh                  # macOS Metal/MLX; Linux CPU\nSOTTO_CUDA=ON ./scripts/build-server.sh     # Linux with CUDA"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-output-is-build-server-19": {
+      "id": "b-readme-output-is-build-server-19",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Output is "
+        },
+        {
+          "insert": "build/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ": executable, native helpers, VAD, notices, and resources. Keep the package together; the Mac proofreader requires the adjacent Metal library and bundles. Large model weights and user data live outside it."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sotto-build-jobs-contr-20": {
+      "id": "b-readme-sotto-build-jobs-contr-20",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "SOTTO_BUILD_JOBS",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " controls build concurrency. For another CPU/GPU host, use "
+        },
+        {
+          "insert": "SOTTO_NATIVE=OFF",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and set "
+        },
+        {
+          "insert": "SOTTO_CUDA_ARCHITECTURES",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " for the destination GPU. CPU support is useful for compatibility tests; validate CUDA support, memory, and dictation latency on the selected host."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-run-21": {
+      "id": "b-readme-run-21",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Run"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-from-the-repository-root-22": {
+      "id": "b-readme-from-the-repository-root-22",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "From the repository root, with the models installed above:"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-23": {
+      "id": "b-readme-sh-23",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "./build/server/sotto-server \\\n  --host 127.0.0.1 --port 8391 \\\n  --data-dir \"$PWD/.local/server\" \\\n  --speech-helper \"$PWD/build/server/helpers/sotto-engine\" \\\n  --speech-model \"$PWD/.local/models/ggml-large-v3-turbo.bin\" \\\n  --vad-model \"$PWD/build/server/resources/silero-vad.bin\" \\\n  --proof-helper \"$PWD/build/server/helpers/sotto-text-engine\" \\\n  --proof-model \"$PWD/.local/models/Qwen3-4B-Instruct-2507-MLX-4bit\""
+        }
+      ],
+      "children": []
+    },
+    "b-readme-on-linux-replace-the-la-24": {
+      "id": "b-readme-on-linux-replace-the-la-24",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "On Linux, replace the last path with the GGUF file. Add "
+        },
+        {
+          "insert": "--dev",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " for a development label in health responses. If using the packaged distribution elsewhere, point helper/resource paths at that package and choose durable model/data paths."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-check-curl-http-local-25": {
+      "id": "b-readme-check-curl-http-local-25",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Check "
+        },
+        {
+          "insert": "curl http://localhost:8391/v1/health",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; HTTP reachability alone does not mean the models are ready. The "
+        },
+        {
+          "insert": "ready",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " field means the server can accept a recording. Quitting a client does not stop this process. Use launchd, systemd, or container supervision for boot/restart behavior; the scripts do not install a service."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-argument-environment-26-table": {
+      "id": "b-readme-argument-environment-26-table",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "Argument",
+          "Environment variable"
+        ],
+        "rows": [
+          [
+            [
+              {
+                "insert": "--host",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", "
+              },
+              {
+                "insert": "--port",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "SOTTO_SERVER_HOST",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", "
+              },
+              {
+                "insert": "SOTTO_SERVER_PORT",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "--data-dir",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", "
+              },
+              {
+                "insert": "--token-file",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "SOTTO_SERVER_DATA_DIR",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", "
+              },
+              {
+                "insert": "SOTTO_SERVER_TOKEN_FILE",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "--speech-helper",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", "
+              },
+              {
+                "insert": "--speech-model",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "SOTTO_ENGINE_PATH",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", "
+              },
+              {
+                "insert": "SOTTO_SPEECH_MODEL",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "--vad-model",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "SOTTO_VAD_PATH",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "--proof-helper",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", "
+              },
+              {
+                "insert": "--proof-model",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "SOTTO_TEXT_ENGINE_PATH",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", "
+              },
+              {
+                "insert": "SOTTO_TEXT_MODEL",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            [
+              {
+                "insert": "--dev",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            [
+              {
+                "insert": "SOTTO_DEV=1",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ]
+        ]
+      },
+      "children": []
+    },
+    "b-readme-the-dev-runner-fixes-its-27": {
+      "id": "b-readme-the-dev-runner-fixes-its-27",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The dev runner fixes its host to loopback and defaults to port 8391, "
+        },
+        {
+          "insert": ".local/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " for data, and "
+        },
+        {
+          "insert": ".local/server.log",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " for logs. Set "
+        },
+        {
+          "insert": "SOTTO_SPEECH_MODEL",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "SOTTO_TEXT_MODEL",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " when using the paths above. Without those overrides, macOS searches the existing locations "
+        },
+        {
+          "insert": "~/Library/Application Support/Murmur/Models/ggml-large-v3-turbo.bin",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "~/.murmur/models/Qwen3-4B-Instruct-2507-MLX-4bit",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-remote-access-28": {
+      "id": "b-readme-remote-access-28",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Remote access"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-bind-to-a-reachable-addr-29": {
+      "id": "b-readme-bind-to-a-reachable-addr-29",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Bind to a reachable address and pass "
+        },
+        {
+          "insert": "--token-file /absolute/path/to/token",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Nonloopback listeners require a token of at least 32 characters with no internal whitespace. In the Mac app, enter the endpoint and token under "
+        },
+        {
+          "insert": "This Mac",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": "; tokens are stored in Keychain."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-use-an-https-reverse-pro-30": {
+      "id": "b-readme-use-an-https-reverse-pro-30",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Use an HTTPS reverse proxy for hosted servers and hostnames, including Tailscale MagicDNS names. The runner itself serves HTTP."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-http-is-accepted-for-loc-31": {
+      "id": "b-readme-http-is-accepted-for-loc-31",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "HTTP is accepted for localhost and literal Tailscale IPs in "
+        },
+        {
+          "insert": "100.64.0.0/10",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " or "
+        },
+        {
+          "insert": "fd7a:115c:a1e0::/48",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " on your connected tailnet. Sotto checks the address range, not routing; use HTTPS if that private route cannot be assured."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-ordinary-lan-ips-require-32": {
+      "id": "b-readme-ordinary-lan-ips-require-32",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Ordinary LAN IPs require HTTPS. Endpoints cannot contain credentials, queries, or fragments. Credential-bearing redirects are not followed."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-keep-the-data-directory-33": {
+      "id": "b-readme-keep-the-data-directory-33",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Keep the data directory on persistent storage and back it up. Only one runner can own it. See "
+        },
+        {
+          "insert": "storage",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/10-architecture"
+            }
+          }
+        },
+        {
+          "insert": " and the "
+        },
+        {
+          "insert": "HTTP API",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "10-system-design/20-http-api"
+            }
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-containers-34": {
+      "id": "b-readme-containers-34",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Containers"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-build-from-the-repositor-35": {
+      "id": "b-readme-build-from-the-repositor-35",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Build from the repository root with initialized submodules:"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-36": {
+      "id": "b-readme-sh-36",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "docker build -f Server/Dockerfile --target cpu -t sotto-server:cpu .\ndocker build -f Server/Dockerfile --target cuda -t sotto-server:cuda ."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-cuda-architectures-c-37": {
+      "id": "b-readme-cuda-architectures-c-37",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "CUDA_ARCHITECTURES",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "CUDA_IMAGE",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "SWIFT_IMAGE",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "BUILD_JOBS",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " are build arguments. Choose CUDA architectures/toolkit/driver versions for your GPU. GPU containers require NVIDIA Container Toolkit and "
+        },
+        {
+          "insert": "--gpus all",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; Linux containers on a Mac do not have Metal access."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-mount-a-directory-contai-38": {
+      "id": "b-readme-mount-a-directory-contai-38",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Mount a directory containing the Whisper "
+        },
+        {
+          "insert": ".bin",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and Qwen "
+        },
+        {
+          "insert": ".gguf",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " files, plus a token file:"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-39": {
+      "id": "b-readme-sh-39",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "docker run --rm --name sotto-server \\\n  -p 127.0.0.1:8391:8391 \\\n  --mount type=volume,source=sotto-data,target=/data \\\n  --mount type=bind,source=/absolute/path/to/models,target=/models,readonly \\\n  --mount type=bind,source=/absolute/path/to/token,target=/run/secrets/sotto-token,readonly \\\n  sotto-server:cpu"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-for-a-gpu-server-use-s-40": {
+      "id": "b-readme-for-a-gpu-server-use-s-40",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "For a GPU server, use "
+        },
+        {
+          "insert": "sotto-server:cuda",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and add "
+        },
+        {
+          "insert": "--gpus all",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The example exposes only host loopback; use the remote-access setup above for clients on other machines. The container runs as UID 10001, which must be able to read model/token files and write "
+        },
+        {
+          "insert": "/data",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The named volume preserves history across container replacement."
+        }
+      ],
+      "children": []
+    },
+    "b-readme-verify-41": {
+      "id": "b-readme-verify-41",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Verify"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-sh-42": {
+      "id": "b-readme-sh-42",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "swift test\n./scripts/smoke-test.sh\nSOTTO_TEXT_MODEL=/absolute/path/to/qwen ./scripts/test-corrections.sh"
+        }
+      ],
+      "children": []
+    },
+    "b-readme-the-http-smoke-test-need-43": {
+      "id": "b-readme-the-http-smoke-test-need-43",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The HTTP smoke test needs an idle Dev server with proofreading enabled. It uses public sample audio, checks progress/artifacts, temporarily changes and restores retention settings, and removes its test generations. The helper test accepts the MLX directory on Mac or GGUF file on Linux and uses synthetic text. Neither opens a microphone. These checks do not establish live cursor-insertion behavior or GPU performance on a different machine."
+        }
+      ],
+      "children": []
+    }
+  }
+}

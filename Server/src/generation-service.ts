@@ -899,6 +899,8 @@ export class GenerationService {
       const allowed = [
         "metadata.json",
         "transcript.txt",
+        "raw.txt",
+        "clean.txt",
         "inference.wav",
         "original.wav",
         ...(record.importedSource?.artifactNames ?? []),
@@ -1218,6 +1220,11 @@ export class GenerationService {
         "metadata_too_large",
         "The generation metadata exceeded its 1 MiB storage limit.",
       );
+    // The archive worker treats metadata.json as the commit marker.
+    if (terminal(record)) {
+      await atomicPrivateWrite(join(this.directory(record.id), "raw.txt"), record.rawText);
+      await atomicPrivateWrite(join(this.directory(record.id), "clean.txt"), record.finalText);
+    }
     await atomicPrivateWrite(join(this.directory(record.id), "metadata.json"), data);
     this.publish(record);
   }

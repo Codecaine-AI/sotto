@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "id": "doc-496fdebfc61ec3cfb6f03b10263bf2fc",
+  "title": "Implementation",
+  "root": "root",
+  "blocks": {
+    "root": {
+      "id": "root",
+      "type": "paragraph",
+      "props": {},
+      "children": [
+        "b-30-implementation-the-implementation-separ-1",
+        "b-30-implementation-native-app-and-server-2",
+        "b-30-implementation-archive-worker-doc-30-3",
+        "b-30-implementation-whisper-helper-doc-30-4",
+        "b-30-implementation-qwen-helpers-doc-30-im-5"
+      ]
+    },
+    "b-30-implementation-the-implementation-separ-1": {
+      "id": "b-30-implementation-the-implementation-separ-1",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The implementation separates native dictation from portable archiving. Source references identify the owning modules; behavioral contracts remain in System Design."
+        }
+      ],
+      "children": []
+    },
+    "b-30-implementation-native-app-and-server-2": {
+      "id": "b-30-implementation-native-app-and-server-2",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Native App and Server",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "30-implementation/10-native-app-and-server"
+            }
+          }
+        },
+        {
+          "insert": ": Data integration and raw/clean persistence."
+        }
+      ],
+      "children": []
+    },
+    "b-30-implementation-archive-worker-doc-30-3": {
+      "id": "b-30-implementation-archive-worker-doc-30-3",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Archive Worker",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "30-implementation/20-archive-worker"
+            }
+          }
+        },
+        {
+          "insert": ": migration, cache, viewer, and installation."
+        }
+      ],
+      "children": []
+    },
+    "b-30-implementation-whisper-helper-doc-30-4": {
+      "id": "b-30-implementation-whisper-helper-doc-30-4",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Whisper Helper",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "30-implementation/30-whisper-helper"
+            }
+          }
+        },
+        {
+          "insert": ": speech process and protocol."
+        }
+      ],
+      "children": []
+    },
+    "b-30-implementation-qwen-helpers-doc-30-im-5": {
+      "id": "b-30-implementation-qwen-helpers-doc-30-im-5",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Qwen Helpers",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "30-implementation/40-qwen-helpers"
+            }
+          }
+        },
+        {
+          "insert": ": proofreading runtimes and bounds."
+        }
+      ],
+      "children": []
+    }
+  }
+}
