@@ -152,7 +152,7 @@ bun install --frozen-lockfile
 bun run dev
 ```
 
-The source server hot reloads, listens on `0.0.0.0:8392`, and keeps data and its automatically created private token under `.local/dev-server`. On Siva, open [server health](http://siva.otter-hawksbill.ts.net:8392/v1/health). Build helpers once with `./scripts/build-server.sh` and set `V07_SPEECH_MODEL` and `V07_TEXT_MODEL` to enable dictation. Missing assets leave the server running with `ready: false`; HTTP reachability does not establish working inference. CLI arguments and the environment variables above override development defaults.
+The source server hot reloads, listens on `0.0.0.0:8392`, and keeps data and its automatically created private token under `.local/dev-server`. On Siva, open [server health](http://siva.otter-hawksbill.ts.net:8392/v1/health). Build helpers once with `./scripts/build-server.sh` and set `V07_SPEECH_MODEL` and `V07_TEXT_MODEL` to enable dictation. Missing assets leave the server running with `ready: false`; HTTP reachability does not establish working inference. CLI arguments and the environment variables above override development defaults, except that inherited `V07_SERVER_DATA_DIR` is ignored. Use `--data-dir` to explicitly select another development archive.
 
 ```sh
 bun run fmt

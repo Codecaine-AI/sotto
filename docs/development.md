@@ -12,6 +12,7 @@ bun run dev
 
 - Bun reloads source changes. Stop this foreground instance with Ctrl-C.
 - The default listener is `0.0.0.0:8392`; development data lives in `.local/dev-server/data`. This differs from the packaged Mac runner's port 8391 and `.local/server` archive.
+- The launcher ignores inherited `V07_SERVER_DATA_DIR` settings. Select another development archive explicitly with `--data-dir`.
 - A private token is created once at `.local/dev-server/token` and reused on reload. Do not print or commit its value. Use the token in the native client's server settings; `V07_SERVER_TOKEN_FILE` or `--token-file` can select an existing token file.
 - On Siva, open [server health](http://siva.otter-hawksbill.ts.net:8392/v1/health) in the collaborative browser. For another machine, use its reachable hostname or Tailscale address and the selected port.
 - The server starts without native assets and reports `ready: false`. To enable dictation, follow [model setup](../Server/README.md#models), set `V07_SPEECH_MODEL` and `V07_TEXT_MODEL`, and run `./scripts/build-server.sh` once to build the real helpers and VAD. Existing helpers can be selected with `V07_ENGINE_PATH`, `V07_TEXT_ENGINE_PATH`, and `V07_VAD_PATH`.

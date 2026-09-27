@@ -27,7 +27,6 @@ if (process.argv.includes("--help") || process.argv.includes("-h")) {
   const environment = {
     V07_SERVER_HOST: "0.0.0.0",
     V07_SERVER_PORT: "8392",
-    V07_SERVER_DATA_DIR: resolve(directory, "data"),
     V07_SERVER_TOKEN_FILE: tokenFile,
     V07_ENGINE_PATH: resolve(projectDirectory, "build/server/helpers/v07-engine"),
     V07_VAD_PATH: resolve(projectDirectory, "build/server/resources/silero-vad.bin"),
@@ -39,6 +38,9 @@ if (process.argv.includes("--help") || process.argv.includes("-h")) {
       ? resolve(homedir(), ".v07/models/Qwen3-4B-Instruct-2507-MLX-4bit")
       : resolve(directory, "models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf"),
     ...process.env,
+    // A regular server's exported archive must never become the dev default.
+    // Explicit --data-dir arguments still take precedence in parseConfiguration.
+    V07_SERVER_DATA_DIR: resolve(directory, "data"),
     V07_DEV: "1",
   };
   const configuration = await parseConfiguration(arguments_, environment);
