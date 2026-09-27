@@ -302,14 +302,14 @@ export class NativeInference implements InferenceBackend {
       !response.language.length ||
       bytes(response.language) > 32
     ) {
-      void this.speech.shutdown();
+      await this.speech.shutdown();
       throw new InferenceError("invalidResponse", "Whisper returned an invalid transcript.");
     }
     let hints: ModelHintUsage | undefined;
     try {
       hints = vocabularyDiagnostics(response, vocabularyTerms);
     } catch (error) {
-      void this.speech.shutdown();
+      await this.speech.shutdown();
       throw error;
     }
     const state = this.speech.snapshot();
@@ -369,7 +369,7 @@ export class NativeInference implements InferenceBackend {
       !Number.isFinite(response.elapsed) ||
       response.elapsed < 0
     ) {
-      void this.proof.shutdown();
+      await this.proof.shutdown();
       throw new InferenceError("invalidResponse", "Qwen returned an invalid correction.");
     }
     const state = this.proof.snapshot();

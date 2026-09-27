@@ -13,7 +13,7 @@ V07's native Swift macOS client handles microphone capture, shortcuts, and curso
 | `Server/api/openapi.yaml` | Language-neutral HTTP and wire-model contract.                                              |
 | `Server/src`              | Packaged TypeScript HTTP server, durable coordinator, text pipeline, and helper management. |
 | `Sources/V07Domain`       | Dictionary, list formatting, rewrite validation, and composition.                           |
-| `Sources/V07ServerKit`    | Reference Swift server retained for migration parity tests.                                 |
+| `Sources/V07ServerKit`    | Reference Swift server retained for source comparison.                                      |
 | `Sources/V07Server`       | Reference Swift server command-line entry point.                                            |
 | `Engine`                  | Persistent whisper.cpp speech helper; Metal on Mac, CPU/CUDA on Linux.                      |
 | `TextEngine`              | Persistent Qwen helper; Swift MLX on Mac, llama.cpp on Linux.                               |
