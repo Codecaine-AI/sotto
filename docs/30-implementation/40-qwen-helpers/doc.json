@@ -23,10 +23,7 @@
         "b-readme-request-state-is-cleared-12",
         "b-readme-diagnostics-use-stderr-a-13",
         "b-readme-verify-14",
-        "b-readme-with-a-built-package-and-15",
-        "b-readme-sh-16",
-        "b-readme-this-selects-the-platfor-17",
-        "b-readme-the-suites-use-synthetic-18"
+        "b-readme-with-a-built-package-and-15"
       ]
     },
     "b-readme-the-server-packages-sot-1": {
@@ -38,7 +35,7 @@
           "insert": "The server packages "
         },
         {
-          "insert": "sotto-text-engine",
+          "insert": "v07-text-engine",
           "attributes": {
             "code": true
           }
@@ -321,96 +318,64 @@
       "props": {},
       "text": [
         {
-          "insert": "With a built package and "
+          "insert": "Build with "
         },
         {
-          "insert": "SOTTO_TEXT_MODEL",
+          "insert": "./scripts/build-server.sh",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " set to its model directory/file:"
-        }
-      ],
-      "children": []
-    },
-    "b-readme-sh-16": {
-      "id": "b-readme-sh-16",
-      "type": "code",
-      "props": {
-        "language": "sh"
-      },
-      "text": [
-        {
-          "insert": "./scripts/test-corrections.sh"
-        }
-      ],
-      "children": []
-    },
-    "b-readme-this-selects-the-platfor-17": {
-      "id": "b-readme-this-selects-the-platfor-17",
-      "type": "paragraph",
-      "props": {},
-      "text": [
-        {
-          "insert": "This selects the platform's harness and exports the canonical default from "
+          "insert": " and set "
         },
         {
-          "insert": "build/server/sotto-server",
+          "insert": "V07_TEXT_MODEL",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": ". To test a custom prompt, add "
+          "insert": " to the model directory or file. Use "
         },
         {
-          "insert": "--prompt /absolute/path/to/prompt.txt",
+          "insert": "V07 Dev",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " to dictate with proofreading enabled, then inspect raw and cleaned transcripts, cleanup outcomes, dictionary names, numbers, and negations in history. To exercise a custom prompt, edit "
+        },
+        {
+          "insert": "Cleanup instructions",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", save shared preferences, and record another take. The "
+        },
+        {
+          "insert": "Development",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/40-development"
+            }
+          }
+        },
+        {
+          "insert": " guide has the setup. "
+        },
+        {
+          "insert": "AGENTS.md",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": "; the file is used exactly, including any trailing newlines. Use "
-        },
-        {
-          "insert": "--server",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": " when running "
-        },
-        {
-          "insert": "test-text-engine.py",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": " or "
-        },
-        {
-          "insert": "test-llama-engine.py",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": " directly against a different server build."
-        }
-      ],
-      "children": []
-    },
-    "b-readme-the-suites-use-synthetic-18": {
-      "id": "b-readme-the-suites-use-synthetic-18",
-      "type": "paragraph",
-      "props": {},
-      "text": [
-        {
-          "insert": "The suites use synthetic text to check corrections, numbers/negations, names, literal role markers, bounds, request isolation, and process shutdown. Portable Swift tests cover server lifecycle and output validation without model files. These checks do not establish microphone or cross-app insertion behavior."
+          "insert": " prohibits automated test harnesses."
         }
       ],
       "children": []

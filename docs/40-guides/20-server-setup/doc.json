@@ -36,6 +36,7 @@
         "b-readme-check-curl-http-local-25",
         "b-readme-argument-environment-26-table",
         "b-readme-the-dev-runner-fixes-its-27",
+        "server-setup-launchd-service",
         "b-readme-remote-access-28",
         "b-readme-bind-to-a-reachable-addr-29",
         "b-readme-use-an-https-reverse-pro-30",
@@ -51,7 +52,8 @@
         "b-readme-for-a-gpu-server-use-s-40",
         "b-readme-verify-41",
         "b-readme-sh-42",
-        "b-readme-the-http-smoke-test-need-43"
+        "b-readme-the-http-smoke-test-need-43",
+        "server-setup-source-server-port"
       ]
     },
     "b-readme-the-server-is-an-indepen-1": {
@@ -60,7 +62,16 @@
       "props": {},
       "text": [
         {
-          "insert": "The server is an independent HTTP process that owns models, shared preferences, recordings, and history. For same-Mac development, start with the "
+          "insert": "The server is an independent TypeScript/Fastify HTTP process that owns models, shared preferences, recordings, and history. Bun manages its dependencies and compiles a standalone executable with the runtime included. Native inference helpers run as separate processes. Upstream names the executable and helpers with a "
+        },
+        {
+          "insert": "v07-",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " prefix. For same-Mac development, start with the "
         },
         {
           "insert": "quick start",
@@ -97,16 +108,13 @@
             "Whisper large-v3-turbo / whisper.cpp / CPU or CUDA",
             [
               {
-                "insert": "Qwen3-4B-Instruct-2507 / llama.cpp / Q4"
+                "insert": "Qwen3-4B-Instruct-2507 / llama.cpp / "
               },
               {
-                "insert": "K",
+                "insert": "Q4_K_M",
                 "attributes": {
-                  "italic": true
+                  "code": true
                 }
-              },
-              {
-                "insert": "M"
               }
             ]
           ]
@@ -159,7 +167,7 @@
       },
       "text": [
         {
-          "insert": "SOTTO_MODEL_DIR=\"$PWD/.local/models\" ./scripts/download-model.sh"
+          "insert": "V07_MODEL_DIR=\"$PWD/.local/models\" ./scripts/download-model.sh"
         }
       ],
       "children": []
@@ -191,7 +199,7 @@
           "insert": " and "
         },
         {
-          "insert": "Sources/SottoCore/SpeechModel.swift",
+          "insert": "Sources/V07Core/SpeechModel.swift",
           "attributes": {
             "code": true
           }
@@ -234,7 +242,7 @@
       },
       "text": [
         {
-          "insert": "(\n  set -e\n  sotto_qwen_dir=\"$PWD/.local/models/Qwen3-4B-Instruct-2507-MLX-4bit\"\n  sotto_qwen_url=\"https://huggingface.co/mlx-community/Qwen3-4B-Instruct-2507-4bit/resolve/50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b\"\n  mkdir -p \"$sotto_qwen_dir\"\n  for file in model.safetensors config.json tokenizer.json tokenizer_config.json generation_config.json chat_template.jinja; do\n    curl --fail --location --retry 3 --output \"$sotto_qwen_dir/$file\" \"$sotto_qwen_url/$file\"\n  done\n)"
+          "insert": "(\n  set -e\n  v07_qwen_dir=\"$PWD/.local/models/Qwen3-4B-Instruct-2507-MLX-4bit\"\n  v07_qwen_url=\"https://huggingface.co/mlx-community/Qwen3-4B-Instruct-2507-4bit/resolve/50d427756c6b1b2fe0c0a10f67fbda1fc8e82c1b\"\n  mkdir -p \"$v07_qwen_dir\"\n  for file in model.safetensors config.json tokenizer.json tokenizer_config.json generation_config.json chat_template.jinja; do\n    curl --fail --location --retry 3 --output \"$v07_qwen_dir/$file\" \"$v07_qwen_url/$file\"\n  done\n)"
         }
       ],
       "children": []
@@ -245,7 +253,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Sources/SottoCore/TextModel.swift",
+          "insert": "Sources/V07Core/TextModel.swift",
           "attributes": {
             "code": true
           }
@@ -321,7 +329,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Initialize submodules with "
+          "insert": "Install Bun 1.4.2 and initialize submodules with "
         },
         {
           "insert": "git submodule update --init --recursive",
@@ -330,7 +338,7 @@
           }
         },
         {
-          "insert": ". macOS requires Apple Silicon and full Xcode with its Metal compiler; the complete client/server build uses Xcode 26+ and Swift 6.2+. If Metal is missing, run "
+          "insert": ". macOS requires Apple Silicon and full Xcode with its Metal compiler for the MLX helper; the complete client and helper build uses Xcode 26+ and Swift 6.2+. If Metal is missing, run "
         },
         {
           "insert": "xcodebuild -downloadComponent MetalToolchain",
@@ -350,7 +358,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Linux requires Swift 6.2+, a C/C++ toolchain, CMake, Git, curl, pkg-config, and libcurl development headers. CUDA builds also need a compatible NVIDIA driver and CUDA toolkit. The "
+          "insert": "Linux requires Bun, a C/C++ toolchain, CMake, Git, curl, pkg-config, and libcurl development headers. Swift is not required. CUDA builds also need a compatible NVIDIA driver and CUDA toolkit. The "
         },
         {
           "insert": "Dockerfile",
@@ -359,7 +367,7 @@
           }
         },
         {
-          "insert": " provides a pinned build environment."
+          "insert": " provides a pinned Ubuntu 24.04 build environment."
         }
       ],
       "children": []
@@ -372,7 +380,7 @@
       },
       "text": [
         {
-          "insert": "./scripts/build-server.sh                  # macOS Metal/MLX; Linux CPU\nSOTTO_CUDA=ON ./scripts/build-server.sh     # Linux with CUDA"
+          "insert": "./scripts/build-server.sh                  # macOS Metal/MLX; Linux CPU\nV07_CUDA=ON ./scripts/build-server.sh       # Linux with CUDA"
         }
       ],
       "children": []
@@ -392,7 +400,16 @@
           }
         },
         {
-          "insert": ": executable, native helpers, VAD, notices, and resources. Keep the package together; the Mac proofreader requires the adjacent Metal library and bundles. Large model weights and user data live outside it."
+          "insert": ": the "
+        },
+        {
+          "insert": "v07-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " executable, native helpers, VAD, notices, and resources. Each build replaces the whole directory. Keep the package together; the Mac proofreader requires the adjacent Metal library and bundles. Large model weights and user data live outside it."
         }
       ],
       "children": []
@@ -403,7 +420,7 @@
       "props": {},
       "text": [
         {
-          "insert": "SOTTO_BUILD_JOBS",
+          "insert": "V07_BUILD_JOBS",
           "attributes": {
             "code": true
           }
@@ -412,7 +429,7 @@
           "insert": " controls build concurrency. For another CPU/GPU host, use "
         },
         {
-          "insert": "SOTTO_NATIVE=OFF",
+          "insert": "V07_NATIVE=OFF",
           "attributes": {
             "code": true
           }
@@ -421,13 +438,13 @@
           "insert": " and set "
         },
         {
-          "insert": "SOTTO_CUDA_ARCHITECTURES",
+          "insert": "V07_CUDA_ARCHITECTURES",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " for the destination GPU. CPU support is useful for compatibility tests; validate CUDA support, memory, and dictation latency on the selected host."
+          "insert": " for the destination GPU. CPU support is useful for portable builds; validate CUDA support, memory, and dictation latency on the selected host."
         }
       ],
       "children": []
@@ -464,7 +481,7 @@
       },
       "text": [
         {
-          "insert": "./build/server/sotto-server \\\n  --host 127.0.0.1 --port 8391 \\\n  --data-dir \"$PWD/.local/server\" \\\n  --speech-helper \"$PWD/build/server/helpers/sotto-engine\" \\\n  --speech-model \"$PWD/.local/models/ggml-large-v3-turbo.bin\" \\\n  --vad-model \"$PWD/build/server/resources/silero-vad.bin\" \\\n  --proof-helper \"$PWD/build/server/helpers/sotto-text-engine\" \\\n  --proof-model \"$PWD/.local/models/Qwen3-4B-Instruct-2507-MLX-4bit\""
+          "insert": "./build/server/v07-server \\\n  --host 127.0.0.1 --port 8391 \\\n  --data-dir \"$PWD/.local/server\" \\\n  --speech-helper \"$PWD/build/server/helpers/v07-engine\" \\\n  --speech-model \"$PWD/.local/models/ggml-large-v3-turbo.bin\" \\\n  --vad-model \"$PWD/build/server/resources/silero-vad.bin\" \\\n  --proof-helper \"$PWD/build/server/helpers/v07-text-engine\" \\\n  --proof-model \"$PWD/.local/models/Qwen3-4B-Instruct-2507-MLX-4bit\""
         }
       ],
       "children": []
@@ -504,7 +521,7 @@
           }
         },
         {
-          "insert": "; HTTP reachability alone does not mean the models are ready. The "
+          "insert": "; HTTP reachability alone does not mean inference is available. The "
         },
         {
           "insert": "ready",
@@ -513,7 +530,7 @@
           }
         },
         {
-          "insert": " field means the server can accept a recording. Quitting a client does not stop this process. Use launchd, systemd, or container supervision for boot/restart behavior; the scripts do not install a service."
+          "insert": " field means the server can accept a recording, including while other recordings are uploading or processing. Finished uploads queue for serial inference. Quitting a client does not stop this process. Use launchd, systemd, or container supervision for boot/restart behavior; the scripts do not install a service."
         }
       ],
       "children": []
@@ -547,7 +564,7 @@
             ],
             [
               {
-                "insert": "SOTTO_SERVER_HOST",
+                "insert": "V07_SERVER_HOST",
                 "attributes": {
                   "code": true
                 }
@@ -556,7 +573,7 @@
                 "insert": ", "
               },
               {
-                "insert": "SOTTO_SERVER_PORT",
+                "insert": "V07_SERVER_PORT",
                 "attributes": {
                   "code": true
                 }
@@ -583,7 +600,7 @@
             ],
             [
               {
-                "insert": "SOTTO_SERVER_DATA_DIR",
+                "insert": "V07_SERVER_DATA_DIR",
                 "attributes": {
                   "code": true
                 }
@@ -592,7 +609,7 @@
                 "insert": ", "
               },
               {
-                "insert": "SOTTO_SERVER_TOKEN_FILE",
+                "insert": "V07_SERVER_TOKEN_FILE",
                 "attributes": {
                   "code": true
                 }
@@ -619,7 +636,7 @@
             ],
             [
               {
-                "insert": "SOTTO_ENGINE_PATH",
+                "insert": "V07_ENGINE_PATH",
                 "attributes": {
                   "code": true
                 }
@@ -628,7 +645,7 @@
                 "insert": ", "
               },
               {
-                "insert": "SOTTO_SPEECH_MODEL",
+                "insert": "V07_SPEECH_MODEL",
                 "attributes": {
                   "code": true
                 }
@@ -646,7 +663,7 @@
             ],
             [
               {
-                "insert": "SOTTO_VAD_PATH",
+                "insert": "V07_VAD_PATH",
                 "attributes": {
                   "code": true
                 }
@@ -673,7 +690,7 @@
             ],
             [
               {
-                "insert": "SOTTO_TEXT_ENGINE_PATH",
+                "insert": "V07_TEXT_ENGINE_PATH",
                 "attributes": {
                   "code": true
                 }
@@ -682,7 +699,7 @@
                 "insert": ", "
               },
               {
-                "insert": "SOTTO_TEXT_MODEL",
+                "insert": "V07_TEXT_MODEL",
                 "attributes": {
                   "code": true
                 }
@@ -700,7 +717,7 @@
             ],
             [
               {
-                "insert": "SOTTO_DEV=1",
+                "insert": "V07_DEV=1",
                 "attributes": {
                   "code": true
                 }
@@ -738,7 +755,7 @@
           "insert": " for logs. Set "
         },
         {
-          "insert": "SOTTO_SPEECH_MODEL",
+          "insert": "V07_SPEECH_MODEL",
           "attributes": {
             "code": true
           }
@@ -747,16 +764,16 @@
           "insert": " and "
         },
         {
-          "insert": "SOTTO_TEXT_MODEL",
+          "insert": "V07_TEXT_MODEL",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " when using the paths above. Without those overrides, macOS searches the existing locations "
+          "insert": " when using the paths above. Without those overrides, macOS searches "
         },
         {
-          "insert": "~/Library/Application Support/Murmur/Models/ggml-large-v3-turbo.bin",
+          "insert": "~/Library/Application Support/V07/Models/ggml-large-v3-turbo.bin",
           "attributes": {
             "code": true
           }
@@ -765,13 +782,96 @@
           "insert": " and "
         },
         {
-          "insert": "~/.murmur/models/Qwen3-4B-Instruct-2507-MLX-4bit",
+          "insert": "~/.v07/models/Qwen3-4B-Instruct-2507-MLX-4bit",
           "attributes": {
             "code": true
           }
         },
         {
           "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "server-setup-launchd-service": {
+      "id": "server-setup-launchd-service",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "On Ford's Mac, the launchd service "
+        },
+        {
+          "insert": "ai.codecaine.sotto.server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " runs the server on port 8391 with "
+        },
+        {
+          "insert": ".local/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " as its data directory. Its plist has copies in "
+        },
+        {
+          "insert": ".local",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "~/Library/LaunchAgents",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Both name "
+        },
+        {
+          "insert": "build/server/sotto-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and the "
+        },
+        {
+          "insert": "sotto-engine",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "sotto-text-engine",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " helpers from the build made before the V07 rename. A rebuild replaces those files with the "
+        },
+        {
+          "insert": "v07-",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " names, so edit both plists before you restart the service. The label keeps the name Sotto."
         }
       ],
       "children": []
@@ -857,7 +957,7 @@
           }
         },
         {
-          "insert": " on your connected tailnet. Sotto checks the address range, not routing; use HTTPS if that private route cannot be assured."
+          "insert": " on your connected tailnet. The client checks the address range, not routing; use HTTPS if that private route cannot be assured."
         }
       ],
       "children": []
@@ -942,7 +1042,7 @@
       },
       "text": [
         {
-          "insert": "docker build -f Server/Dockerfile --target cpu -t sotto-server:cpu .\ndocker build -f Server/Dockerfile --target cuda -t sotto-server:cuda ."
+          "insert": "docker build -f Server/Dockerfile --target cpu -t v07-server:cpu .\ndocker build -f Server/Dockerfile --target cuda -t v07-server:cuda ."
         }
       ],
       "children": []
@@ -971,7 +1071,16 @@
           "insert": ", "
         },
         {
-          "insert": "SWIFT_IMAGE",
+          "insert": "BUN_IMAGE",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "UBUNTU_IMAGE",
           "attributes": {
             "code": true
           }
@@ -1037,7 +1146,7 @@
       },
       "text": [
         {
-          "insert": "docker run --rm --name sotto-server \\\n  -p 127.0.0.1:8391:8391 \\\n  --mount type=volume,source=sotto-data,target=/data \\\n  --mount type=bind,source=/absolute/path/to/models,target=/models,readonly \\\n  --mount type=bind,source=/absolute/path/to/token,target=/run/secrets/sotto-token,readonly \\\n  sotto-server:cpu"
+          "insert": "docker run --rm --name v07-server \\\n  -p 127.0.0.1:8391:8391 \\\n  --mount type=volume,source=v07-data,target=/data \\\n  --mount type=bind,source=/absolute/path/to/models,target=/models,readonly \\\n  --mount type=bind,source=/absolute/path/to/token,target=/run/secrets/v07-token,readonly \\\n  v07-server:cpu"
         }
       ],
       "children": []
@@ -1051,7 +1160,7 @@
           "insert": "For a GPU server, use "
         },
         {
-          "insert": "sotto-server:cuda",
+          "insert": "v07-server:cuda",
           "attributes": {
             "code": true
           }
@@ -1101,7 +1210,7 @@
       },
       "text": [
         {
-          "insert": "swift test\n./scripts/smoke-test.sh\nSOTTO_TEXT_MODEL=/absolute/path/to/qwen ./scripts/test-corrections.sh"
+          "insert": "bun install --frozen-lockfile\nbun run fmt:check\nbun run lint\nbun run check"
         }
       ],
       "children": []
@@ -1112,7 +1221,108 @@
       "props": {},
       "text": [
         {
-          "insert": "The HTTP smoke test needs an idle Dev server with proofreading enabled. It uses public sample audio, checks progress/artifacts, temporarily changes and restores retention settings, and removes its test generations. The helper test accepts the MLX directory on Mac or GGUF file on Linux and uses synthetic text. Neither opens a microphone. These checks do not establish live cursor-insertion behavior or GPU performance on a different machine."
+          "insert": "check",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " runs strict TypeScript checking and verifies the generated TypeScript bindings against OpenAPI. "
+        },
+        {
+          "insert": "lint",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " runs type-aware correctness rules and fails on warnings. When you change Swift or the API on macOS, also run "
+        },
+        {
+          "insert": "bun run generate:api --check",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "swift build --force-resolved-versions",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". "
+        },
+        {
+          "insert": "AGENTS.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " prohibits automated tests and test harnesses. Verify changed behavior with real dictation in V07 Dev, as the "
+        },
+        {
+          "insert": "Development",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/40-development"
+            }
+          }
+        },
+        {
+          "insert": " guide describes."
+        }
+      ],
+      "children": []
+    },
+    "server-setup-source-server-port": {
+      "id": "server-setup-source-server-port",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The source server, "
+        },
+        {
+          "insert": "bun run dev",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", hot reloads and listens on "
+        },
+        {
+          "insert": "0.0.0.0:8392",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", with its data and a private token under "
+        },
+        {
+          "insert": ".local/dev-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Port 8392 is also the archive viewer's port on Ford's Mac. There, start the source server on a free port, for example "
+        },
+        {
+          "insert": "bun run dev --port 8393",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []

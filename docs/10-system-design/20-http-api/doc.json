@@ -15,6 +15,7 @@
         "b-client-server-contract-errors-are-apierrorresp-4",
         "b-client-server-contract-generation-semantics-5",
         "b-client-server-contract-server-owns-settings-dic-6",
+        "http-api-recording-queue",
         "b-client-server-contract-inference-audio-is-mono-7",
         "b-client-server-contract-sequence-counts-are-inde-8",
         "b-client-server-contract-native-helpers-remain-se-9",
@@ -43,19 +44,33 @@
           }
         },
         {
-          "insert": ". JSON uses ISO-8601 dates and the wire types in "
+          "insert": ". "
         },
         {
-          "insert": "`Sources/SottoAPI/API.swift`",
+          "insert": "Server/api/openapi.yaml",
           "attributes": {
+            "code": true,
             "reference": {
               "kind": "source",
-              "path": "Sources/SottoAPI/API.swift"
+              "path": "Server/api/openapi.yaml"
             }
           }
         },
         {
-          "insert": ". macOS and Linux expose the same API. See "
+          "insert": " defines the transport contract and generates the TypeScript and Swift types. "
+        },
+        {
+          "insert": "Sources/V07API/API.swift",
+          "attributes": {
+            "code": true,
+            "reference": {
+              "kind": "source",
+              "path": "Sources/V07API/API.swift"
+            }
+          }
+        },
+        {
+          "insert": " holds the Swift client-facing facade and defaults. JSON uses whole-second ISO-8601 UTC dates. macOS and Linux expose the same API. See "
         },
         {
           "insert": "server setup",
@@ -429,7 +444,7 @@
           }
         },
         {
-          "insert": "; relevant codes 400 invalid input, 401 auth, 404 missing, 409 stale/conflict/busy, 413 limits, 503 unavailable. Bearer authorization on data routes if token configured; nonloopback server binds require a token. Remote connections use HTTPS; localhost and explicit Tailscale endpoints can use HTTP. No credentials in URLs or diagnostics."
+          "insert": "; relevant codes 400 invalid input, 401 auth, 404 missing, 409 stale/conflict, 413 limits, 503 unavailable. Bearer authorization on data routes if token configured; nonloopback server binds require a token. Remote connections use HTTPS; localhost and explicit Tailscale endpoints can use HTTP. No credentials in URLs or diagnostics."
         }
       ],
       "children": []
@@ -456,6 +471,19 @@
       "text": [
         {
           "insert": "Server owns settings/dictionary, inference, formatting, proofreading, rewrite guards, composition, artifacts and history. Client owns only ephemeral capture/AX anchors and device preferences."
+        }
+      ],
+      "children": []
+    },
+    "http-api-recording-queue": {
+      "id": "http-api-recording-queue",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Receiving uploads are independent. Finishing a complete upload seals its audio and queues processing in finish order, and inference runs serially. Health readiness indicates admission availability, regardless of other receiving, queued, or processing recordings. Cancellation affects only the named generation."
         }
       ],
       "children": []

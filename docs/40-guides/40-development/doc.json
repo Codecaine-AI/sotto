@@ -27,6 +27,12 @@
         "b-readme-sh-16",
         "b-readme-set-its-url-and-token-un-17",
         "b-readme-daily-development-18",
+        "dev-source-server-lead",
+        "dev-source-server-commands",
+        "dev-source-server-notes",
+        "dev-static-checks",
+        "dev-no-automated-tests",
+        "dev-packaged-runner-lead",
         "b-readme-sh-19",
         "b-readme-keep-the-model-path-expo-20",
         "b-readme-the-dev-runner-stores-sh-21",
@@ -43,6 +49,7 @@
         "signing-mechanism-heading",
         "signing-mechanism",
         "signing-identity-storage",
+        "signing-identity-this-mac",
         "signing-build-behavior",
         "signing-installer-behavior",
         "signing-recovery-heading",
@@ -73,7 +80,34 @@
       "props": {},
       "text": [
         {
-          "insert": "This guide retains the upstream development instructions. Codecaine’s archive worker additionally requires Python 3.12 or later; the installed local setup is described in "
+          "insert": "This guide follows upstream's "
+        },
+        {
+          "insert": "README.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "docs/development.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", which use the name V07. It adds the fork's workflow for building and installing Transcriber, which "
+        },
+        {
+          "insert": "TRANSCRIBER.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " summarizes. Codecaine's archive worker additionally requires Python 3.12 or later. The installed local setup is described in "
         },
         {
           "insert": "Local Setup",
@@ -96,7 +130,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Hold a key, speak, and release to insert your dictation. Sotto is a native macOS app backed by a model server running on the same Mac, another Mac, or Linux. Audio uploads while you speak; the server returns progress and one finished transcript."
+          "insert": "Hold a key, speak, and release to insert your dictation. V07 is a native Swift macOS app backed by a Bun-compiled TypeScript/Fastify model server running on the same Mac, another Mac, or Linux. Audio uploads while you speak; the server returns progress and one finished transcript. You can start another take immediately. Finished recordings queue on the server, and each result returns to the client that recorded it."
         }
       ],
       "children": []
@@ -107,7 +141,16 @@
       "props": {},
       "text": [
         {
-          "insert": "The dev runner builds Sotto Dev with separate settings and permissions. For the installed daily-use app, use "
+          "insert": "The dev runner builds V07 Dev, bundle identifier "
+        },
+        {
+          "insert": "dev.davis.v07.dev",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", with separate settings and visible Dev labels. For the installed daily-use app, use "
         },
         {
           "insert": "./scripts/rebuild-local.sh",
@@ -116,7 +159,7 @@
           }
         },
         {
-          "insert": " after the one-time signing setup described below. Both clients connect to an independently running server."
+          "insert": " after the one-time signing setup described below. It installs Transcriber. Both clients connect to an independently running server."
         }
       ],
       "children": []
@@ -140,7 +183,7 @@
       "props": {},
       "text": [
         {
-          "insert": "You need Apple Silicon, macOS 14+, full Xcode 26+ with the Metal compiler, CMake, and Git. Xcode provides Swift; the build requires Swift 6.2+. The upstream native pipeline uses Python for tests; the Codecaine archive worker also requires Python 3.12 or later."
+          "insert": "You need Apple Silicon, macOS 14+, full Xcode 26+ with the Metal compiler, Bun 1.4.2, CMake, and Git. Xcode provides Swift; the client and MLX build requires Swift 6.2+. Bun manages JavaScript dependencies and builds the standalone server executable. The Codecaine archive worker requires Python 3.12 or later."
         }
       ],
       "children": []
@@ -195,7 +238,7 @@
       },
       "text": [
         {
-          "insert": "export SOTTO_SPEECH_MODEL=\"$PWD/.local/models/ggml-large-v3-turbo.bin\"\nexport SOTTO_TEXT_MODEL=\"$PWD/.local/models/Qwen3-4B-Instruct-2507-MLX-4bit\"\n./scripts/run-dev.sh"
+          "insert": "export V07_SPEECH_MODEL=\"$PWD/.local/models/ggml-large-v3-turbo.bin\"\nexport V07_TEXT_MODEL=\"$PWD/.local/models/Qwen3-4B-Instruct-2507-MLX-4bit\"\n./scripts/run-dev.sh"
         }
       ],
       "children": []
@@ -218,7 +261,7 @@
           "insert": ", and opens "
         },
         {
-          "insert": "build/Sotto Dev.app",
+          "insert": "build/V07 Dev.app",
           "attributes": {
             "code": true
           }
@@ -240,7 +283,7 @@
           "insert": "Grant "
         },
         {
-          "insert": "Sotto Dev",
+          "insert": "V07 Dev",
           "attributes": {
             "bold": true
           }
@@ -281,7 +324,7 @@
       },
       "text": [
         {
-          "insert": "Change the shortcut under "
+          "insert": "Change the shortcut and its trigger under "
         },
         {
           "insert": "This Mac",
@@ -325,7 +368,7 @@
           }
         },
         {
-          "insert": " shows a result in Sotto without inserting it. Fn/Globe is also supported; set macOS "
+          "insert": " shows a result in the app without inserting it. Fn/Globe is also supported; set macOS "
         },
         {
           "insert": "Keyboard → Press Globe key to → Do Nothing",
@@ -383,7 +426,7 @@
       },
       "text": [
         {
-          "insert": "./scripts/build-app.sh\nopen \"build/Sotto.app\""
+          "insert": "./scripts/build-app.sh\nopen \"build/V07.app\""
         }
       ],
       "children": []
@@ -403,7 +446,34 @@
           }
         },
         {
-          "insert": ". Use HTTPS for remote hosts, or HTTP with the server's literal Tailscale IP on your connected tailnet. The client needs no model weights or GPU for inference."
+          "insert": ". Use HTTPS for remote hosts, or HTTP with the server's literal Tailscale IP on your connected tailnet. The client needs no model weights or GPU for inference. "
+        },
+        {
+          "insert": "build/V07.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " carries upstream's identity. To build the fork's app without installing it, run "
+        },
+        {
+          "insert": "./scripts/rebuild-local.sh --build-only",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", which produces "
+        },
+        {
+          "insert": "build/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []
@@ -421,6 +491,163 @@
       ],
       "children": []
     },
+    "dev-source-server-lead": {
+      "id": "dev-source-server-lead",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "For server edits on macOS or Linux, install dependencies once and run the source with hot reload."
+        }
+      ],
+      "children": []
+    },
+    "dev-source-server-commands": {
+      "id": "dev-source-server-commands",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "bun install --frozen-lockfile\nbun run dev                 # Listens on 0.0.0.0:8392\nbun run dev --port 8393     # On Ford's Mac, where the archive viewer uses 8392"
+        }
+      ],
+      "children": []
+    },
+    "dev-source-server-notes": {
+      "id": "dev-source-server-notes",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The source server keeps its data in "
+        },
+        {
+          "insert": ".local/dev-server/data",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and creates a private token file at "
+        },
+        {
+          "insert": ".local/dev-server/token",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". It ignores an inherited "
+        },
+        {
+          "insert": "V07_SERVER_DATA_DIR",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "; pass "
+        },
+        {
+          "insert": "--data-dir",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " to select another development archive. Without helpers and models the server still starts, and health reports "
+        },
+        {
+          "insert": "ready: false",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". For dictation, build the native helpers once with "
+        },
+        {
+          "insert": "./scripts/build-server.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and set the model-path exports above."
+        }
+      ],
+      "children": []
+    },
+    "dev-static-checks": {
+      "id": "dev-static-checks",
+      "type": "code",
+      "props": {
+        "language": "sh"
+      },
+      "text": [
+        {
+          "insert": "bun run fmt\nbun run fmt:check\nbun run lint\nbun run check"
+        }
+      ],
+      "children": []
+    },
+    "dev-no-automated-tests": {
+      "id": "dev-no-automated-tests",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "AGENTS.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " prohibits adding, restoring, or running automated tests and test harnesses. Verify behavior by using "
+        },
+        {
+          "insert": "V07 Dev",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " on a Mac. The browser health endpoint alone cannot verify dictation or insertion. When you change Swift or the API, also run "
+        },
+        {
+          "insert": "bun run generate:api --check",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "swift build --force-resolved-versions",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "dev-packaged-runner-lead": {
+      "id": "dev-packaged-runner-lead",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "For the packaged Mac app and server, use the dev runner."
+        }
+      ],
+      "children": []
+    },
     "b-readme-sh-19": {
       "id": "b-readme-sh-19",
       "type": "code",
@@ -429,7 +656,7 @@
       },
       "text": [
         {
-          "insert": "./scripts/run-dev.sh start --skip-build   # Start existing builds\n./scripts/run-dev.sh status\n./scripts/run-dev.sh stop\n./scripts/run-dev.sh restart             # Rebuild and restart the server\nswift test\n./scripts/smoke-test.sh                  # Real HTTP/audio test; server must be idle\n./scripts/test-corrections.sh            # Real Qwen helper checks"
+          "insert": "./scripts/run-dev.sh start --skip-build   # Start existing builds\n./scripts/run-dev.sh status\n./scripts/run-dev.sh stop\n./scripts/run-dev.sh restart             # Rebuild and restart the server"
         }
       ],
       "children": []
@@ -440,7 +667,34 @@
       "props": {},
       "text": [
         {
-          "insert": "Keep the model-path exports set when starting the server or running helper checks. For frequent changes to the installed app, use the local signing workflow below. The development runner remains a separate app and preference directory."
+          "insert": "Keep the model-path exports set when starting the server. After rebuilding an already-open client, quit and reopen it to load the new executable. The dev runner defaults to port 8391 and "
+        },
+        {
+          "insert": ".local/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", which the installed server on Ford's Mac already uses. Before running it beside that installation, set "
+        },
+        {
+          "insert": "V07_SERVER_PORT",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " to an unused port and "
+        },
+        {
+          "insert": "V07_SERVER_DATA_DIR",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " to a separate directory. For frequent changes to the installed app, use the local signing workflow below."
         }
       ],
       "children": []
@@ -531,7 +785,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Use the installed-app workflow for frequent client customizations. Finish any active dictation before rebuilding, because installation quits and reopens Sotto. Run commands from the repository root."
+          "insert": "Use the installed-app workflow for frequent client customizations. Finish any active dictation before rebuilding, because installation quits and reopens Transcriber. Run commands from the repository root."
         }
       ],
       "children": []
@@ -544,7 +798,7 @@
       },
       "text": [
         {
-          "insert": "cd \"/Users/Ford/Github Repos/Codecaine/utilities/sotto\"\n./scripts/rebuild-local.sh"
+          "insert": "cd /Users/Ford/workspace/codecaine/utilities/sotto\n./scripts/rebuild-local.sh --build-only   # Build and sign build/Transcriber.app\n./scripts/rebuild-local.sh                # Build, back up the installed app, replace it, reopen it"
         }
       ],
       "children": []
@@ -555,7 +809,25 @@
       "props": {},
       "text": [
         {
-          "insert": "The command builds and signs a release client, checks its identity, keeps a rollback copy, and reopens /Applications/Sotto.app. Wait for \"Installed and opened\" and \"No macOS permissions were reset.\" Then test one sentence with the configured hold key. Routine rebuilds do not need the setup or adoption commands."
+          "insert": "The install command builds upstream's app, copies it to "
+        },
+        {
+          "insert": "build/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " with the Transcriber name and bundle identifier, and signs the copy. It then checks the identity, keeps a rollback copy of any installed Transcriber, and opens "
+        },
+        {
+          "insert": "/Applications/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Wait for \"Installed and opened\" and \"No macOS permissions were reset.\" Then test one sentence with the configured key. Routine rebuilds do not need the setup or adoption commands."
         }
       ],
       "children": []
@@ -590,7 +862,16 @@
           }
         },
         {
-          "insert": ". Approve a Keychain prompt for codesign to use Sotto Local Development if one appears. Initial setup verifies the same signing requirement on two distinct probe binaries. If configuration already exists, setup reuses it without rerunning those probes."
+          "insert": ". If "
+        },
+        {
+          "insert": "~/.config/transcriber/signing.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " exists, setup prints the configured identity and changes nothing. Otherwise it reuses a certificate named Transcriber Local Development from the login Keychain or creates one, then verifies the same signing requirement on two distinct probe binaries. Approve a Keychain prompt for codesign if one appears."
         }
       ],
       "children": []
@@ -612,7 +893,7 @@
           }
         },
         {
-          "insert": ". If deliberately switching an existing install to this certificate, use "
+          "insert": ". A first install needs no adoption flag because no Transcriber app is installed. If you deliberately change the certificate of an installed Transcriber, use "
         },
         {
           "insert": "./scripts/rebuild-local.sh --adopt-identity",
@@ -621,7 +902,7 @@
           }
         },
         {
-          "insert": " for that first replacement. Restore permissions with the steps below if required. Do not use adoption to bypass an unexplained identity mismatch."
+          "insert": " for that one replacement. Do not use adoption to bypass an unexplained identity mismatch."
         }
       ],
       "children": []
@@ -634,7 +915,16 @@
       },
       "text": [
         {
-          "insert": "Verify Sotto → This Mac shows Microphone and Accessibility as Allowed. Test dictation in a text field before making further changes."
+          "insert": "Grant Microphone and Accessibility when macOS asks. Confirm that "
+        },
+        {
+          "insert": "This Mac",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " in Transcriber shows both as Allowed. Test dictation in a text field before making further changes."
         }
       ],
       "children": []
@@ -669,7 +959,16 @@
       "props": {},
       "text": [
         {
-          "insert": "macOS checks an app's saved code requirement when applying privacy grants. Ad-hoc signing can bind that requirement to an executable hash that changes on rebuild. The local setup explicitly pins the bundle identifier dev.davis.murmur and the certificate fingerprint instead. A changed executable can satisfy the same requirement."
+          "insert": "macOS checks an app's saved code requirement when applying privacy grants. Ad-hoc signing can bind that requirement to an executable hash that changes on rebuild. The installer pins the bundle identifier "
+        },
+        {
+          "insert": "ai.codecaine.transcriber",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and the certificate fingerprint instead. A changed executable can satisfy the same requirement. Both stay the same across rebuilds and upstream syncs."
         }
       ],
       "children": []
@@ -679,9 +978,6 @@
       "type": "paragraph",
       "props": {},
       "text": [
-        {
-          "insert": "The self-signed certificate is named Sotto Local Development and is created with a ten-year validity period by "
-        },
         {
           "insert": "scripts/setup-local-signing.py",
           "attributes": {
@@ -693,10 +989,10 @@
           }
         },
         {
-          "insert": ". Its private key is imported as non-extractable into the login Keychain. "
+          "insert": " creates a self-signed certificate named Transcriber Local Development with a ten-year validity period. Its private key is imported as non-extractable into the login Keychain. "
         },
         {
-          "insert": "~/.config/sotto/signing.json",
+          "insert": "~/.config/transcriber/signing.json",
           "attributes": {
             "code": true
           }
@@ -712,6 +1008,26 @@
         },
         {
           "insert": " is public and cannot replace a lost private key. No Apple developer account is needed. This setup does not provide notarized distribution."
+        }
+      ],
+      "children": []
+    },
+    "signing-identity-this-mac": {
+      "id": "signing-identity-this-mac",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "On Ford's Mac the configuration names the certificate created before the rename, Sotto Local Development. Its fingerprint matches the earlier "
+        },
+        {
+          "insert": "~/.config/sotto/signing.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []
@@ -732,16 +1048,25 @@
           }
         },
         {
-          "insert": " reads the pinned configuration unless "
+          "insert": " is upstream's script and does not read the pinned configuration. It signs "
         },
         {
-          "insert": "SOTTO_SIGNING_IDENTITY",
+          "insert": "build/V07.app",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " explicitly overrides it. When using that configuration, a missing key or signing error fails the build instead of falling back to ad-hoc signing. Direct builds without configuration retain the upstream Apple Development or ad-hoc fallback."
+          "insert": " with "
+        },
+        {
+          "insert": "V07_SIGNING_IDENTITY",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " if set, with the Apple Development identity if exactly one exists, or ad hoc. The installer then signs the Transcriber copy with the pinned certificate. A missing key or signing error stops the installer. It never falls back to ad-hoc signing."
         }
       ],
       "children": []
@@ -775,16 +1100,16 @@
           }
         },
         {
-          "insert": ". The installer requires the saved configuration and ignores the "
+          "insert": ". The installer requires the saved configuration and takes the signing identity only from it. It verifies the built and staged bundles and compares the installed signing requirement before replacement. It stops if "
         },
         {
-          "insert": "SOTTO_SIGNING_IDENTITY",
+          "insert": "/Applications/Transcriber.app",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " environment override. It verifies the built and staged bundles and compares the installed signing requirement before replacement. Identity changes require explicit adoption. It never runs "
+          "insert": " is a symlink or holds an app with another bundle identifier. Identity changes require explicit adoption. It never runs "
         },
         {
           "insert": "tccutil",
@@ -817,7 +1142,7 @@
       "props": {},
       "text": [
         {
-          "insert": "After the first identity change, System Settings can show an enabled switch while Sotto still reports access denied. A toggle alone may retain the old code requirement. Use this repair only for that mismatch, not after every rebuild. A password prompt is not required if Settings already permits the change."
+          "insert": "After an identity change, System Settings can show an enabled switch while Transcriber still reports access denied. A toggle alone may retain the old code requirement. Use this repair only for that mismatch, not after every rebuild. The first Transcriber install is a new grant, not a repair. A password prompt is not required if Settings already permits the change."
         }
       ],
       "children": []
@@ -830,7 +1155,7 @@
       },
       "text": [
         {
-          "insert": "Open System Settings → Privacy & Security → Accessibility. Select Sotto.app and click the minus button. This removes the permission entry, not the application."
+          "insert": "Open System Settings → Privacy & Security → Accessibility. Select Transcriber.app and click the minus button. This removes the permission entry, not the application."
         }
       ],
       "children": []
@@ -843,7 +1168,7 @@
       },
       "text": [
         {
-          "insert": "Click the plus button, select /Applications/Sotto.app, and click Open. Ensure its switch is on and approve any macOS authentication prompt."
+          "insert": "Click the plus button, select /Applications/Transcriber.app, and click Open. Ensure its switch is on and approve any macOS authentication prompt."
         }
       ],
       "children": []
@@ -856,7 +1181,7 @@
       },
       "text": [
         {
-          "insert": "In Sotto → This Mac, click Check again. Confirm Accessibility is Allowed. If the display stays stale, quit and reopen Sotto, then check again."
+          "insert": "In Transcriber → This Mac, click Check again. Confirm Accessibility is Allowed. If the display stays stale, quit and reopen Transcriber, then check again."
         }
       ],
       "children": []
@@ -867,7 +1192,7 @@
       "props": {},
       "text": [
         {
-          "insert": "If access remains denied, inspect the signing requirement and permission logs before changing certificates or resetting grants. Sotto Dev has a separate identity. Grant access to the installed Sotto.app used by this workflow."
+          "insert": "If access remains denied, inspect the signing requirement and permission logs before changing certificates or resetting grants. V07 Dev and the earlier Sotto.app have separate identities. Grant access to the installed Transcriber.app used by this workflow."
         }
       ],
       "children": []
@@ -893,7 +1218,7 @@
       },
       "text": [
         {
-          "insert": "codesign --verify --deep --strict /Applications/Sotto.app\ncodesign -d -r- /Applications/Sotto.app\nshasum -a 256 /Applications/Sotto.app/Contents/MacOS/Sotto\n/usr/bin/log show --last 5m --style compact \\\n  --predicate 'subsystem == \"dev.davis.murmur\" AND category == \"permissions\"'"
+          "insert": "codesign --verify --deep --strict /Applications/Transcriber.app\ncodesign -d -r- /Applications/Transcriber.app\nshasum -a 256 /Applications/Transcriber.app/Contents/MacOS/Transcriber\n/usr/bin/log show --last 5m --style compact \\\n  --predicate 'subsystem == \"ai.codecaine.transcriber\" AND category == \"permissions\"'"
         }
       ],
       "children": []
@@ -904,7 +1229,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Compare the requirement and executable SHA-256 before and after a source change. The hash should change while the certificate-based designated requirement stays identical. The current installed process should log microphone=true, accessibility=true, and hotkey=true. Input Monitoring need not be separately granted when Accessibility already allows the hotkey listener."
+          "insert": "Compare the requirement and executable SHA-256 before and after a source change. The hash should change while the certificate-based designated requirement stays identical. The installed process should log microphone=true, accessibility=true, and hotkey=true. Input Monitoring need not be separately granted when Accessibility already allows the hotkey listener."
         }
       ],
       "children": []
@@ -915,7 +1240,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Changed-build replacement and app restart have been verified with permissions preserved. The user also confirmed dictation works. Full macOS reboot persistence remains untested. Local test evidence is retained under "
+          "insert": "Changed-build replacement with permissions preserved was verified on the earlier Sotto.app, which has the bundle identifier dev.davis.murmur. The check has not been repeated for Transcriber, which is not installed on Ford's Mac. Full macOS reboot persistence remains untested. Evidence from the Sotto run is retained under "
         },
         {
           "insert": ".local/signing-validation/",
@@ -948,7 +1273,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Keep the existing Keychain identity, public signing configuration, bundle identifier, and /Applications/Sotto.app path. Do not regenerate the certificate for ordinary source changes. Copying only the repository or public certificate to another Mac does not transfer the private key. A new certificate or a lost key requires intentional adoption and may require permission approval again."
+          "insert": "Keep the existing Keychain identity, public signing configuration, bundle identifier, and /Applications/Transcriber.app path. Do not regenerate the certificate for ordinary source changes. Copying only the repository or public certificate to another Mac does not transfer the private key. A new certificate or a lost key requires intentional adoption and may require permission approval again."
         }
       ],
       "children": []
@@ -962,13 +1287,13 @@
           "insert": "Each replacement retains the previous app in "
         },
         {
-          "insert": ".local/install-backups/<timestamp>/Sotto.app",
+          "insert": ".local/install-backups/<timestamp>/Transcriber.app",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " and prints that rollback path. To restore one, quit Sotto, preserve the current app, and copy the chosen backup to /Applications/Sotto.app before reopening. A backup signed with an older identity can require permission repair. Backup copies contain the client application, not server history or the transcript archive."
+          "insert": " and prints that rollback path. To restore one, quit Transcriber, preserve the current app, and copy the chosen backup to /Applications/Transcriber.app before reopening. A backup signed with an older identity can require permission repair. Backup copies contain the client application, not server history or the transcript archive. Backups made before the rename hold Sotto.app."
         }
       ],
       "children": []

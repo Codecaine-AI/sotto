@@ -13,7 +13,8 @@
         "b-20-agents-whisper-transcribes-uplo-2",
         "b-20-agents-qwen-proposes-cleaned-te-3",
         "b-20-agents-the-archive-worker-is-a-4",
-        "b-20-agents-developer-assistants-sho-5"
+        "b-20-agents-developer-assistants-sho-5",
+        "agents-developer-checks"
       ]
     },
     "b-20-agents-the-product-has-no-auton-1": {
@@ -85,6 +86,63 @@
         },
         {
           "insert": ", preserve private datasets and unrelated work, and use typed Docs tools for corpus edits. New product agents need explicit definitions here before their behavior is treated as implemented."
+        }
+      ],
+      "children": []
+    },
+    "agents-developer-checks": {
+      "id": "agents-developer-checks",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "AGENTS.md",
+          "attributes": {
+            "code": true,
+            "reference": {
+              "kind": "source",
+              "path": "AGENTS.md"
+            }
+          }
+        },
+        {
+          "insert": " sets the repository rules for developer assistants. It prohibits adding, restoring, or running automated tests. The checks are "
+        },
+        {
+          "insert": "bun run check",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "bun run lint",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "bun run fmt:check",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Assistants verify runtime behavior through the V07 Dev app against a development server, and run "
+        },
+        {
+          "insert": "bun run fmt",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " after editing TypeScript. Bun 1.4.2 is required."
         }
       ],
       "children": []

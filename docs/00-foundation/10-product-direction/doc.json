@@ -16,6 +16,11 @@
         "b-10-product-direction-the-archive-has-no-artif-5",
         "b-10-product-direction-the-working-archive-stay-6",
         "b-10-product-direction-the-fork-lives-under-co-7",
+        "naming-heading",
+        "naming-lead",
+        "naming-identity",
+        "naming-upstream",
+        "naming-retained",
         "b-10-product-direction-boundaries-8",
         "b-10-product-direction-the-archive-is-a-single-9",
         "b-10-product-direction-see-archive-design-doc-10"
@@ -27,7 +32,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The product captures speech, preserves the original recognition, and produces cleaned text for insertion. Ford intends to stop using Wispr Flow and develop this Sotto fork as the replacement."
+          "insert": "The product captures speech, preserves the original recognition, and produces cleaned text for insertion. Ford intends to stop using Wispr Flow and develop this fork as the replacement. The fork installs its app under the name Transcriber."
         }
       ],
       "children": []
@@ -53,7 +58,7 @@
       },
       "text": [
         {
-          "insert": "The permanent archive contains historical Wispr data and future Sotto recordings, with raw and clean formats, every available source field, and attachments."
+          "insert": "The permanent archive contains historical Wispr data and future Transcriber recordings, with raw and clean formats, every available source field, and attachments."
         }
       ],
       "children": []
@@ -114,16 +119,187 @@
       },
       "text": [
         {
-          "insert": "The fork lives under "
+          "insert": "The fork's GitHub repository is "
         },
         {
-          "insert": "Codecaine/utilities/sotto",
+          "insert": "Codecaine-AI/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and its checkout is "
+        },
+        {
+          "insert": "/Users/Ford/workspace/codecaine/utilities/sotto",
           "attributes": {
             "code": true
           }
         },
         {
           "insert": ". Preserve upstream attribution and keep personal data, model weights, and local runtime configuration out of Git."
+        }
+      ],
+      "children": []
+    },
+    "naming-heading": {
+      "id": "naming-heading",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Naming"
+        }
+      ],
+      "children": []
+    },
+    "naming-lead": {
+      "id": "naming-lead",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Three names are in use. Transcriber is the fork's installed app. V07 is upstream's project, modules, environment variable prefix, and development app. Sotto is the earlier upstream name, which the fork keeps in a fixed set of identifiers."
+        }
+      ],
+      "children": []
+    },
+    "naming-identity": {
+      "id": "naming-identity",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The installed app has a fixed identity: the name Transcriber and the bundle identifier "
+        },
+        {
+          "insert": "ai.codecaine.transcriber",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". macOS permissions, the client settings directory, and the Keychain service follow the bundle identifier and name. Upstream's rename to V07 changed its bundle identifier to "
+        },
+        {
+          "insert": "dev.davis.v07",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", which macOS treats as a different app. A fixed identity keeps an upstream rename from changing what macOS sees."
+        }
+      ],
+      "children": []
+    },
+    "naming-upstream": {
+      "id": "naming-upstream",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The source tree, Swift module names, "
+        },
+        {
+          "insert": "README.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "scripts/build-app.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " keep upstream's V07 names and are identical to upstream, so a sync has no rename conflicts in them. Fork notes live in "
+        },
+        {
+          "insert": "TRANSCRIBER.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "naming-retained": {
+      "id": "naming-retained",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "These identifiers stay Sotto because stored records and running services depend on them: the archive source ID "
+        },
+        {
+          "insert": "sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and its "
+        },
+        {
+          "insert": "records/sotto/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " folder, the "
+        },
+        {
+          "insert": "--sotto-data",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " flag, the launchd labels "
+        },
+        {
+          "insert": "ai.codecaine.sotto.server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "ai.codecaine.sotto.archive",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and the repository name "
+        },
+        {
+          "insert": "Codecaine-AI/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []
@@ -147,7 +323,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The archive is a single-writer file dataset. Cloud synchronization, multiwriter coordination, curated dataset releases, continuous Wispr import, and changing Sotto's 180-second live recording limit are not implemented. The existing Wispr installation and nightly WisprSync export are unchanged."
+          "insert": "The archive is a single-writer file dataset. Cloud synchronization, multiwriter coordination, curated dataset releases, continuous Wispr import, and changing the 180-second live recording limit are not implemented. The existing Wispr installation and nightly WisprSync export are unchanged."
         }
       ],
       "children": []

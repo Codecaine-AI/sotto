@@ -15,6 +15,9 @@
         "b-10-native-app-and-server-sottowindowview-swift-4",
         "b-10-native-app-and-server-generationservice-swift-5",
         "b-10-native-app-and-server-generationservicetests-6",
+        "impl-transcriber-installer",
+        "impl-transcriber-bundle-identity",
+        "impl-transcriber-fixed-labels",
         "b-10-native-app-and-server-the-app-is-installed-sep-7"
       ]
     },
@@ -24,7 +27,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The native client and server realize the "
+          "insert": "The native client and the packaged server realize the "
         },
         {
           "insert": "Architecture",
@@ -51,7 +54,7 @@
           "insert": " in "
         },
         {
-          "insert": "Sources/Sotto",
+          "insert": "Sources/V07",
           "attributes": {
             "code": true
           }
@@ -60,13 +63,13 @@
           "insert": " and "
         },
         {
-          "insert": "Sources/SottoServerKit",
+          "insert": "Server/src",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": "."
+          "insert": ". The directory and module names are upstream's."
         }
       ],
       "children": []
@@ -99,7 +102,7 @@
           "attributes": {
             "reference": {
               "kind": "source",
-              "path": "Sources/Sotto/Views/TranscriptDataPage.swift"
+              "path": "Sources/V07/Views/TranscriptDataPage.swift"
             }
           }
         },
@@ -117,11 +120,11 @@
       },
       "text": [
         {
-          "insert": "SottoWindowView.swift",
+          "insert": "V07WindowView.swift",
           "attributes": {
             "reference": {
               "kind": "source",
-              "path": "Sources/Sotto/Views/SottoWindowView.swift"
+              "path": "Sources/V07/Views/V07WindowView.swift"
             }
           }
         },
@@ -133,12 +136,12 @@
           "attributes": {
             "reference": {
               "kind": "source",
-              "path": "Sources/Sotto/Views/HistoryPage.swift"
+              "path": "Sources/V07/Views/HistoryPage.swift"
             }
           }
         },
         {
-          "insert": " routes full history migration to the archive rather than the limited legacy importer."
+          "insert": " links to the full transcript archive, and no control opens the limited legacy import sheet."
         }
       ],
       "children": []
@@ -151,16 +154,28 @@
       },
       "text": [
         {
-          "insert": "GenerationService.swift",
+          "insert": "generation-service.ts",
           "attributes": {
             "reference": {
               "kind": "source",
-              "path": "Sources/SottoServerKit/GenerationService.swift"
+              "path": "Server/src/generation-service.ts"
             }
           }
         },
         {
-          "insert": " writes raw.txt and clean.txt before terminal metadata and allows downloading them. Metadata is the worker's publication marker."
+          "insert": " writes raw.txt and clean.txt before terminal metadata and allows downloading them. Metadata is the worker's publication marker. The reference Swift server in "
+        },
+        {
+          "insert": "GenerationService.swift",
+          "attributes": {
+            "reference": {
+              "kind": "source",
+              "path": "Sources/V07ServerKit/GenerationService.swift"
+            }
+          }
+        },
+        {
+          "insert": " also writes both files."
         }
       ],
       "children": []
@@ -173,16 +188,142 @@
       },
       "text": [
         {
-          "insert": "GenerationServiceTests.swift",
+          "insert": "The repository has no "
+        },
+        {
+          "insert": "Tests",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " directory, and "
+        },
+        {
+          "insert": "AGENTS.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " prohibits automated tests. Check raw and clean artifacts by dictating through V07 Dev and reading the generation's files. The upstream import implementation in "
+        },
+        {
+          "insert": "imports.ts",
           "attributes": {
             "reference": {
               "kind": "source",
-              "path": "Tests/SottoServerTests/GenerationServiceTests.swift"
+              "path": "Server/src/imports.ts"
             }
           }
         },
         {
-          "insert": " checks raw and clean artifacts against actual pipeline results. The upstream import implementation remains for compatibility."
+          "insert": " remains for compatibility."
+        }
+      ],
+      "children": []
+    },
+    "impl-transcriber-installer": {
+      "id": "impl-transcriber-installer",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "install-local.py",
+          "attributes": {
+            "reference": {
+              "kind": "source",
+              "path": "scripts/install-local.py"
+            }
+          }
+        },
+        {
+          "insert": " runs upstream's "
+        },
+        {
+          "insert": "build-app.sh",
+          "attributes": {
+            "reference": {
+              "kind": "source",
+              "path": "scripts/build-app.sh"
+            }
+          }
+        },
+        {
+          "insert": " unchanged and copies the result to "
+        },
+        {
+          "insert": "build/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". In the copy it renames the executable, rewrites the name and bundle identifier in "
+        },
+        {
+          "insert": "Info.plist",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and signs with the pinned local certificate. The rename stays out of upstream's build script and source tree, so a sync has no rename conflicts there."
+        }
+      ],
+      "children": []
+    },
+    "impl-transcriber-bundle-identity": {
+      "id": "impl-transcriber-bundle-identity",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "V07Build.swift",
+          "attributes": {
+            "reference": {
+              "kind": "source",
+              "path": "Sources/V07Core/V07Build.swift"
+            }
+          }
+        },
+        {
+          "insert": " reads the display name and bundle identifier from the running bundle and falls back to upstream's values. The settings directory and Keychain service follow the bundle. Transcriber uses "
+        },
+        {
+          "insert": "~/Library/Application Support/Transcriber",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "ai.codecaine.transcriber.server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and an upstream build keeps its own."
+        }
+      ],
+      "children": []
+    },
+    "impl-transcriber-fixed-labels": {
+      "id": "impl-transcriber-fixed-labels",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Some fixed labels in the app window show upstream's name, such as the sidebar title V07 in V07WindowView.swift. The window title and the login toggle use the bundle's display name."
         }
       ],
       "children": []
@@ -193,16 +334,25 @@
       "props": {},
       "text": [
         {
-          "insert": "The app is installed separately under "
+          "insert": "The installer's target is "
         },
         {
-          "insert": "/Applications/Sotto.app",
+          "insert": "/Applications/Transcriber.app",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": "; moving the checkout requires updating server/helper paths and launchers, not moving the installed app. Build caches containing the original checkout path were preserved in .local/relocation-backup/build-cache. Fresh build directories prevent stale absolute paths on future builds; the next full native build may take longer."
+          "insert": ". Moving the checkout requires updating server and helper paths and launchers, not moving the installed app. Build caches that contain the first checkout path are kept in "
+        },
+        {
+          "insert": ".local/relocation-backup/build-cache",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []

@@ -20,7 +20,16 @@
       "props": {},
       "text": [
         {
-          "insert": "Sotto is Codecaine’s local dictation product, built from the davis7dotsh/sotto fork. The project replaces reliance on Wispr Flow while preserving an inspectable, portable transcript archive."
+          "insert": "Transcriber is Codecaine's local dictation product. It is built from the "
+        },
+        {
+          "insert": "Codecaine-AI/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " fork of the upstream project that its author names V07. The project replaces reliance on Wispr Flow while preserving an inspectable, portable transcript archive."
         }
       ],
       "children": []
@@ -42,7 +51,7 @@
           }
         },
         {
-          "insert": ": ownership, scope, and accepted decisions."
+          "insert": ": ownership, scope, naming, and accepted decisions."
         }
       ],
       "children": []
@@ -64,7 +73,7 @@
           }
         },
         {
-          "insert": ": installed behavior, verification, and open work."
+          "insert": ": source state, installed state on this Mac, and open work."
         }
       ],
       "children": []

@@ -19,10 +19,19 @@
         "b-20-current-status-all-three-wav-files-abov-8",
         "b-20-current-status-six-archive-tests-and-fo-9",
         "b-20-current-status-open-work-10",
+        "open-work-cutover-heading",
+        "open-work-cutover-lead",
         "b-20-current-status-grant-or-confirm-microph-11",
         "b-20-current-status-choose-and-implement-ver-12",
         "b-20-current-status-run-a-final-catch-up-imp-13",
         "b-20-current-status-review-and-commit-the-lo-14",
+        "open-work-cutover-old-app",
+        "open-work-carried-heading",
+        "open-work-carried-backup",
+        "open-work-carried-wispr",
+        "open-work-carried-push",
+        "open-work-carried-port",
+        "open-work-carried-tests",
         "b-20-current-status-automatic-launch-at-logi-15",
         "relocation-verified-20-current-status"
       ]
@@ -33,7 +42,16 @@
       "props": {},
       "text": [
         {
-          "insert": "The Codecaine fork, installed Sotto app, dictation server, and archive viewer are working on this Mac. This page records the current handoff; the dated evidence is retained in "
+          "insert": "The fork's source is merged with upstream V07 through PR #23, and its installer builds the app as Transcriber. This Mac still runs the installation made before that merge: "
+        },
+        {
+          "insert": "/Applications/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and a server built on 2026-09-16. Transcriber is not installed. This page records the current handoff. Dated evidence is retained in "
         },
         {
           "insert": "Work Record",
@@ -75,10 +93,10 @@
         "rows": [
           [
             "Repository",
-            "Relocated and verified",
+            "Merged source on a local branch",
             [
               {
-                "insert": "/Users/Ford/Github Repos/Codecaine/utilities/sotto",
+                "insert": "/Users/Ford/workspace/codecaine/utilities/sotto",
                 "attributes": {
                   "code": true
                 }
@@ -87,37 +105,88 @@
                 "insert": "; branch "
               },
               {
-                "insert": "codex/shared-transcript-archive",
+                "insert": "transcriber-identity",
                 "attributes": {
                   "code": true
                 }
               },
               {
-                "insert": "; changes remain uncommitted and unpushed"
+                "insert": " at "
+              },
+              {
+                "insert": "071c405",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", with no remote tracking branch; "
+              },
+              {
+                "insert": "main",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " and the local "
+              },
+              {
+                "insert": "origin/main",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " ref are at "
+              },
+              {
+                "insert": "c065ec2",
+                "attributes": {
+                  "code": true
+                }
               }
             ]
           ],
           [
             "Upstream",
-            "PR #4 incorporated",
+            "Merged through PR #23",
             [
               {
-                "insert": "HEAD "
+                "insert": "Merge commit "
               },
               {
-                "insert": "c1d5f0bbaff19a1559621943dff49ba89b4a96a0",
+                "insert": "c065ec2",
                 "attributes": {
                   "code": true
                 }
               },
               {
-                "insert": "; PR #5 was excluded from this implementation"
+                "insert": " on 2026-09-30; upstream "
+              },
+              {
+                "insert": "main",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " at "
+              },
+              {
+                "insert": "bf52038",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ". The merge brings the V07 rename, the recording queue, the double-tap toggle mode, output muting while recording, and the removal of automated tests"
               }
             ]
           ],
           [
             "App",
-            "Installed",
+            "Sotto installed; Transcriber built, not installed",
             [
               {
                 "insert": "/Applications/Sotto.app",
@@ -126,18 +195,94 @@
                 }
               },
               {
-                "insert": "; Data page opened and inspected"
+                "insert": " has bundle identifier "
+              },
+              {
+                "insert": "dev.davis.murmur",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ". "
+              },
+              {
+                "insert": "build/Transcriber.app",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " has "
+              },
+              {
+                "insert": "ai.codecaine.transcriber",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ". "
+              },
+              {
+                "insert": "/Applications/Transcriber.app",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " does not exist. Transcriber's permissions and dictation are unverified"
               }
             ]
           ],
           [
             "Dictation server",
-            "Ready",
-            "Loopback port 8391; Whisper and Qwen report ready"
+            "Running the pre-sync build",
+            [
+              {
+                "insert": "launchd service "
+              },
+              {
+                "insert": "ai.codecaine.sotto.server",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " runs "
+              },
+              {
+                "insert": "build/server/sotto-server",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", built 2026-09-16, on loopback port 8391. "
+              },
+              {
+                "insert": "/v1/health",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " reported "
+              },
+              {
+                "insert": "ready: true",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " with Whisper and Qwen ready on 2026-09-30. The server has not been rebuilt from the merged source"
+              }
+            ]
           ],
           [
             "Archive",
-            "Verified and running",
+            "Migration verified; worker running",
             [
               {
                 "insert": "/Users/Ford/Transcripts",
@@ -146,7 +291,94 @@
                 }
               },
               {
-                "insert": "; viewer on loopback port 8392"
+                "insert": "; launchd service "
+              },
+              {
+                "insert": "ai.codecaine.sotto.archive",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": "; the viewer answers on "
+              },
+              {
+                "insert": "127.0.0.1:8392",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            "Login startup",
+            "On, opening Sotto",
+            [
+              {
+                "insert": "~/Library/LaunchAgents",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " holds "
+              },
+              {
+                "insert": "ai.codecaine.sotto.app",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", "
+              },
+              {
+                "insert": "ai.codecaine.sotto.server",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", and "
+              },
+              {
+                "insert": "ai.codecaine.sotto.archive",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ". The app agent opens "
+              },
+              {
+                "insert": "/Applications/Sotto.app",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            "Signing",
+            "Configured",
+            [
+              {
+                "insert": "~/.config/transcriber/signing.json",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " names the same certificate fingerprint as the earlier "
+              },
+              {
+                "insert": "~/.config/sotto/signing.json",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ". The certificate's name is Sotto Local Development"
               }
             ]
           ]
@@ -225,7 +457,7 @@
       },
       "text": [
         {
-          "insert": "Six archive tests and fourteen focused server tests passed. Both builds and two isolated real-audio-to-archive tests passed."
+          "insert": "These counts come from the verification completed before the sync. At that time six archive tests and fourteen focused server tests passed, along with both builds and two isolated real-audio-to-archive tests. Upstream PR #23 removed the Swift and server test suites."
         }
       ],
       "children": []
@@ -243,6 +475,30 @@
       ],
       "children": []
     },
+    "open-work-cutover-heading": {
+      "id": "open-work-cutover-heading",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Cut Over to Transcriber"
+        }
+      ],
+      "children": []
+    },
+    "open-work-cutover-lead": {
+      "id": "open-work-cutover-lead",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "None of these steps has been run. Do them in this order."
+        }
+      ],
+      "children": []
+    },
     "b-20-current-status-grant-or-confirm-microph-11": {
       "id": "b-20-current-status-grant-or-confirm-microph-11",
       "type": "list-item",
@@ -251,7 +507,16 @@
       },
       "text": [
         {
-          "insert": "Grant or confirm Microphone and Accessibility permissions in the rebuilt app, then verify real microphone capture and insertion into another app."
+          "insert": "Install Transcriber with "
+        },
+        {
+          "insert": "./scripts/rebuild-local.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Grant Microphone and Accessibility to the new app, then verify real microphone capture and insertion into another app."
         }
       ],
       "children": []
@@ -264,7 +529,25 @@
       },
       "text": [
         {
-          "insert": "Choose and implement versioned automatic backup, including a restore test. Dropbox and the planned NAS are future destinations, not active backups."
+          "insert": "Set the shortcut, microphone, and device name in Transcriber. It reads "
+        },
+        {
+          "insert": "~/Library/Application Support/Transcriber",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and the installer does not copy settings from "
+        },
+        {
+          "insert": "~/Library/Application Support/Sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []
@@ -277,7 +560,88 @@
       },
       "text": [
         {
-          "insert": "Run a final catch-up import for any Wispr recordings after the migration before retiring Wispr. Do not disable its exporter without that cutover decision."
+          "insert": "Rebuild the server with "
+        },
+        {
+          "insert": "./scripts/build-server.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The build replaces "
+        },
+        {
+          "insert": "build/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", which removes the "
+        },
+        {
+          "insert": "sotto-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " binary the service runs. Edit both copies of the "
+        },
+        {
+          "insert": "ai.codecaine.sotto.server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " plist, in "
+        },
+        {
+          "insert": ".local",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "~/Library/LaunchAgents",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", to name "
+        },
+        {
+          "insert": "build/server/v07-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "helpers/v07-engine",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "helpers/v07-text-engine",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Then restart the service."
         }
       ],
       "children": []
@@ -290,7 +654,206 @@
       },
       "text": [
         {
-          "insert": "Review and commit the local archive, viewer, and documentation changes, then decide when to push the branch."
+          "insert": "Point the login agent "
+        },
+        {
+          "insert": "ai.codecaine.sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " at "
+        },
+        {
+          "insert": "/Applications/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". No script in the repository writes that agent. Run "
+        },
+        {
+          "insert": "python3 scripts/archive/install.py --root /Users/Ford/Transcripts",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " to write "
+        },
+        {
+          "insert": ".local/Start Transcriber.command",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "open-work-cutover-old-app": {
+      "id": "open-work-cutover-old-app",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Decide what happens to "
+        },
+        {
+          "insert": "/Applications/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "~/Library/Application Support/Sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "~/.config/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " after Transcriber works."
+        }
+      ],
+      "children": []
+    },
+    "open-work-carried-heading": {
+      "id": "open-work-carried-heading",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Other Open Items"
+        }
+      ],
+      "children": []
+    },
+    "open-work-carried-backup": {
+      "id": "open-work-carried-backup",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Choose and implement versioned automatic backup, including a restore test. Dropbox and the planned NAS are future destinations, not active backups."
+        }
+      ],
+      "children": []
+    },
+    "open-work-carried-wispr": {
+      "id": "open-work-carried-wispr",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Run a final catch-up import for any Wispr recordings after the migration before retiring Wispr. Do not disable its exporter without that cutover decision."
+        }
+      ],
+      "children": []
+    },
+    "open-work-carried-push": {
+      "id": "open-work-carried-push",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Push "
+        },
+        {
+          "insert": "transcriber-identity",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and decide how it merges to "
+        },
+        {
+          "insert": "main",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "open-work-carried-port": {
+      "id": "open-work-carried-port",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Choose a port for upstream's source server on this Mac. "
+        },
+        {
+          "insert": "bun run dev",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " defaults to port 8392, the port the archive viewer uses."
+        }
+      ],
+      "children": []
+    },
+    "open-work-carried-tests": {
+      "id": "open-work-carried-tests",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Decide whether "
+        },
+        {
+          "insert": "scripts/archive/test_archive.py",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " stays. "
+        },
+        {
+          "insert": "AGENTS.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " prohibits automated tests, and the file is still in the fork."
         }
       ],
       "children": []
@@ -301,7 +864,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Automatic launch at login remains off. The launcher starts the server and archive worker for the current login session. The local archive is not an off-device backup."
+          "insert": "Quitting the app leaves the server and archive worker running. The local archive is not an off-device backup."
         }
       ],
       "children": []
@@ -312,7 +875,34 @@
       "props": {},
       "text": [
         {
-          "insert": "Documentation and relocation are complete. All 26 native pages pass completion checks with no findings, all document/source references resolve, and all six archive tests pass from the new checkout. Both engines and the archive worker report healthy after relocation. Qwen cold-start readiness failed on the first launch and succeeded after one restart; diagnose that intermittent startup issue if it recurs."
+          "insert": "Both launchd service plists and "
+        },
+        {
+          "insert": ".local/Start Sotto.command",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " use the checkout path "
+        },
+        {
+          "insert": "/Users/Ford/workspace/codecaine/utilities/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Codecaine Docs discovers this corpus as "
+        },
+        {
+          "insert": "sotto-8955067e",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " with the display name Sotto. Qwen cold-start readiness failed once on an earlier launch and succeeded after one restart. Diagnose that startup issue if it recurs."
         }
       ],
       "children": []

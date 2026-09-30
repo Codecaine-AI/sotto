@@ -29,7 +29,16 @@
         "b-10-work-record-the-requested-destinatio-18",
         "b-10-work-record-outstanding-state-19",
         "b-10-work-record-the-archive-and-viewer-c-20",
-        "relocation-verified-10-work-record"
+        "relocation-verified-10-work-record",
+        "work-record-2026-09-30-heading",
+        "work-record-2026-09-30-sync",
+        "work-record-2026-09-30-rename",
+        "work-record-2026-09-30-features",
+        "work-record-2026-09-30-tests",
+        "work-record-2026-09-30-identity",
+        "work-record-2026-09-30-paths",
+        "work-record-2026-09-30-retained",
+        "work-record-2026-09-30-state"
       ]
     },
     "b-10-work-record-this-record-captures-wor-1": {
@@ -381,6 +390,503 @@
       "text": [
         {
           "insert": "Relocation completed on September 16, 2026. The repository moved to /Users/Ford/Github Repos/Codecaine/utilities/sotto with identical HEAD and Git worktree state at the move boundary. Both submodules resolve. Old build caches were preserved in .local/relocation-backup/build-cache, and the next build uses fresh paths. Server and archive plists, launcher copies, archive installation metadata, setup outputs, and Docs discovery use the new path. The dataset stayed at /Users/Ford/Transcripts. All six archive tests passed after the move. Qwen required one retry after its first cold start; both inference engines and the archive worker then reported healthy. All 26 native Docs pages pass completion checks and the link checker reports zero stale references."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-heading": {
+      "id": "work-record-2026-09-30-heading",
+      "type": "heading",
+      "props": {
+        "level": 2
+      },
+      "text": [
+        {
+          "insert": "Upstream Sync and Transcriber Identity, 2026-09-30"
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-sync": {
+      "id": "work-record-2026-09-30-sync",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "On 2026-09-30 the fork merged upstream "
+        },
+        {
+          "insert": "main",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " through PR #23 in merge commit "
+        },
+        {
+          "insert": "c065ec2",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Upstream was at "
+        },
+        {
+          "insert": "bf52038",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and the previous merge base was "
+        },
+        {
+          "insert": "93bc0b5",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The merge brought upstream PRs #15, #17, #18, #20, #21, and #23."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-rename": {
+      "id": "work-record-2026-09-30-rename",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "PR #17 renamed the upstream project from Sotto to V07. Swift modules moved to "
+        },
+        {
+          "insert": "Sources/V07",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "Sources/V07Core",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "Sources/V07API",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "Sources/V07ServerKit",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Environment variables took the "
+        },
+        {
+          "insert": "V07_",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " prefix. Upstream's app became "
+        },
+        {
+          "insert": "build/V07.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " with bundle identifier "
+        },
+        {
+          "insert": "dev.davis.v07",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and its dev build became V07 Dev with "
+        },
+        {
+          "insert": "dev.davis.v07.dev",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". PR #18 changed the logo."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-features": {
+      "id": "work-record-2026-09-30-features",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "PR #21 added a recording queue, so a new take can start while earlier ones process. PR #15 added a double-tap toggle mode. PR #20 added muting of system audio while recording."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-tests": {
+      "id": "work-record-2026-09-30-tests",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "PR #23 removed all automated tests. "
+        },
+        {
+          "insert": "AGENTS.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " prohibits automated tests and names the checks "
+        },
+        {
+          "insert": "bun run check",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "bun run lint",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "bun run fmt:check",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", with runtime verification through the dev app. Bun 1.4.2 became a requirement. Upstream's "
+        },
+        {
+          "insert": "bun run dev",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " source server listens on port 8392, the port the fork's archive viewer uses."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-identity": {
+      "id": "work-record-2026-09-30-identity",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The same day, commit "
+        },
+        {
+          "insert": "071c405",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " on branch "
+        },
+        {
+          "insert": "transcriber-identity",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " gave the fork's installed app a fixed identity: the name Transcriber and the bundle identifier "
+        },
+        {
+          "insert": "ai.codecaine.transcriber",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". "
+        },
+        {
+          "insert": "scripts/install-local.py",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " runs upstream's "
+        },
+        {
+          "insert": "scripts/build-app.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " unchanged, copies the result to "
+        },
+        {
+          "insert": "build/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", rewrites the name and identifier in the copy's "
+        },
+        {
+          "insert": "Info.plist",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and signs it with the pinned local certificate. "
+        },
+        {
+          "insert": "Sources/V07Core/V07Build.swift",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " reads the name and identifier from the bundle."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-paths": {
+      "id": "work-record-2026-09-30-paths",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Under this identity, client settings live in "
+        },
+        {
+          "insert": "~/Library/Application Support/Transcriber",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", the Keychain service is "
+        },
+        {
+          "insert": "ai.codecaine.transcriber.server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", the signing configuration is "
+        },
+        {
+          "insert": "~/.config/transcriber/signing.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and the launcher is "
+        },
+        {
+          "insert": ".local/Start Transcriber.command",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". "
+        },
+        {
+          "insert": "scripts/build-app.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "README.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " were restored to upstream's versions, and the fork's notes moved to "
+        },
+        {
+          "insert": "TRANSCRIBER.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-retained": {
+      "id": "work-record-2026-09-30-retained",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "These names were deliberately left unchanged: the archive source ID "
+        },
+        {
+          "insert": "sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " with its "
+        },
+        {
+          "insert": "records/sotto/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " folder, the "
+        },
+        {
+          "insert": "--sotto-data",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " flag, the launchd labels "
+        },
+        {
+          "insert": "ai.codecaine.sotto.server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "ai.codecaine.sotto.archive",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and the GitHub repository name "
+        },
+        {
+          "insert": "Codecaine-AI/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-state": {
+      "id": "work-record-2026-09-30-state",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "When this entry was written, "
+        },
+        {
+          "insert": "/Applications/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " with bundle identifier "
+        },
+        {
+          "insert": "dev.davis.murmur",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " was still the installed client. Transcriber had been built at "
+        },
+        {
+          "insert": "build/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and not installed. The launchd server service still ran "
+        },
+        {
+          "insert": "build/server/sotto-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " from the build before the sync, and the server had not been rebuilt. The Docs corpus was updated the same day to describe the merged source and this state. "
+        },
+        {
+          "insert": "Current Status",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "00-foundation/20-current-status"
+            }
+          }
+        },
+        {
+          "insert": " lists the remaining cutover steps."
         }
       ],
       "children": []

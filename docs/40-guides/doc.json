@@ -44,7 +44,7 @@
           }
         },
         {
-          "insert": ": installed paths, permissions, launcher, and cutover."
+          "insert": ": installed paths, Transcriber identity, launcher, and cutover."
         }
       ],
       "children": []
@@ -110,7 +110,7 @@
           }
         },
         {
-          "insert": ": upstream build and development entry points."
+          "insert": ": upstream V07 build, static checks, and the Transcriber install workflow."
         }
       ],
       "children": []

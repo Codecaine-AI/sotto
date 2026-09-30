@@ -25,7 +25,9 @@
         "b-10-local-setup-source-users-ford-git-14",
         "b-10-local-setup-working-branch-codex-s-15",
         "b-10-local-setup-app-applications-sott-16",
+        "local-setup-install-target",
         "b-10-local-setup-dictation-server-http-17",
+        "local-setup-transcriber-identity",
         "b-10-local-setup-upstream-pr-4-is-incorp-18",
         "b-10-local-setup-startup-and-cutover-19",
         "b-10-local-setup-startup-at-login-is-off-20",
@@ -43,7 +45,37 @@
       "props": {},
       "text": [
         {
-          "insert": "This guide describes the Codecaine installation on Ford's Mac. Use the installed Sotto client for dictation and the shared archive for retained transcripts."
+          "insert": "This guide describes the Codecaine installation on Ford's Mac. The installed client is "
+        },
+        {
+          "insert": "/Applications/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", built before the fork adopted the Transcriber identity. The repository's installer installs the client as "
+        },
+        {
+          "insert": "/Applications/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and that install has not been run. "
+        },
+        {
+          "insert": "Current Status",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "00-foundation/20-current-status"
+            }
+          }
+        },
+        {
+          "insert": " lists the cutover steps."
         }
       ],
       "children": []
@@ -72,13 +104,31 @@
           "insert": "Open "
         },
         {
-          "insert": "Start Sotto.command",
+          "insert": ".local/Start Sotto.command",
           "attributes": {
-            "bold": true
+            "code": true
           }
         },
         {
-          "insert": " in this folder."
+          "insert": " in the repository. It starts the dictation server and the archive worker and opens "
+        },
+        {
+          "insert": "/Applications/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". After the Transcriber install, use "
+        },
+        {
+          "insert": ".local/Start Transcriber.command",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []
@@ -100,7 +150,7 @@
           }
         },
         {
-          "insert": " in Sotto to browse the shared transcript archive."
+          "insert": " in the app to browse the shared transcript archive."
         }
       ],
       "children": []
@@ -113,7 +163,25 @@
       },
       "text": [
         {
-          "insert": "For dictation, open Dictation, allow Microphone and Accessibility in macOS, focus a text field, hold the configured key, speak, and release. This Mac shows the current key."
+          "insert": "For dictation, open "
+        },
+        {
+          "insert": "Dictation",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": ", allow Microphone and Accessibility in macOS, focus a text field, hold the configured key, speak, and release. "
+        },
+        {
+          "insert": "This Mac",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " shows the current key."
         }
       ],
       "children": []
@@ -133,7 +201,7 @@
           }
         },
         {
-          "insert": " from the repository root. The "
+          "insert": " from the repository root. It installs Transcriber and leaves Sotto.app in place. The "
         },
         {
           "insert": "Development",
@@ -145,7 +213,16 @@
           }
         },
         {
-          "insert": " guide covers one-time certificate setup, how signing preserves permissions, recovery for stale Accessibility entries, and verification commands. The local certificate is already configured on this Mac."
+          "insert": " guide covers one-time certificate setup, how signing preserves permissions, recovery for stale Accessibility entries, and verification commands. The signing configuration exists on this Mac at "
+        },
+        {
+          "insert": "~/.config/transcriber/signing.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []
@@ -227,7 +304,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The archive has no artifact-size cap. Its one-time Wispr migration bypasses the legacy upstream HTTP importer's 8 MiB restriction. Sotto's existing live dictation limit remains 180 seconds per take; this is separate from archive storage."
+          "insert": "The archive has no artifact-size cap. Its one-time Wispr migration bypasses the legacy upstream HTTP importer's 8 MiB restriction. The live dictation limit remains 180 seconds per take; this is separate from archive storage."
         }
       ],
       "children": []
@@ -238,7 +315,7 @@
       "props": {},
       "text": [
         {
-          "insert": "New completed, failed, and cancelled Sotto records are copied every three seconds. Deleting a record in Sotto does not delete its archive. The searchable SQLite index is a disposable local cache; portable files are authoritative. Use one writer on this Mac."
+          "insert": "New completed, failed, and cancelled dictation records are copied every three seconds. Deleting a record in the app's history does not delete its archived copy. The searchable SQLite index is a disposable local cache; portable files are authoritative. Use one writer on this Mac."
         }
       ],
       "children": []
@@ -280,7 +357,7 @@
           "insert": "Source: "
         },
         {
-          "insert": "/Users/Ford/Github Repos/Codecaine/utilities/sotto",
+          "insert": "/Users/Ford/workspace/codecaine/utilities/sotto",
           "attributes": {
             "code": true
           }
@@ -299,7 +376,7 @@
           "insert": "Working branch: "
         },
         {
-          "insert": "codex/shared-transcript-archive",
+          "insert": "transcriber-identity",
           "attributes": {
             "code": true
           }
@@ -315,10 +392,38 @@
       },
       "text": [
         {
-          "insert": "App: "
+          "insert": "Installed app: "
         },
         {
           "insert": "/Applications/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", bundle identifier "
+        },
+        {
+          "insert": "dev.davis.murmur",
+          "attributes": {
+            "code": true
+          }
+        }
+      ],
+      "children": []
+    },
+    "local-setup-install-target": {
+      "id": "local-setup-install-target",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Install target, not yet installed: "
+        },
+        {
+          "insert": "/Applications/Transcriber.app",
           "attributes": {
             "code": true
           }
@@ -339,13 +444,111 @@
       ],
       "children": []
     },
+    "local-setup-transcriber-identity": {
+      "id": "local-setup-transcriber-identity",
+      "type": "structured-table",
+      "props": {
+        "columns": [
+          "What",
+          "Value"
+        ],
+        "rows": [
+          [
+            "Installed app",
+            [
+              {
+                "insert": "/Applications/Transcriber.app",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            "Bundle identifier",
+            [
+              {
+                "insert": "ai.codecaine.transcriber",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            "Client settings",
+            [
+              {
+                "insert": "~/Library/Application Support/Transcriber",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            "Keychain service",
+            [
+              {
+                "insert": "ai.codecaine.transcriber.server",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            "Signing configuration",
+            [
+              {
+                "insert": "~/.config/transcriber/signing.json",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ],
+          [
+            "Launcher",
+            [
+              {
+                "insert": ".local/Start Transcriber.command",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ]
+          ]
+        ],
+        "title": "Transcriber identity after installation"
+      },
+      "children": []
+    },
     "b-10-local-setup-upstream-pr-4-is-incorp-18": {
       "id": "b-10-local-setup-upstream-pr-4-is-incorp-18",
       "type": "paragraph",
       "props": {},
       "text": [
         {
-          "insert": "Upstream PR #5, the Bun/TypeScript backend refactor, is incorporated. The archive and Data page changes remain local. The rebuild installer retains previous client apps under .local/install-backups."
+          "insert": "Upstream is merged through PR #23, in merge commit "
+        },
+        {
+          "insert": "c065ec2",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " on 2026-09-30. The archive, the Data page, and the Transcriber installer are the fork's changes. The installer keeps each replaced client app under "
+        },
+        {
+          "insert": ".local/install-backups",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []
@@ -369,7 +572,61 @@
       "props": {},
       "text": [
         {
-          "insert": "The installed app, dictation server, and archive worker start at login through the configured LaunchAgents. Quitting Sotto leaves the server and archive worker running."
+          "insert": "Three LaunchAgents in "
+        },
+        {
+          "insert": "~/Library/LaunchAgents",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " start the app, the dictation server, and the archive worker at login: "
+        },
+        {
+          "insert": "ai.codecaine.sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "ai.codecaine.sotto.server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": "ai.codecaine.sotto.archive",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The app agent opens "
+        },
+        {
+          "insert": "/Applications/Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The server agent runs "
+        },
+        {
+          "insert": "build/server/sotto-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " from the build made before the sync. Quitting the app leaves the server and archive worker running."
         }
       ],
       "children": []
@@ -380,7 +637,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Wispr Flow is quit and removed from login startup. Its nightly WisprSync job is disabled. A final import and integrity check preserved the available history and dictionary entries. The app and source data remain installed. Only new Sotto data is monitored automatically."
+          "insert": "Wispr Flow is quit and removed from login startup. Its nightly WisprSync job is disabled. A final import and integrity check preserved the available history and dictionary entries. The app and source data remain installed. Only new dictation records are monitored automatically."
         }
       ],
       "children": []
@@ -407,9 +664,12 @@
           "insert": "See "
         },
         {
-          "insert": "Sotto Migration Report.md",
+          "insert": "Migration Verification",
           "attributes": {
-            "bold": true
+            "reference": {
+              "kind": "doc",
+              "path": "99-appendix/30-migration-verification"
+            }
           }
         },
         {
@@ -424,7 +684,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Six archive tests and fourteen focused server tests pass. Two real-audio recordings passed recognition, cleanup, raw/clean file equality, repeat-import checks, and archive integrity verification."
+          "insert": "The results in this section predate the 2026-09-30 sync. Six archive tests and fourteen focused server tests passed. Two real-audio recordings passed recognition, cleanup, raw/clean file equality, repeat-import checks, and archive integrity verification. Upstream PR #23 removed the Swift and server tests."
         }
       ],
       "children": []
@@ -435,7 +695,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The installed client's changed-build test retained the same certificate-based signing requirement, Microphone and Accessibility grants, and an active hotkey listener. The user confirmed dictation works after the rebuild. A full macOS reboot has not been tested. Preserve the local certificate for future rebuilds."
+          "insert": "The changed-build test on the installed Sotto client retained the same certificate-based signing requirement, Microphone and Accessibility grants, and an active hotkey listener. The user confirmed dictation worked after that rebuild. Transcriber has a different bundle identifier, so macOS treats it as a new app. Its permissions and dictation have not been tested. A full macOS reboot has not been tested. Preserve the local certificate for future rebuilds."
         }
       ],
       "children": []
@@ -446,7 +706,34 @@
       "props": {},
       "text": [
         {
-          "insert": "The repository is installed at /Users/Ford/Github Repos/Codecaine/utilities/sotto. The updated launcher and both background services use that path. Codecaine Docs discovers this corpus as sotto-9daa755a. Both engines and the archive worker were rechecked after relocation; Qwen needed one startup retry. The original installed app remains at /Applications/Sotto.app."
+          "insert": "The repository is at "
+        },
+        {
+          "insert": "/Users/Ford/workspace/codecaine/utilities/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". "
+        },
+        {
+          "insert": ".local/Start Sotto.command",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and both background services use that path. Codecaine Docs discovers this corpus as "
+        },
+        {
+          "insert": "sotto-8955067e",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []

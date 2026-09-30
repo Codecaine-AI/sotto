@@ -15,6 +15,7 @@
         "b-20-archive-worker-viewer-py-source-scrip-4",
         "b-20-archive-worker-install-py-source-scri-5",
         "b-20-archive-worker-test-archive-py-source-6",
+        "archive-worker-retained-names",
         "b-20-archive-worker-the-derived-cache-belong-7"
       ]
     },
@@ -80,7 +81,7 @@
           }
         },
         {
-          "insert": " owns atomic writes, content hashing, safe IDs, SQLite snapshots, source versions, import, verification, Sotto polling, and the rebuildable index."
+          "insert": " owns atomic writes, content hashing, safe IDs, SQLite snapshots, source versions, import, verification, polling of the server data directory, and the rebuildable index."
         }
       ],
       "children": []
@@ -136,7 +137,52 @@
           }
         },
         {
-          "insert": " derives the repository root from its own location. It creates local service configuration and a launcher for this login session, not automatic login startup."
+          "insert": " derives the repository root from its own location. It writes "
+        },
+        {
+          "insert": ".local/archive-config.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and the "
+        },
+        {
+          "insert": "ai.codecaine.sotto.archive",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " plist under "
+        },
+        {
+          "insert": ".local",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", then restarts that service for the current login session. It also writes "
+        },
+        {
+          "insert": ".local/Start Transcriber.command",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", which starts both services and opens "
+        },
+        {
+          "insert": "/Applications/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". It does not install a login item."
         }
       ],
       "children": []
@@ -158,7 +204,68 @@
           }
         },
         {
-          "insert": " covers oversized media, null dates, typed fields, dictionary preservation, hash failures, retries, retained source versions, path safety, search, pagination, source evidence, and HTTP range behavior."
+          "insert": " covers oversized media, null dates, typed fields, dictionary preservation, hash failures, retries, retained source versions, path safety, search, pagination, source evidence, and HTTP range behavior. "
+        },
+        {
+          "insert": "AGENTS.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " prohibits adding or running automated tests. Whether this file stays is an open decision in "
+        },
+        {
+          "insert": "Current Status",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "00-foundation/20-current-status"
+            }
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "archive-worker-retained-names": {
+      "id": "archive-worker-retained-names",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "The source ID "
+        },
+        {
+          "insert": "sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", the "
+        },
+        {
+          "insert": "records/sotto/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " folder, the "
+        },
+        {
+          "insert": "--sotto-data",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " flag, and the launchd labels keep the name Sotto because stored records and running services depend on them. User-facing strings in the worker and viewer say Transcriber."
         }
       ],
       "children": []

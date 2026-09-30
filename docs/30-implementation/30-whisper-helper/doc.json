@@ -34,7 +34,7 @@
       "props": {},
       "text": [
         {
-          "insert": "sotto-engine",
+          "insert": "v07-engine",
           "attributes": {
             "code": true
           }
@@ -107,7 +107,7 @@
       },
       "text": [
         {
-          "insert": "{\"type\":\"transcribe\",\"id\":\"request-1\",\"path\":\"/absolute/path/to/recording.wav\",\"language\":\"en\",\"vocabularyTerms\":[\"Sotto\",\"SwiftUI\",\"Metal\"]}"
+          "insert": "{\"type\":\"transcribe\",\"id\":\"request-1\",\"path\":\"/absolute/path/to/recording.wav\",\"language\":\"en\",\"vocabularyTerms\":[\"V07\",\"SwiftUI\",\"Metal\"]}"
         }
       ],
       "children": []
@@ -422,7 +422,7 @@
       },
       "text": [
         {
-          "insert": "./scripts/build-server.sh\npython3 scripts/test-engine.py --help"
+          "insert": "./scripts/build-server.sh"
         }
       ],
       "children": []
@@ -433,16 +433,37 @@
       "props": {},
       "text": [
         {
-          "insert": "The test harness exercises protocol bounds, public sample recordings, vocabulary, passage retention, and process lifetime. For the full API path, use "
+          "insert": "After the build, use "
         },
         {
-          "insert": "scripts/smoke-test.sh",
+          "insert": "V07 Dev",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " to record speech and inspect progress, transcripts, and vocabulary hints in history. When you change helper lifecycle behavior, also verify cancellation and a following recording in the app. The "
+        },
+        {
+          "insert": "Development",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/40-development"
+            }
+          }
+        },
+        {
+          "insert": " guide has the setup. "
+        },
+        {
+          "insert": "AGENTS.md",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " against an idle Dev server."
+          "insert": " prohibits automated test harnesses."
         }
       ],
       "children": []

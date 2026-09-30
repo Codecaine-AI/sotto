@@ -372,7 +372,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The checks do not prove identical meaning. Whisper can omit words; Qwen can mishandle homophones or instructions. The proofreader receives the current dictated chunk, language, preferred terms, and cleanup prompt. not surrounding documents, clipboard contents, or screenshots."
+          "insert": "The checks do not prove identical meaning. Whisper can omit words; Qwen can mishandle homophones or instructions. The proofreader receives the current dictated chunk, language, preferred terms, and cleanup prompt. It does not receive surrounding documents, clipboard contents, or screenshots."
         }
       ],
       "children": []
@@ -385,7 +385,7 @@
       },
       "text": [
         {
-          "insert": "Limits and testing"
+          "insert": "Limits and Verification"
         }
       ],
       "children": []
@@ -419,52 +419,64 @@
       "props": {},
       "text": [
         {
-          "insert": "Run "
+          "insert": "Use "
         },
         {
-          "insert": "swift test",
+          "insert": "V07 Dev",
+          "attributes": {
+            "bold": true
+          }
+        },
+        {
+          "insert": " to dictate names, numbers, negations, lists, and spoken corrections. Inspect the raw text, proposed cleanup, accepted result, and rejection reasons in history. Edit and save cleanup instructions to exercise custom prompts. Run "
+        },
+        {
+          "insert": "bun run check",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " for dictionary/validation tests and "
+          "insert": ", "
         },
         {
-          "insert": "scripts/test-corrections.sh",
+          "insert": "bun run lint",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " for the real packaged Qwen helper. To test the built-in default directly, pass "
+          "insert": ", and "
         },
         {
-          "insert": "--server build/server/sotto-server",
+          "insert": "bun run fmt:check",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " to either Python helper harness. An explicit "
+          "insert": " for static validation. "
         },
         {
-          "insert": "--prompt FILE",
+          "insert": "AGENTS.md",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " preserves the file's contents, including trailing newlines. A redirected CLI prompt export includes an extra delimiter newline; use "
+          "insert": " prohibits automated tests and helper harnesses. The "
         },
         {
-          "insert": "--server",
+          "insert": "Development",
           "attributes": {
-            "code": true
+            "reference": {
+              "kind": "doc",
+              "path": "40-guides/40-development"
+            }
           }
         },
         {
-          "insert": " to avoid accidentally testing different prompt bytes."
+          "insert": " guide has the setup."
         }
       ],
       "children": []

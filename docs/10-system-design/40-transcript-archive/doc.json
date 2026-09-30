@@ -19,8 +19,10 @@
         "b-40-transcript-archive-runtime-behavior-8",
         "b-40-transcript-archive-the-worker-polls-sotto-e-9",
         "b-40-transcript-archive-sotto-writes-explicit-ra-10",
+        "archive-retained-names",
         "b-40-transcript-archive-data-viewer-11",
         "b-40-transcript-archive-the-read-only-viewer-bin-12",
+        "archive-viewer-port",
         "b-40-transcript-archive-storage-and-backup-13",
         "b-40-transcript-archive-users-ford-transcripts-14",
         "b-40-transcript-archive-automatic-backup-is-not-15"
@@ -32,7 +34,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The archive is the authoritative portable dataset for historical Wispr records and finished Sotto recordings. Search uses a separate rebuildable SQLite cache; original files remain usable without the viewer."
+          "insert": "The archive is the authoritative portable dataset for historical Wispr records and finished Transcriber recordings. Search uses a separate rebuildable SQLite cache; original files remain usable without the viewer."
         }
       ],
       "children": []
@@ -137,7 +139,7 @@
       },
       "text": [
         {
-          "insert": "Current Wispr clean text selects nonempty pasted text, server-finalized text, formatted text, then ASR text. Sotto uses its actual raw recognition and final accepted result."
+          "insert": "Current Wispr clean text selects nonempty pasted text, server-finalized text, formatted text, then ASR text. Transcriber records use the server's raw recognition and final accepted result."
         }
       ],
       "children": []
@@ -161,7 +163,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The worker polls Sotto every three seconds and archives completed, failed, and cancelled records. It records source metadata versions and available sealed audio. A missing referenced file produces a visible error and a retry; removing an operational recording never removes its archived copy. The worker does not monitor Wispr after migration."
+          "insert": "The worker polls the dictation server's data directory every three seconds and archives completed, failed, and cancelled records. It records source metadata versions and available sealed audio. A missing referenced file produces a visible error and a retry; removing an operational recording never removes its archived copy. The worker does not monitor Wispr after migration."
         }
       ],
       "children": []
@@ -172,7 +174,63 @@
       "props": {},
       "text": [
         {
-          "insert": "Sotto writes explicit raw and clean files before publishing terminal metadata. The worker uses metadata changes to discover updates. This is one writer on this Mac; synchronizing the folder does not establish multiwriter safety."
+          "insert": "The server writes explicit raw and clean files before publishing terminal metadata. The worker uses metadata changes to discover updates. This is one writer on this Mac; synchronizing the folder does not establish multiwriter safety."
+        }
+      ],
+      "children": []
+    },
+    "archive-retained-names": {
+      "id": "archive-retained-names",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Transcriber records keep the source ID "
+        },
+        {
+          "insert": "sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and live under "
+        },
+        {
+          "insert": "records/sotto/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The worker's "
+        },
+        {
+          "insert": "--sotto-data",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " flag and the launchd label "
+        },
+        {
+          "insert": "ai.codecaine.sotto.archive",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " also keep the name. Stored records and the running service depend on these identifiers, so the app's name does not change them. The viewer displays the "
+        },
+        {
+          "insert": "sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " source as Transcriber."
         }
       ],
       "children": []
@@ -206,6 +264,35 @@
         },
         {
           "insert": ". It provides full-archive raw/clean/app search, source filtering, 50-record pages, all transcript variants, typed source fields, audio playback, screenshots, hashes, source versions, dictionary files, and dataset evidence. Foreign Host and Origin requests and path escapes are rejected. Unknown attachment formats download as opaque bytes."
+        }
+      ],
+      "children": []
+    },
+    "archive-viewer-port": {
+      "id": "archive-viewer-port",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Upstream's source server, started with "
+        },
+        {
+          "insert": "bun run dev",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", also defaults to port 8392. On a Mac that runs the viewer, start the source server with another "
+        },
+        {
+          "insert": "--port",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " value."
         }
       ],
       "children": []

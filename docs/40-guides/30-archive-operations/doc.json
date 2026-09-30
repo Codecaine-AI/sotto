@@ -12,6 +12,7 @@
         "b-readme-the-archive-is-the-perma-1",
         "b-readme-structure-2",
         "b-readme-text-3",
+        "archive-ops-retained-names",
         "b-readme-metadata-distinguishes-m-4",
         "b-readme-the-portable-archive-is-5",
         "b-readme-the-original-upstream-wi-6",
@@ -22,7 +23,6 @@
         "b-readme-python3-scripts-archive-11",
         "b-readme-the-viewer-is-read-only-12",
         "b-readme-verification-13",
-        "b-readme-sh-14",
         "b-readme-tests-cover-oversized-au-15"
       ]
     },
@@ -32,7 +32,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The archive is the permanent, portable home for historical Wispr records and new Sotto recordings. The one-time migration reads the existing WisprSync export and read-only SQLite snapshots. After migration, only Sotto is monitored. The worker copies new finished recordings every three seconds and retries failures. Deleting a source recording does not delete its archived copy."
+          "insert": "The archive is the permanent, portable home for historical Wispr records and new Transcriber recordings. The one-time migration reads the existing WisprSync export and read-only SQLite snapshots. After migration, only the dictation server's records are monitored. The worker copies new finished recordings every three seconds and retries failures. Deleting a source recording does not delete its archived copy."
         }
       ],
       "children": []
@@ -63,6 +63,44 @@
       ],
       "children": []
     },
+    "archive-ops-retained-names": {
+      "id": "archive-ops-retained-names",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The "
+        },
+        {
+          "insert": "sotto/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " folder holds Transcriber records. The folder name, the source ID "
+        },
+        {
+          "insert": "sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and the "
+        },
+        {
+          "insert": "--sotto-data",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " flag keep the earlier name because stored records depend on them."
+        }
+      ],
+      "children": []
+    },
     "b-readme-metadata-distinguishes-m-4": {
       "id": "b-readme-metadata-distinguishes-m-4",
       "type": "paragraph",
@@ -80,7 +118,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The portable archive is separate from Sotto's operational history. Sotto records raw.txt and clean.txt alongside each finished recording before publishing metadata. The archive worker then copies the complete metadata and audio. The Data page shows archive health and any copy failure. Closing the app does not stop the worker. The archive is intended for one writer on this Mac; sharing its folder does not make simultaneous writers safe."
+          "insert": "The portable archive is separate from the server's operational history. The server records raw.txt and clean.txt alongside each finished recording before publishing metadata. The archive worker then copies the complete metadata and audio. The Data page shows archive health and any copy failure. Closing the app does not stop the worker. The archive is intended for one writer on this Mac; sharing its folder does not make simultaneous writers safe."
         }
       ],
       "children": []
@@ -174,19 +212,37 @@
           }
         },
         {
-          "insert": " configures the worker for the current login session and updates "
+          "insert": " configures the worker for the current login session and writes "
         },
         {
-          "insert": ".local/Start Sotto.command",
+          "insert": ".local/Start Transcriber.command",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": ". It does not enable launch at login. That launcher starts both dictation and archive services. The Data page and browser viewer use "
+          "insert": ". It does not enable launch at login. That launcher starts both dictation and archive services and opens "
+        },
+        {
+          "insert": "/Applications/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The Data page and browser viewer use "
         },
         {
           "insert": "http://127.0.0.1:8392",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". On Ford's Mac the installer has not been rerun since the rename, so the launcher there is "
+        },
+        {
+          "insert": ".local/Start Sotto.command",
           "attributes": {
             "code": true
           }
@@ -221,26 +277,79 @@
       ],
       "children": []
     },
-    "b-readme-sh-14": {
-      "id": "b-readme-sh-14",
-      "type": "code",
-      "props": {
-        "language": "sh"
-      },
-      "text": [
-        {
-          "insert": "python3 -m unittest discover -s scripts/archive -p 'test_*.py' -v\nswift test --filter GenerationServiceTests"
-        }
-      ],
-      "children": []
-    },
     "b-readme-tests-cover-oversized-au-15": {
       "id": "b-readme-tests-cover-oversized-au-15",
       "type": "paragraph",
       "props": {},
       "text": [
         {
-          "insert": "Tests cover oversized audio, null dates, arbitrary typed fields, dictionary preservation, original hash preservation, retry after missing files, retention after source deletion, index rebuilding, pagination, search, audio byte ranges, path traversal, and cross-origin access."
+          "insert": "Run the "
+        },
+        {
+          "insert": "verify",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " command above and read "
+        },
+        {
+          "insert": "verification.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " in the archive root. "
+        },
+        {
+          "insert": "AGENTS.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " prohibits adding or running automated tests. "
+        },
+        {
+          "insert": "scripts/archive/test_archive.py",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " is still in the fork, and "
+        },
+        {
+          "insert": "scripts/archive/README.md",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " still lists its "
+        },
+        {
+          "insert": "unittest",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " command. Whether the file stays is an open decision in "
+        },
+        {
+          "insert": "Current Status",
+          "attributes": {
+            "reference": {
+              "kind": "doc",
+              "path": "00-foundation/20-current-status"
+            }
+          }
+        },
+        {
+          "insert": ". The repository has no Swift test target."
         }
       ],
       "children": []
