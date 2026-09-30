@@ -344,7 +344,7 @@ class Archive:
     def sync_sotto(self, source):
         source = Path(source).expanduser().resolve()
         if not source.is_dir():
-            raise FileNotFoundError("Sotto data directory is unavailable")
+            raise FileNotFoundError("Transcriber data directory is unavailable")
         changed = 0
         for path in sorted((source / 'generations').glob('*/metadata.json')):
             stamp = [path.stat().st_mtime_ns, path.stat().st_size]
@@ -356,7 +356,7 @@ class Archive:
             if original['status'] not in ('completed', 'failed', 'cancelled'):
                 continue
             if original.get('importedSource'):
-                continue  # Wispr history is imported directly and losslessly, not through Sotto's legacy adapter.
+                continue  # Wispr history is imported directly and losslessly, not through the server's legacy adapter.
             m = self.load('sotto', original['id'])
             folder = self.record_dir('sotto', original['id'])
             m.update(timestamp=original['createdAt'], status=original['status'],
@@ -371,7 +371,7 @@ class Archive:
                 name = original[field]['filename']
                 p = (path.parent / name).resolve()
                 if not p.is_relative_to(path.parent.resolve()) or not p.is_file():
-                    raise ValueError('Sotto metadata references missing or invalid audio')
+                    raise ValueError('Transcriber metadata references missing or invalid audio')
                 with p.open('rb') as f:
                     self.add_artifact(m, self.blob(folder, f, kind, p.suffix, name))
             self.save(m)
@@ -447,7 +447,7 @@ def main():
     elif args.command == 'reindex':
         archive.reindex(); print(json.dumps(archive.summary(), indent=2))
     elif args.command == 'sync':
-        print('Archived', archive.sync_sotto(args.sotto_data), 'Sotto records')
+        print('Archived', archive.sync_sotto(args.sotto_data), 'Transcriber records')
     elif args.command == 'serve':
         from viewer import serve
         serve(archive, args.sotto_data, args.port)

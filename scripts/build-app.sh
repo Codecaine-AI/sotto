@@ -42,20 +42,12 @@ swift scripts/make-icon.swift "$project_dir/.build/V07.iconset"
 iconutil -c icns .build/V07.iconset -o "$staged_app/Contents/Resources/V07.icns"
 
 signing_identity="${V07_SIGNING_IDENTITY:-}"
-signing_options=()
-signing_config="$HOME/.config/sotto/signing.json"
-if [[ -z "$signing_identity" && -f "$signing_config" ]]; then
-    signing_identity=$(python3 -c 'import json,re,sys; d=json.load(open(sys.argv[1])); assert re.fullmatch(r"[0-9a-fA-F]{40}", d["identity"]); print(d["identity"])' "$signing_config")
-    signing_keychain=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["keychain"])' "$signing_config")
-    signing_options+=(--keychain "$signing_keychain"
-        --requirements "=designated => identifier \"$bundle_id\" and certificate leaf = H\"$signing_identity\"")
-elif [[ -z "$signing_identity" ]]; then
+if [[ -z "$signing_identity" ]]; then
     identities=$(security find-identity -v -p codesigning | awk '/"Apple Development:/ {print $2}')
     identity_count=$(printf '%s\n' "$identities" | awk 'NF {n++} END {print n+0}')
     if [[ "$identity_count" == 1 ]]; then signing_identity="$identities"; else signing_identity=-; fi
 fi
-# A configured certificate must succeed; never fall back to ad-hoc signing.
-codesign --force --sign "$signing_identity" "${signing_options[@]}" --options runtime \
+codesign --force --sign "$signing_identity" --options runtime \
     --entitlements Resources/V07.entitlements --identifier "$bundle_id" "$staged_app"
 codesign --verify --deep --strict "$staged_app"
 if [[ -d "$app_path" ]]; then

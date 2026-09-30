@@ -1249,7 +1249,7 @@ final class V07Controller: ObservableObject {
             hotkey.stop()
             isHotkeyActive = false
         }
-        Logger(subsystem: "dev.davis.v07", category: "permissions").notice(
+        Logger(subsystem: Bundle.main.bundleIdentifier ?? "transcriber", category: "permissions").notice(
             "Permissions refreshed: microphone=\(current.microphone), accessibility=\(current.accessibility), inputMonitoring=\(current.inputMonitoring), hotkey=\(self.isHotkeyActive)"
         )
     }

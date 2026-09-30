@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build, verify, replace, and reopen the consistently signed local V07 app."""
+"""Build, rebrand, sign, verify, replace, and reopen the local Transcriber app."""
 import argparse
 from datetime import datetime
 import fcntl
@@ -14,9 +14,13 @@ import tempfile
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGET = Path('/Applications/V07.app')
-CONFIG = Path.home() / '.config/sotto/signing.json'
-BUNDLE_ID = 'dev.davis.v07'
+# macOS permissions, the settings directory, and the Keychain service follow this
+# name and identifier. They stay fixed whatever upstream calls its app.
+APP_NAME = 'Transcriber'
+BUNDLE_ID = 'ai.codecaine.transcriber'
+BUILT = ROOT / 'build' / f'{APP_NAME}.app'
+TARGET = Path('/Applications') / f'{APP_NAME}.app'
+CONFIG = Path.home() / '.config/transcriber/signing.json'
 
 
 def run(*args, **kwargs):
@@ -31,12 +35,52 @@ def requirement(app):
 
 def installed_pids():
     result = subprocess.check_output(['ps', '-axo', 'pid=,comm='], text=True)
-    executable = str(TARGET / 'Contents/MacOS/V07')
+    executable = str(TARGET / 'Contents/MacOS' / APP_NAME)
     return [int(parts[0]) for line in result.splitlines() if len(parts := line.strip().split(None, 1)) == 2 and parts[1] == executable]
+
+
+def build(identity, keychain):
+    """Build upstream's app unchanged, then give a copy the Transcriber identity."""
+    with ROOT.joinpath('Resources/Info.plist').open('rb') as file:
+        upstream_name = plistlib.load(file)['CFBundleName']
+    run(str(ROOT / 'scripts/build-app.sh'), cwd=ROOT)
+    upstream_app = ROOT / 'build' / f'{upstream_name}.app'
+    stage = Path(tempfile.mkdtemp(prefix='.transcriber.', dir=ROOT / 'build'))
+    try:
+        app = stage / BUILT.name
+        run('ditto', str(upstream_app), str(app))
+        info_path = app / 'Contents/Info.plist'
+        info = plistlib.loads(info_path.read_bytes())
+        app.joinpath('Contents/MacOS', info['CFBundleExecutable']).rename(app / 'Contents/MacOS' / APP_NAME)
+        info.update(CFBundleExecutable=APP_NAME, CFBundleIdentifier=BUNDLE_ID,
+                    CFBundleName=APP_NAME, CFBundleDisplayName=APP_NAME)
+        for key, value in info.items():
+            if key.endswith('UsageDescription'):
+                info[key] = value.replace(upstream_name, APP_NAME)
+        info_path.write_bytes(plistlib.dumps(info))
+        # Upstream's own signature carries the entitlements its build chose.
+        entitlements = stage / 'entitlements.plist'
+        entitlements.write_bytes(subprocess.run(
+            ['codesign', '-d', '--entitlements', '-', '--xml', str(upstream_app)],
+            check=True, capture_output=True).stdout)
+        if not plistlib.loads(entitlements.read_bytes()):
+            raise SystemExit('The upstream build carries no entitlements. No app was changed.')
+        # The pinned certificate must succeed; never fall back to ad-hoc signing.
+        run('codesign', '--force', '--sign', identity, '--keychain', keychain, '--options', 'runtime',
+            '--requirements', f'=designated => identifier "{BUNDLE_ID}" and certificate leaf = H"{identity}"',
+            '--entitlements', str(entitlements), '--identifier', BUNDLE_ID, str(app))
+        run('codesign', '--verify', '--deep', '--strict', str(app))
+        if BUILT.exists():
+            shutil.rmtree(BUILT)
+        app.rename(BUILT)
+    finally:
+        shutil.rmtree(stage)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--build-only', action='store_true',
+                        help=f'Build and sign build/{BUILT.name} without touching the installed app.')
     parser.add_argument('--adopt-identity', action='store_true',
                         help='Allow the one-time switch from the installed identity; permissions need reapproval.')
     args = parser.parse_args()
@@ -52,14 +96,13 @@ def main():
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             raise SystemExit('Another local install is running.')
-        environment = dict(os.environ)
-        # This command always uses the pinned local certificate.
-        environment.pop('V07_SIGNING_IDENTITY', None)
-        run(str(ROOT / 'scripts/build-app.sh'), cwd=ROOT, env=environment)
-        built = ROOT / 'build/V07.app'
+        build(identity, config['keychain'])
         expected = f'=identifier "{BUNDLE_ID}" and certificate leaf = H"{identity}"'
-        run('codesign', '--verify', '--strict', '-R', expected, str(built))
-        new_requirement = requirement(built)
+        run('codesign', '--verify', '--strict', '-R', expected, str(BUILT))
+        if args.build_only:
+            print('Built and signed:', BUILT)
+            return
+        new_requirement = requirement(BUILT)
         if TARGET.is_symlink():
             raise SystemExit('The install target is a symlink. No installed app was changed.')
         if TARGET.exists():
@@ -69,11 +112,11 @@ def main():
             old_requirement = requirement(TARGET)
             if old_requirement != new_requirement and not args.adopt_identity:
                 raise SystemExit('The signing identity would change. Use --adopt-identity only for an intentional one-time switch.')
-        stage = Path(tempfile.mkdtemp(prefix='.V07-install-', dir=TARGET.parent))
+        stage = Path(tempfile.mkdtemp(prefix=f'.{APP_NAME}-install-', dir=TARGET.parent))
         previous = None
         try:
             staged_app = stage / TARGET.name
-            run('ditto', str(built), str(staged_app))
+            run('ditto', str(BUILT), str(staged_app))
             run('codesign', '--verify', '--deep', '--strict', '-R', expected, str(staged_app))
             for pid in installed_pids():
                 try:
@@ -85,7 +128,7 @@ def main():
                     break
                 time.sleep(0.1)
             else:
-                raise SystemExit('V07 did not quit. No app was replaced.')
+                raise SystemExit(f'{APP_NAME} did not quit. No app was replaced.')
             if TARGET.exists():
                 backup = ROOT / '.local/install-backups' / datetime.now().strftime('%Y%m%d-%H%M%S-%f')
                 backup.mkdir(parents=True)

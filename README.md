@@ -1,9 +1,5 @@
 # V07
 
-Codecaine project documentation is maintained in the [native Docs corpus](docs/00-foundation/doc.json). Start with [Current Status](docs/00-foundation/20-current-status/doc.json). The Markdown guides below are retained as upstream and migration references.
-
-For changes to the installed local client, run `./scripts/rebuild-local.sh` from this repository. It signs with the configured local certificate, verifies the identity, backs up the installed app, and reopens `/Applications/V07.app`. See [Development](docs/40-guides/40-development/doc.json) for one-time setup, permission recovery, and rebuild verification.
-
 Hold a key, speak, and release to insert your dictation. V07 is a native Swift macOS app backed by a Bun-compiled TypeScript/Fastify model server running on the same Mac, another Mac, or Linux. Audio uploads while you speak; the server returns progress and one finished transcript. You can start another take immediately: finished recordings queue on the server, and each result returns to its originating client for delivery.
 
 The dev runner builds **V07 Dev**, with separate settings and visible Dev labels. For the regular app, run `./scripts/build-app.sh` and install `build/V07.app` in Applications. Both connect to an independently running server.
@@ -75,7 +71,7 @@ For the packaged Mac app and server:
 ./scripts/run-dev.sh restart             # Rebuild and restart the server
 ```
 
-Keep the model-path exports set when starting the server. For the installed client, use the local rebuild workflow linked above. Direct builds use the pinned local certificate when configured, unless explicitly overridden. Without that configuration, signing uses an available Apple Development identity or ad-hoc signing; ad-hoc rebuilds may require granting permissions again.
+Keep the model-path exports set when starting the server. After rebuilding an already-open client, quit and reopen it to load the new executable. Signing uses an available Apple Development identity or ad-hoc signing; ad-hoc rebuilds may require granting permissions again.
 
 The dev runner stores shared history/settings in `.local/server`, device preferences in `.local/client`, and logs in `.local/server.log`. Keep experiment notes and generated artifacts under the ignored `.local/` directory too. Quitting the app leaves the server running. Recordings require an online, available server and have a three-minute limit.
 

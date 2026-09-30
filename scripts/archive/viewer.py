@@ -1,4 +1,4 @@
-"""Read-only localhost data viewer and durable Sotto archive worker."""
+"""Read-only localhost data viewer and durable Transcriber archive worker."""
 from __future__ import annotations
 import json
 import mimetypes

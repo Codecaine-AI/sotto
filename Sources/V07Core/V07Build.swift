@@ -8,10 +8,15 @@ public enum V07Build: Equatable, Sendable {
     public static let current: Self = Bundle.main.object(forInfoDictionaryKey: "V07DevelopmentBuild") as? Bool == false
         ? .release : .development
 
-    public var displayName: String { self == .development ? "V07 Dev" : "V07" }
+    // A packaged app reports the name and identifier in its own Info.plist, so a
+    // rebranded bundle keeps its own settings directory and Keychain service.
+    public var displayName: String {
+        Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String
+            ?? (self == .development ? "V07 Dev" : "V07")
+    }
     public var isDevelopment: Bool { self == .development }
     public var bundleIdentifier: String {
-        self == .development ? "dev.davis.v07.dev" : "dev.davis.v07"
+        Bundle.main.bundleIdentifier ?? (self == .development ? "dev.davis.v07.dev" : "dev.davis.v07")
     }
     public var credentialService: String { bundleIdentifier + ".server" }
     public var windowAutosaveName: String { self == .development ? "V07DevMainWindow" : "V07MainWindow" }

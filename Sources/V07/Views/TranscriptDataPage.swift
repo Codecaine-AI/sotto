@@ -55,7 +55,7 @@ private struct TranscriptArchiveWebView: NSViewRepresentable {
             webView.loadHTMLString("""
             <html><body style="font:16px -apple-system;padding:40px;color:#34483b;background:#f7f7f2">
             <h2>The transcript archive is offline</h2>
-            <p>Open Start Sotto.command to start the archive service, then return to Data.</p>
+            <p>Open Start Transcriber.command to start the archive service, then return to Data.</p>
             <p><a href="http://127.0.0.1:8392">Try again</a></p>
             </body></html>
             """, baseURL: URL(string: "http://127.0.0.1:8392"))

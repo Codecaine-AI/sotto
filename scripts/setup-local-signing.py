@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create or reuse Sotto's local code-signing identity in the login Keychain."""
+"""Create or reuse Transcriber's local code-signing identity in the login Keychain."""
 import json
 import os
 from pathlib import Path
@@ -9,8 +9,8 @@ import secrets
 import subprocess
 import tempfile
 
-NAME = 'Sotto Local Development'
-CONFIG = Path.home() / '.config/sotto/signing.json'
+NAME = 'Transcriber Local Development'
+CONFIG = Path.home() / '.config/transcriber/signing.json'
 KEYCHAIN = Path.home() / 'Library/Keychains/login.keychain-db'
 
 
@@ -28,16 +28,16 @@ def main():
         saved = json.loads(CONFIG.read_text())
         print('Using the configured identity:', saved['identity'])
         return
-    with tempfile.TemporaryDirectory(prefix='sotto-signing-') as temporary:
+    with tempfile.TemporaryDirectory(prefix='transcriber-signing-') as temporary:
         root = Path(temporary)
         cert = root / 'certificate.pem'
         existing = subprocess.run(['security', 'find-certificate', '-a', '-c', NAME, '-p', str(KEYCHAIN)],
                                   capture_output=True, text=True)
         if existing.returncode == 0 and existing.stdout.count('BEGIN CERTIFICATE') == 1:
             cert.write_text(existing.stdout)
-            print('Reusing the existing Sotto certificate.')
+            print('Reusing the existing Transcriber certificate.')
         elif existing.returncode == 0 and existing.stdout.count('BEGIN CERTIFICATE') > 1:
-            raise SystemExit('Multiple Sotto certificates exist. Select one explicitly; no identity was changed.')
+            raise SystemExit('Multiple Transcriber certificates exist. Select one explicitly; no identity was changed.')
         else:
             config = root / 'certificate.cnf'
             config.write_text('''[req]
@@ -45,7 +45,7 @@ prompt = no
 distinguished_name = subject
 x509_extensions = codesign
 [subject]
-CN = Sotto Local Development
+CN = Transcriber Local Development
 [codesign]
 basicConstraints = critical,CA:FALSE
 keyUsage = critical,digitalSignature
@@ -78,9 +78,9 @@ subjectKeyIdentifier = hash
             binary = root / f'probe-{version}'
             source.write_text(f'int main(void) {{ return {version}; }}\n')
             run('xcrun', 'clang', str(source), '-o', str(binary))
-            requirement = f'=designated => identifier "ai.codecaine.sotto.signing-probe" and certificate leaf = H"{fingerprint}"'
+            requirement = f'=designated => identifier "ai.codecaine.transcriber.signing-probe" and certificate leaf = H"{fingerprint}"'
             run('codesign', '--force', '--sign', fingerprint, '--keychain', str(KEYCHAIN),
-                '--identifier', 'ai.codecaine.sotto.signing-probe', '--requirements', requirement, str(binary))
+                '--identifier', 'ai.codecaine.transcriber.signing-probe', '--requirements', requirement, str(binary))
             run('codesign', '--verify', '--strict', str(binary))
             detail = subprocess.run(['codesign', '-d', '-r-', str(binary)], check=True, capture_output=True, text=True)
             requirements.append(next(line for line in (detail.stdout + detail.stderr).splitlines() if line.startswith('designated =>')))
