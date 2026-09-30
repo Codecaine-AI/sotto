@@ -893,7 +893,7 @@
           }
         },
         {
-          "insert": ". A first install needs no adoption flag because no Transcriber app is installed. If you deliberately change the certificate of an installed Transcriber, use "
+          "insert": ". The first install on a Mac needs no adoption flag because no Transcriber app exists yet. If you deliberately change the certificate of an installed Transcriber, use "
         },
         {
           "insert": "./scripts/rebuild-local.sh --adopt-identity",
@@ -935,7 +935,34 @@
       "props": {},
       "text": [
         {
-          "insert": "The installer updates the desktop client only. Backend changes require a separate server rebuild and restart. The server and archive worker keep running while the client is replaced."
+          "insert": "The installer updates the desktop client only. The server and archive worker keep running while the client is replaced. For backend changes, run "
+        },
+        {
+          "insert": "./scripts/build-server.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and restart the server. On Ford's Mac that is the "
+        },
+        {
+          "insert": "ai.codecaine.sotto.server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " service, which starts the new build through "
+        },
+        {
+          "insert": "scripts/run-server-local.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
         }
       ],
       "children": []
@@ -1240,7 +1267,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Changed-build replacement with permissions preserved was verified on the earlier Sotto.app, which has the bundle identifier dev.davis.murmur. The check has not been repeated for Transcriber, which is not installed on Ford's Mac. Full macOS reboot persistence remains untested. Evidence from the Sotto run is retained under "
+          "insert": "On Ford's Mac, Transcriber was installed on 2026-09-30 with the certificate Sotto.app used. Its permissions log reports microphone, accessibility, inputMonitoring, and hotkey as true, and an end-to-end dictation worked. A changed-build replacement of Transcriber that keeps its grants has not been tested yet; that check passed earlier on Sotto.app. Full macOS reboot persistence remains untested. Evidence from the Sotto run is retained under "
         },
         {
           "insert": ".local/signing-validation/",

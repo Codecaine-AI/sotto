@@ -216,6 +216,17 @@
               }
             ],
             "Codecaine installer that builds upstream's app, renames the copy to Transcriber, signs it, and installs it."
+          ],
+          [
+            [
+              {
+                "insert": "scripts/run-server-local.sh",
+                "attributes": {
+                  "code": true
+                }
+              }
+            ],
+            "Codecaine launcher for the local server service. It finds the packaged server and helpers by role, so an upstream rename needs only a rebuild."
           ]
         ]
       },

@@ -164,7 +164,16 @@
           }
         },
         {
-          "insert": ", then restarts that service for the current login session. It also writes "
+          "insert": ". A loaded service is booted out, and the installer polls "
+        },
+        {
+          "insert": "launchctl print",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " until launchd has removed it before bootstrapping again, because an immediate bootstrap failed with I/O error 5. It also writes "
         },
         {
           "insert": ".local/Start Transcriber.command",

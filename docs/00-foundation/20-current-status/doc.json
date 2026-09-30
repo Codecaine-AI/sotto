@@ -26,12 +26,22 @@
         "b-20-current-status-run-a-final-catch-up-imp-13",
         "b-20-current-status-review-and-commit-the-lo-14",
         "open-work-cutover-old-app",
+        "rollback-heading",
+        "rollback-lead",
+        "rollback-app",
+        "rollback-server",
+        "rollback-plists",
+        "rollback-reload",
+        "rollback-open",
         "open-work-carried-heading",
         "open-work-carried-backup",
         "open-work-carried-wispr",
-        "open-work-carried-push",
         "open-work-carried-port",
+        "open-decisions-heading",
         "open-work-carried-tests",
+        "open-decision-display-name",
+        "open-decision-v07-labels",
+        "open-decision-sotto-leftovers",
         "b-20-current-status-automatic-launch-at-logi-15",
         "relocation-verified-20-current-status"
       ]
@@ -42,16 +52,16 @@
       "props": {},
       "text": [
         {
-          "insert": "The fork's source is merged with upstream V07 through PR #23, and its installer builds the app as Transcriber. This Mac still runs the installation made before that merge: "
+          "insert": "The fork's source is merged with upstream V07 through PR #23, and the Transcriber cutover on this Mac is done. "
         },
         {
-          "insert": "/Applications/Sotto.app",
+          "insert": "/Applications/Transcriber.app",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " and a server built on 2026-09-16. Transcriber is not installed. This page records the current handoff. Dated evidence is retained in "
+          "insert": " is installed, has its macOS permissions, and completed an end-to-end dictation on 2026-09-30. The server runs a build of the merged source. This page records the current handoff. Dated evidence is retained in "
         },
         {
           "insert": "Work Record",
@@ -93,7 +103,7 @@
         "rows": [
           [
             "Repository",
-            "Merged source on a local branch",
+            "Pushed",
             [
               {
                 "insert": "/Users/Ford/workspace/codecaine/utilities/sotto",
@@ -102,25 +112,7 @@
                 }
               },
               {
-                "insert": "; branch "
-              },
-              {
-                "insert": "transcriber-identity",
-                "attributes": {
-                  "code": true
-                }
-              },
-              {
-                "insert": " at "
-              },
-              {
-                "insert": "071c405",
-                "attributes": {
-                  "code": true
-                }
-              },
-              {
-                "insert": ", with no remote tracking branch; "
+                "insert": "; "
               },
               {
                 "insert": "main",
@@ -129,7 +121,25 @@
                 }
               },
               {
-                "insert": " and the local "
+                "insert": " and "
+              },
+              {
+                "insert": "transcriber-identity",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " are at "
+              },
+              {
+                "insert": "135acc9",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ", and "
               },
               {
                 "insert": "origin/main",
@@ -138,13 +148,7 @@
                 }
               },
               {
-                "insert": " ref are at "
-              },
-              {
-                "insert": "c065ec2",
-                "attributes": {
-                  "code": true
-                }
+                "insert": " matches"
               }
             ]
           ],
@@ -186,34 +190,16 @@
           ],
           [
             "App",
-            "Sotto installed; Transcriber built, not installed",
+            "Transcriber installed and verified",
             [
               {
-                "insert": "/Applications/Sotto.app",
+                "insert": "/Applications/Transcriber.app",
                 "attributes": {
                   "code": true
                 }
               },
               {
-                "insert": " has bundle identifier "
-              },
-              {
-                "insert": "dev.davis.murmur",
-                "attributes": {
-                  "code": true
-                }
-              },
-              {
-                "insert": ". "
-              },
-              {
-                "insert": "build/Transcriber.app",
-                "attributes": {
-                  "code": true
-                }
-              },
-              {
-                "insert": " has "
+                "insert": ", bundle identifier "
               },
               {
                 "insert": "ai.codecaine.transcriber",
@@ -222,22 +208,13 @@
                 }
               },
               {
-                "insert": ". "
-              },
-              {
-                "insert": "/Applications/Transcriber.app",
-                "attributes": {
-                  "code": true
-                }
-              },
-              {
-                "insert": " does not exist. Transcriber's permissions and dictation are unverified"
+                "insert": ", signed with the pinned certificate Sotto.app used. The permissions log reports microphone, accessibility, inputMonitoring, and hotkey as true. An end-to-end dictation (hold fn, speak, text inserted) worked on 2026-09-30"
               }
             ]
           ],
           [
             "Dictation server",
-            "Running the pre-sync build",
+            "Ready",
             [
               {
                 "insert": "launchd service "
@@ -252,13 +229,40 @@
                 "insert": " runs "
               },
               {
-                "insert": "build/server/sotto-server",
+                "insert": "scripts/run-server-local.sh",
                 "attributes": {
                   "code": true
                 }
               },
               {
-                "insert": ", built 2026-09-16, on loopback port 8391. "
+                "insert": ", which starts "
+              },
+              {
+                "insert": "build/server/v07-server",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " on "
+              },
+              {
+                "insert": "127.0.0.1:8391",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " with data in "
+              },
+              {
+                "insert": ".local/server",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ". "
               },
               {
                 "insert": "/v1/health",
@@ -267,16 +271,7 @@
                 }
               },
               {
-                "insert": " reported "
-              },
-              {
-                "insert": "ready: true",
-                "attributes": {
-                  "code": true
-                }
-              },
-              {
-                "insert": " with Whisper and Qwen ready on 2026-09-30. The server has not been rebuilt from the merged source"
+                "insert": " reports speech and proofreading ready"
               }
             ]
           ],
@@ -300,6 +295,15 @@
                 }
               },
               {
+                "insert": ", reinstalled with "
+              },
+              {
+                "insert": "scripts/archive/install.py",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
                 "insert": "; the viewer answers on "
               },
               {
@@ -312,7 +316,7 @@
           ],
           [
             "Login startup",
-            "On, opening Sotto",
+            "On, opening Transcriber",
             [
               {
                 "insert": "~/Library/LaunchAgents",
@@ -351,7 +355,7 @@
                 "insert": ". The app agent opens "
               },
               {
-                "insert": "/Applications/Sotto.app",
+                "insert": "/Applications/Transcriber.app",
                 "attributes": {
                   "code": true
                 }
@@ -369,7 +373,7 @@
                 }
               },
               {
-                "insert": " names the same certificate fingerprint as the earlier "
+                "insert": " names the certificate Sotto Local Development, the same one "
               },
               {
                 "insert": "~/.config/sotto/signing.json",
@@ -378,7 +382,49 @@
                 }
               },
               {
-                "insert": ". The certificate's name is Sotto Local Development"
+                "insert": " names"
+              }
+            ]
+          ],
+          [
+            "Client settings",
+            "Copied from Sotto",
+            [
+              {
+                "insert": "config.json",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " and "
+              },
+              {
+                "insert": "client.json",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " were copied from "
+              },
+              {
+                "insert": "~/Library/Application Support/Sotto",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": " to "
+              },
+              {
+                "insert": "~/Library/Application Support/Transcriber",
+                "attributes": {
+                  "code": true
+                }
+              },
+              {
+                "insert": ". The Sotto directory remains. The loopback server needs no token"
               }
             ]
           ]
@@ -483,7 +529,7 @@
       },
       "text": [
         {
-          "insert": "Cut Over to Transcriber"
+          "insert": "Cutover, 2026-09-30"
         }
       ],
       "children": []
@@ -494,7 +540,7 @@
       "props": {},
       "text": [
         {
-          "insert": "None of these steps has been run. Do them in this order."
+          "insert": "The cutover made these changes on this Mac."
         }
       ],
       "children": []
@@ -503,11 +549,11 @@
       "id": "b-20-current-status-grant-or-confirm-microph-11",
       "type": "list-item",
       "props": {
-        "ordered": true
+        "ordered": false
       },
       "text": [
         {
-          "insert": "Install Transcriber with "
+          "insert": "Installed Transcriber with "
         },
         {
           "insert": "./scripts/rebuild-local.sh",
@@ -516,7 +562,7 @@
           }
         },
         {
-          "insert": ". Grant Microphone and Accessibility to the new app, then verify real microphone capture and insertion into another app."
+          "insert": ". Microphone was allowed from the system prompt, and Accessibility was granted in System Settings."
         }
       ],
       "children": []
@@ -525,23 +571,32 @@
       "id": "b-20-current-status-choose-and-implement-ver-12",
       "type": "list-item",
       "props": {
-        "ordered": true
+        "ordered": false
       },
       "text": [
         {
-          "insert": "Set the shortcut, microphone, and device name in Transcriber. It reads "
+          "insert": "Copied "
         },
         {
-          "insert": "~/Library/Application Support/Transcriber",
+          "insert": "config.json",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": ", and the installer does not copy settings from "
+          "insert": " and "
         },
         {
-          "insert": "~/Library/Application Support/Sotto",
+          "insert": "client.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " from Sotto's settings directory into "
+        },
+        {
+          "insert": "~/Library/Application Support/Transcriber",
           "attributes": {
             "code": true
           }
@@ -556,11 +611,11 @@
       "id": "b-20-current-status-run-a-final-catch-up-imp-13",
       "type": "list-item",
       "props": {
-        "ordered": true
+        "ordered": false
       },
       "text": [
         {
-          "insert": "Rebuild the server with "
+          "insert": "Rebuilt the server with "
         },
         {
           "insert": "./scripts/build-server.sh",
@@ -569,25 +624,7 @@
           }
         },
         {
-          "insert": ". The build replaces "
-        },
-        {
-          "insert": "build/server",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": ", which removes the "
-        },
-        {
-          "insert": "sotto-server",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": " binary the service runs. Edit both copies of the "
+          "insert": " and pointed both copies of the "
         },
         {
           "insert": "ai.codecaine.sotto.server",
@@ -614,34 +651,16 @@
           }
         },
         {
-          "insert": ", to name "
+          "insert": ", at "
         },
         {
-          "insert": "build/server/v07-server",
+          "insert": "scripts/run-server-local.sh",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": ", "
-        },
-        {
-          "insert": "helpers/v07-engine",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": ", and "
-        },
-        {
-          "insert": "helpers/v07-text-engine",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": ". Then restart the service."
+          "insert": "."
         }
       ],
       "children": []
@@ -650,11 +669,11 @@
       "id": "b-20-current-status-review-and-commit-the-lo-14",
       "type": "list-item",
       "props": {
-        "ordered": true
+        "ordered": false
       },
       "text": [
         {
-          "insert": "Point the login agent "
+          "insert": "Pointed the login agent "
         },
         {
           "insert": "ai.codecaine.sotto.app",
@@ -672,7 +691,7 @@
           }
         },
         {
-          "insert": ". No script in the repository writes that agent. Run "
+          "insert": ". Reran "
         },
         {
           "insert": "python3 scripts/archive/install.py --root /Users/Ford/Transcripts",
@@ -681,7 +700,7 @@
           }
         },
         {
-          "insert": " to write "
+          "insert": ", which reinstalled the archive service and wrote "
         },
         {
           "insert": ".local/Start Transcriber.command",
@@ -699,11 +718,253 @@
       "id": "open-work-cutover-old-app",
       "type": "list-item",
       "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Moved Sotto.app and the pre-cutover "
+        },
+        {
+          "insert": "build/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " to "
+        },
+        {
+          "insert": ".local/cutover-backup-20260930-115949/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and saved copies of the three LaunchAgents plists and Sotto's settings there."
+        }
+      ],
+      "children": []
+    },
+    "rollback-heading": {
+      "id": "rollback-heading",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Roll Back the Cutover"
+        }
+      ],
+      "children": []
+    },
+    "rollback-lead": {
+      "id": "rollback-lead",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The backup folder "
+        },
+        {
+          "insert": ".local/cutover-backup-20260930-115949/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " holds what a rollback needs. This rollback has not been tested."
+        }
+      ],
+      "children": []
+    },
+    "rollback-app": {
+      "id": "rollback-app",
+      "type": "list-item",
+      "props": {
         "ordered": true
       },
       "text": [
         {
-          "insert": "Decide what happens to "
+          "insert": "Quit Transcriber and move the backup's "
+        },
+        {
+          "insert": "Sotto.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " back to "
+        },
+        {
+          "insert": "/Applications",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "rollback-server": {
+      "id": "rollback-server",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Move the current "
+        },
+        {
+          "insert": "build/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " aside and restore the backup's "
+        },
+        {
+          "insert": "server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " folder as "
+        },
+        {
+          "insert": "build/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The backed-up server plist names "
+        },
+        {
+          "insert": "build/server/sotto-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "rollback-plists": {
+      "id": "rollback-plists",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Copy the three plists from the backup's "
+        },
+        {
+          "insert": "LaunchAgents",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " folder into "
+        },
+        {
+          "insert": "~/Library/LaunchAgents",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and copy the server and archive plists into "
+        },
+        {
+          "insert": ".local",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": "."
+        }
+      ],
+      "children": []
+    },
+    "rollback-reload": {
+      "id": "rollback-reload",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Reload "
+        },
+        {
+          "insert": "ai.codecaine.sotto.server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "ai.codecaine.sotto.archive",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " with "
+        },
+        {
+          "insert": "launchctl bootout",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " followed by "
+        },
+        {
+          "insert": "launchctl bootstrap",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Wait until "
+        },
+        {
+          "insert": "launchctl print",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " no longer finds a service before you bootstrap it."
+        }
+      ],
+      "children": []
+    },
+    "rollback-open": {
+      "id": "rollback-open",
+      "type": "list-item",
+      "props": {
+        "ordered": true
+      },
+      "text": [
+        {
+          "insert": "Open "
         },
         {
           "insert": "/Applications/Sotto.app",
@@ -712,7 +973,7 @@
           }
         },
         {
-          "insert": ", "
+          "insert": ". Its settings in "
         },
         {
           "insert": "~/Library/Application Support/Sotto",
@@ -721,16 +982,16 @@
           }
         },
         {
-          "insert": ", and "
+          "insert": " are still in place, and it keeps bundle identifier "
         },
         {
-          "insert": "~/.config/sotto",
+          "insert": "dev.davis.murmur",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " after Transcriber works."
+          "insert": " and the same certificate."
         }
       ],
       "children": []
@@ -743,7 +1004,7 @@
       },
       "text": [
         {
-          "insert": "Other Open Items"
+          "insert": "Remaining Work"
         }
       ],
       "children": []
@@ -774,37 +1035,6 @@
       ],
       "children": []
     },
-    "open-work-carried-push": {
-      "id": "open-work-carried-push",
-      "type": "list-item",
-      "props": {
-        "ordered": false
-      },
-      "text": [
-        {
-          "insert": "Push "
-        },
-        {
-          "insert": "transcriber-identity",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": " and decide how it merges to "
-        },
-        {
-          "insert": "main",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": "."
-        }
-      ],
-      "children": []
-    },
     "open-work-carried-port": {
       "id": "open-work-carried-port",
       "type": "list-item",
@@ -823,6 +1053,19 @@
         },
         {
           "insert": " defaults to port 8392, the port the archive viewer uses."
+        }
+      ],
+      "children": []
+    },
+    "open-decisions-heading": {
+      "id": "open-decisions-heading",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Open Decisions"
         }
       ],
       "children": []
@@ -858,6 +1101,90 @@
       ],
       "children": []
     },
+    "open-decision-display-name": {
+      "id": "open-decision-display-name",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Decide whether to rename the corpus. "
+        },
+        {
+          "insert": "codecaine.docs.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " still gives the display name Sotto, and no Docs tool edits it."
+        }
+      ],
+      "children": []
+    },
+    "open-decision-v07-labels": {
+      "id": "open-decision-v07-labels",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Decide whether the fixed V07 labels in the app window, such as the sidebar title, should say Transcriber. Changing them means editing upstream's source."
+        }
+      ],
+      "children": []
+    },
+    "open-decision-sotto-leftovers": {
+      "id": "open-decision-sotto-leftovers",
+      "type": "list-item",
+      "props": {
+        "ordered": false
+      },
+      "text": [
+        {
+          "insert": "Decide what to remove of the Sotto leftovers. Sotto's login item for "
+        },
+        {
+          "insert": "dev.davis.murmur",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " is still registered and points at the missing app. "
+        },
+        {
+          "insert": "~/Library/Application Support/Sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", "
+        },
+        {
+          "insert": "~/.config/sotto",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and "
+        },
+        {
+          "insert": ".local/Start Sotto.command",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " also remain."
+        }
+      ],
+      "children": []
+    },
     "b-20-current-status-automatic-launch-at-logi-15": {
       "id": "b-20-current-status-automatic-launch-at-logi-15",
       "type": "paragraph",
@@ -875,10 +1202,10 @@
       "props": {},
       "text": [
         {
-          "insert": "Both launchd service plists and "
+          "insert": "The launchd service plists and "
         },
         {
-          "insert": ".local/Start Sotto.command",
+          "insert": ".local/Start Transcriber.command",
           "attributes": {
             "code": true
           }

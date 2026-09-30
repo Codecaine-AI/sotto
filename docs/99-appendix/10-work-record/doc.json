@@ -38,7 +38,11 @@
         "work-record-2026-09-30-identity",
         "work-record-2026-09-30-paths",
         "work-record-2026-09-30-retained",
-        "work-record-2026-09-30-state"
+        "work-record-2026-09-30-state",
+        "work-record-2026-09-30-cutover-heading",
+        "work-record-2026-09-30-cutover-app",
+        "work-record-2026-09-30-cutover-services",
+        "work-record-2026-09-30-cutover-backup"
       ]
     },
     "b-10-work-record-this-record-captures-wor-1": {
@@ -887,6 +891,151 @@
         },
         {
           "insert": " lists the remaining cutover steps."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-cutover-heading": {
+      "id": "work-record-2026-09-30-cutover-heading",
+      "type": "heading",
+      "props": {
+        "level": 3
+      },
+      "text": [
+        {
+          "insert": "Cutover Follow-Up"
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-cutover-app": {
+      "id": "work-record-2026-09-30-cutover-app",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Later on 2026-09-30 the cutover was completed. "
+        },
+        {
+          "insert": "./scripts/rebuild-local.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " installed "
+        },
+        {
+          "insert": "/Applications/Transcriber.app",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", signed with the pinned certificate Sotto.app used. Microphone was allowed from the system prompt and Accessibility was granted in System Settings. The permissions log reported microphone, accessibility, inputMonitoring, and hotkey as true, and the user confirmed an end-to-end dictation with fn. "
+        },
+        {
+          "insert": "config.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and "
+        },
+        {
+          "insert": "client.json",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " were copied from Sotto's settings directory."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-cutover-services": {
+      "id": "work-record-2026-09-30-cutover-services",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The server was rebuilt with "
+        },
+        {
+          "insert": "./scripts/build-server.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", and the server login agent was pointed at the new "
+        },
+        {
+          "insert": "scripts/run-server-local.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", which finds the executables by role. The app agent was pointed at Transcriber. The archive service was reinstalled after "
+        },
+        {
+          "insert": "install.py",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " gained a wait for launchd bootout; without it, bootstrap failed with I/O error 5 and left the service stopped."
+        }
+      ],
+      "children": []
+    },
+    "work-record-2026-09-30-cutover-backup": {
+      "id": "work-record-2026-09-30-cutover-backup",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "Sotto.app and the pre-cutover "
+        },
+        {
+          "insert": "build/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " were moved to "
+        },
+        {
+          "insert": ".local/cutover-backup-20260930-115949/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", with copies of the three LaunchAgents plists and Sotto's settings. Commit "
+        },
+        {
+          "insert": "135acc9",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " was pushed, and "
+        },
+        {
+          "insert": "origin/main",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " points to it."
         }
       ],
       "children": []

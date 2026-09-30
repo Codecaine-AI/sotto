@@ -37,6 +37,7 @@
         "b-readme-argument-environment-26-table",
         "b-readme-the-dev-runner-fixes-its-27",
         "server-setup-launchd-service",
+        "server-setup-launcher-defaults",
         "b-readme-remote-access-28",
         "b-readme-bind-to-a-reachable-addr-29",
         "b-readme-use-an-https-reverse-pro-30",
@@ -808,16 +809,20 @@
           }
         },
         {
-          "insert": " runs the server on port 8391 with "
+          "insert": " runs "
         },
         {
-          "insert": ".local/server",
+          "insert": "scripts/run-server-local.sh",
           "attributes": {
-            "code": true
+            "code": true,
+            "reference": {
+              "kind": "source",
+              "path": "scripts/run-server-local.sh"
+            }
           }
         },
         {
-          "insert": " as its data directory. Its plist has copies in "
+          "insert": ". Its plist has identical copies in "
         },
         {
           "insert": ".local",
@@ -835,19 +840,75 @@
           }
         },
         {
-          "insert": ". Both name "
+          "insert": ", and the label keeps the name Sotto. The script finds the executables in "
         },
         {
-          "insert": "build/server/sotto-server",
+          "insert": "build/server",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " and the "
+          "insert": " by role: the "
         },
         {
-          "insert": "sotto-engine",
+          "insert": "*-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " file, the "
+        },
+        {
+          "insert": "*-text-engine",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " helper, and the other "
+        },
+        {
+          "insert": "*-engine",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " helper. If it does not find exactly one of each, it exits and asks for a rebuild."
+        }
+      ],
+      "children": []
+    },
+    "server-setup-launcher-defaults": {
+      "id": "server-setup-launcher-defaults",
+      "type": "paragraph",
+      "props": {},
+      "text": [
+        {
+          "insert": "The script starts the server on "
+        },
+        {
+          "insert": "127.0.0.1:8391",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " with data in "
+        },
+        {
+          "insert": ".local/server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". It loads "
+        },
+        {
+          "insert": ".local/models/ggml-large-v3-turbo.bin",
           "attributes": {
             "code": true
           }
@@ -856,22 +917,40 @@
           "insert": " and "
         },
         {
-          "insert": "sotto-text-engine",
+          "insert": ".local/models/Qwen3-4B-Instruct-2507-MLX-4bit",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " helpers from the build made before the V07 rename. A rebuild replaces those files with the "
+          "insert": "; "
         },
         {
-          "insert": "v07-",
+          "insert": "TRANSCRIBER_SPEECH_MODEL",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " names, so edit both plists before you restart the service. The label keeps the name Sotto."
+          "insert": " and "
+        },
+        {
+          "insert": "TRANSCRIBER_TEXT_MODEL",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " override those paths. After an upstream rename of the executables, run "
+        },
+        {
+          "insert": "./scripts/build-server.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and restart the service. The plist needs no edit."
         }
       ],
       "children": []

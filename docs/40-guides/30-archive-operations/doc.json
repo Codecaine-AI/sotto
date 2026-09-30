@@ -239,16 +239,7 @@
           }
         },
         {
-          "insert": ". On Ford's Mac the installer has not been rerun since the rename, so the launcher there is "
-        },
-        {
-          "insert": ".local/Start Sotto.command",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": "."
+          "insert": ". When the archive service is already loaded, the installer boots it out and waits until launchd has removed it before bootstrapping it again. Without that wait, bootstrap failed with I/O error 5 and left the service stopped."
         }
       ],
       "children": []

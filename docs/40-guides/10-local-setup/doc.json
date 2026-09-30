@@ -25,7 +25,6 @@
         "b-10-local-setup-source-users-ford-git-14",
         "b-10-local-setup-working-branch-codex-s-15",
         "b-10-local-setup-app-applications-sott-16",
-        "local-setup-install-target",
         "b-10-local-setup-dictation-server-http-17",
         "local-setup-transcriber-identity",
         "b-10-local-setup-upstream-pr-4-is-incorp-18",
@@ -48,22 +47,31 @@
           "insert": "This guide describes the Codecaine installation on Ford's Mac. The installed client is "
         },
         {
-          "insert": "/Applications/Sotto.app",
-          "attributes": {
-            "code": true
-          }
-        },
-        {
-          "insert": ", built before the fork adopted the Transcriber identity. The repository's installer installs the client as "
-        },
-        {
           "insert": "/Applications/Transcriber.app",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": ", and that install has not been run. "
+          "insert": ", installed on 2026-09-30 with "
+        },
+        {
+          "insert": "./scripts/rebuild-local.sh",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". The earlier Sotto.app is kept in "
+        },
+        {
+          "insert": ".local/cutover-backup-20260930-115949/",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". "
         },
         {
           "insert": "Current Status",
@@ -75,7 +83,7 @@
           }
         },
         {
-          "insert": " lists the cutover steps."
+          "insert": " records the cutover and how to roll it back."
         }
       ],
       "children": []
@@ -104,7 +112,7 @@
           "insert": "Open "
         },
         {
-          "insert": ".local/Start Sotto.command",
+          "insert": ".local/Start Transcriber.command",
           "attributes": {
             "code": true
           }
@@ -113,22 +121,22 @@
           "insert": " in the repository. It starts the dictation server and the archive worker and opens "
         },
         {
-          "insert": "/Applications/Sotto.app",
+          "insert": "/Applications/Transcriber.app",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": ". After the Transcriber install, use "
+          "insert": ". The older "
         },
         {
-          "insert": ".local/Start Transcriber.command",
+          "insert": ".local/Start Sotto.command",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": "."
+          "insert": " still exists but opens the removed Sotto.app."
         }
       ],
       "children": []
@@ -163,16 +171,7 @@
       },
       "text": [
         {
-          "insert": "For dictation, open "
-        },
-        {
-          "insert": "Dictation",
-          "attributes": {
-            "bold": true
-          }
-        },
-        {
-          "insert": ", allow Microphone and Accessibility in macOS, focus a text field, hold the configured key, speak, and release. "
+          "insert": "For dictation, focus a text field, hold the configured key, speak, and release. The key on this Mac is fn. "
         },
         {
           "insert": "This Mac",
@@ -181,7 +180,7 @@
           }
         },
         {
-          "insert": " shows the current key."
+          "insert": " shows the current key and trigger mode."
         }
       ],
       "children": []
@@ -201,7 +200,7 @@
           }
         },
         {
-          "insert": " from the repository root. It installs Transcriber and leaves Sotto.app in place. The "
+          "insert": " from the repository root. It rebuilds and replaces Transcriber. The "
         },
         {
           "insert": "Development",
@@ -213,7 +212,7 @@
           }
         },
         {
-          "insert": " guide covers one-time certificate setup, how signing preserves permissions, recovery for stale Accessibility entries, and verification commands. The signing configuration exists on this Mac at "
+          "insert": " guide covers one-time certificate setup, how signing preserves permissions, recovery for stale Accessibility entries, and verification commands. The signing configuration on this Mac is "
         },
         {
           "insert": "~/.config/transcriber/signing.json",
@@ -373,10 +372,28 @@
       },
       "text": [
         {
-          "insert": "Working branch: "
+          "insert": "Branch: "
         },
         {
-          "insert": "transcriber-identity",
+          "insert": "main",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ", at "
+        },
+        {
+          "insert": "135acc9",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " and pushed to "
+        },
+        {
+          "insert": "origin",
           "attributes": {
             "code": true
           }
@@ -395,7 +412,7 @@
           "insert": "Installed app: "
         },
         {
-          "insert": "/Applications/Sotto.app",
+          "insert": "/Applications/Transcriber.app",
           "attributes": {
             "code": true
           }
@@ -404,26 +421,7 @@
           "insert": ", bundle identifier "
         },
         {
-          "insert": "dev.davis.murmur",
-          "attributes": {
-            "code": true
-          }
-        }
-      ],
-      "children": []
-    },
-    "local-setup-install-target": {
-      "id": "local-setup-install-target",
-      "type": "list-item",
-      "props": {
-        "ordered": false
-      },
-      "text": [
-        {
-          "insert": "Install target, not yet installed: "
-        },
-        {
-          "insert": "/Applications/Transcriber.app",
+          "insert": "ai.codecaine.transcriber",
           "attributes": {
             "code": true
           }
@@ -611,7 +609,7 @@
           "insert": ". The app agent opens "
         },
         {
-          "insert": "/Applications/Sotto.app",
+          "insert": "/Applications/Transcriber.app",
           "attributes": {
             "code": true
           }
@@ -620,13 +618,31 @@
           "insert": ". The server agent runs "
         },
         {
-          "insert": "build/server/sotto-server",
+          "insert": "scripts/run-server-local.sh",
           "attributes": {
             "code": true
           }
         },
         {
-          "insert": " from the build made before the sync. Quitting the app leaves the server and archive worker running."
+          "insert": ", which starts "
+        },
+        {
+          "insert": "build/server/v07-server",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": ". Quitting the app leaves the server and archive worker running. Sotto's own login item for "
+        },
+        {
+          "insert": "dev.davis.murmur",
+          "attributes": {
+            "code": true
+          }
+        },
+        {
+          "insert": " is still registered and points at the missing app."
         }
       ],
       "children": []
@@ -695,7 +711,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The changed-build test on the installed Sotto client retained the same certificate-based signing requirement, Microphone and Accessibility grants, and an active hotkey listener. The user confirmed dictation worked after that rebuild. Transcriber has a different bundle identifier, so macOS treats it as a new app. Its permissions and dictation have not been tested. A full macOS reboot has not been tested. Preserve the local certificate for future rebuilds."
+          "insert": "Transcriber is signed with the certificate that signed Sotto.app. Its permissions log reports microphone, accessibility, inputMonitoring, and hotkey as true. Microphone was allowed from the system prompt, and Accessibility was granted in System Settings. On 2026-09-30 an end-to-end dictation worked: hold fn, speak, and the text was inserted. A full macOS reboot has not been tested. Preserve the local certificate for future rebuilds."
         }
       ],
       "children": []
@@ -718,7 +734,7 @@
           "insert": ". "
         },
         {
-          "insert": ".local/Start Sotto.command",
+          "insert": ".local/Start Transcriber.command",
           "attributes": {
             "code": true
           }
