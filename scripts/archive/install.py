@@ -45,8 +45,8 @@ for sotto_label in ai.codecaine.sotto.server ai.codecaine.sotto.archive; do
     fi
     launchctl kickstart "$sotto_domain/$sotto_label"
 done
-open /Applications/Sotto.app
-printf 'Sotto is open. The Data page shows your shared transcript archive.\\n'
+open /Applications/V07.app
+printf 'V07 is open. The Data page shows your shared transcript archive.\\n'
 '''.replace('ROOT',shlex.quote(str(repo)),1)
     destinations=[repo/'.local/Start Sotto.command']
     if args.launcher_output:destinations.append(Path(args.launcher_output).expanduser())

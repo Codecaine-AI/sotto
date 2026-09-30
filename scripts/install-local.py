@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build, verify, replace, and reopen the consistently signed local Sotto app."""
+"""Build, verify, replace, and reopen the consistently signed local V07 app."""
 import argparse
 from datetime import datetime
 import fcntl
@@ -14,9 +14,9 @@ import tempfile
 import time
 
 ROOT = Path(__file__).resolve().parents[1]
-TARGET = Path('/Applications/Sotto.app')
+TARGET = Path('/Applications/V07.app')
 CONFIG = Path.home() / '.config/sotto/signing.json'
-BUNDLE_ID = 'dev.davis.murmur'
+BUNDLE_ID = 'dev.davis.v07'
 
 
 def run(*args, **kwargs):
@@ -31,7 +31,7 @@ def requirement(app):
 
 def installed_pids():
     result = subprocess.check_output(['ps', '-axo', 'pid=,comm='], text=True)
-    executable = str(TARGET / 'Contents/MacOS/Sotto')
+    executable = str(TARGET / 'Contents/MacOS/V07')
     return [int(parts[0]) for line in result.splitlines() if len(parts := line.strip().split(None, 1)) == 2 and parts[1] == executable]
 
 
@@ -54,9 +54,9 @@ def main():
             raise SystemExit('Another local install is running.')
         environment = dict(os.environ)
         # This command always uses the pinned local certificate.
-        environment.pop('SOTTO_SIGNING_IDENTITY', None)
+        environment.pop('V07_SIGNING_IDENTITY', None)
         run(str(ROOT / 'scripts/build-app.sh'), cwd=ROOT, env=environment)
-        built = ROOT / 'build/Sotto.app'
+        built = ROOT / 'build/V07.app'
         expected = f'=identifier "{BUNDLE_ID}" and certificate leaf = H"{identity}"'
         run('codesign', '--verify', '--strict', '-R', expected, str(built))
         new_requirement = requirement(built)
@@ -69,7 +69,7 @@ def main():
             old_requirement = requirement(TARGET)
             if old_requirement != new_requirement and not args.adopt_identity:
                 raise SystemExit('The signing identity would change. Use --adopt-identity only for an intentional one-time switch.')
-        stage = Path(tempfile.mkdtemp(prefix='.Sotto-install-', dir=TARGET.parent))
+        stage = Path(tempfile.mkdtemp(prefix='.V07-install-', dir=TARGET.parent))
         previous = None
         try:
             staged_app = stage / TARGET.name
@@ -85,7 +85,7 @@ def main():
                     break
                 time.sleep(0.1)
             else:
-                raise SystemExit('Sotto did not quit. No app was replaced.')
+                raise SystemExit('V07 did not quit. No app was replaced.')
             if TARGET.exists():
                 backup = ROOT / '.local/install-backups' / datetime.now().strftime('%Y%m%d-%H%M%S-%f')
                 backup.mkdir(parents=True)

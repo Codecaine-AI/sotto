@@ -23,8 +23,7 @@ function node(tag, text, cls) {
 }
 async function api(path) {
   const r = await fetch(path);
-  if (!r.ok)
-    throw new Error((await r.json()).error || "Archive request failed");
+  if (!r.ok) throw new Error((await r.json()).error || "Archive request failed");
   return r.json();
 }
 function error(e) {
@@ -32,9 +31,7 @@ function error(e) {
   $("health").className = "error";
 }
 function href(base, path) {
-  return (
-    "/files/" + (base + "/" + path).split("/").map(encodeURIComponent).join("/")
-  );
+  return "/files/" + (base + "/" + path).split("/").map(encodeURIComponent).join("/");
 }
 function disclosure(title, value) {
   const d = node("details");
@@ -49,11 +46,7 @@ function fields(obj) {
       node("td", k),
       node(
         "td",
-        v == null
-          ? "Not recorded"
-          : typeof v === "object"
-            ? JSON.stringify(v)
-            : String(v),
+        v == null ? "Not recorded" : typeof v === "object" ? JSON.stringify(v) : String(v),
       ),
     );
     t.append(tr);
@@ -69,16 +62,12 @@ async function dataset() {
   }
   const files = node("details");
   files.append(
-    node(
-      "summary",
-      "Original export files and dictionaries · " + d.source_files.length,
-    ),
+    node("summary", "Original export files and dictionaries · " + d.source_files.length),
   );
   for (const file of d.source_files) {
     const p = node("p");
     const link = node("a", file.path + " · " + size(file.bytes));
-    link.href =
-      "/files/" + file.path.split("/").map(encodeURIComponent).join("/");
+    link.href = "/files/" + file.path.split("/").map(encodeURIComponent).join("/");
     link.target = "_blank";
     link.rel = "noopener";
     p.append(link);
@@ -93,10 +82,7 @@ async function summary() {
   for (const [label, value] of [
     ["Total records", number(sums("records"))],
     ["Sotto", number(d.sources.find((s) => s.source === "sotto")?.records)],
-    [
-      "Wispr history",
-      number(d.sources.find((s) => s.source === "wispr-flow")?.records),
-    ],
+    ["Wispr history", number(d.sources.find((s) => s.source === "wispr-flow")?.records)],
     ["With audio", number(sums("audio"))],
     ["Unknown date", number(sums("undated"))],
   ]) {
@@ -127,11 +113,7 @@ async function records() {
   $("count").textContent = number(d.total) + " records";
   $("records").replaceChildren();
   for (const r of d.items) {
-    const b = node(
-      "button",
-      undefined,
-      "record" + (state.selected === r.key ? " selected" : ""),
-    );
+    const b = node("button", undefined, "record" + (state.selected === r.key ? " selected" : ""));
     b.dataset.key = r.key;
     const top = node("span", undefined, "top");
     top.append(
@@ -161,8 +143,7 @@ async function records() {
 async function detail(key) {
   state.selected = key;
   const seq = ++state.detailSequence;
-  for (const b of $("records").children)
-    b.classList.toggle("selected", b.dataset.key === key);
+  for (const b of $("records").children) b.classList.toggle("selected", b.dataset.key === key);
   const d = await api("/api/record?" + new URLSearchParams({ key }));
   if (seq !== state.detailSequence) return;
   const m = d.metadata;
@@ -184,9 +165,7 @@ async function detail(key) {
       node("h3", name === "raw" ? "Raw recognition" : "Clean transcript"),
       node(
         "div",
-        m.text[name] == null
-          ? "Not recorded"
-          : m.text[name] || "Empty transcript",
+        m.text[name] == null ? "Not recorded" : m.text[name] || "Empty transcript",
         "transcript",
       ),
     );
@@ -216,10 +195,7 @@ async function detail(key) {
       link.target = "_blank";
       link.rel = "noopener";
       box.append(link, node("small", "SHA-256 " + a.sha256));
-      if (
-        ["audio", "original-audio"].includes(a.kind) &&
-        a.path.endsWith(".wav")
-      ) {
+      if (["audio", "original-audio"].includes(a.kind) && a.path.endsWith(".wav")) {
         const player = node("audio");
         player.controls = true;
         player.preload = "none";
@@ -239,9 +215,7 @@ async function detail(key) {
     root.append(section);
   }
   const versions = node("section", undefined, "section");
-  versions.append(
-    node("h3", "Original source data · " + d.versions.length + " versions"),
-  );
+  versions.append(node("h3", "Original source data · " + d.versions.length + " versions"));
   for (const v of d.versions) {
     const section = node("details");
     section.append(node("summary", v.role + " · " + v.source_file));
@@ -249,11 +223,7 @@ async function detail(key) {
       const vfields = {};
       for (const [k, value] of Object.entries(v.data.values))
         vfields[k] =
-          value.type === "null"
-            ? null
-            : Object.hasOwn(value, "value")
-              ? value.value
-              : value;
+          value.type === "null" ? null : Object.hasOwn(value, "value") ? value.value : value;
       section.append(fields(vfields));
     } else {
       section.append(fields(v.data));
@@ -283,7 +253,6 @@ $("next").onclick = () => {
   state.offset += 50;
   records().catch(error);
 };
-$("refresh").onclick = () =>
-  Promise.all([summary(), records(), dataset()]).catch(error);
+$("refresh").onclick = () => Promise.all([summary(), records(), dataset()]).catch(error);
 Promise.all([summary(), records(), dataset()]).catch(error);
 setInterval(() => summary().catch(error), 10000);
