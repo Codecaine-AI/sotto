@@ -7,6 +7,7 @@ import plistlib
 import shlex
 import subprocess
 import sys
+import time
 from archive import atomic, encode
 
 
@@ -34,6 +35,10 @@ def main():
     service=f'{domain}/{label}'
     if subprocess.run(['launchctl','print',service],capture_output=True).returncode==0:
         subprocess.run(['launchctl','bootout',service],check=True)
+        # bootout returns before launchd has finished removing the service.
+        for _ in range(100):
+            if subprocess.run(['launchctl','print',service],capture_output=True).returncode:break
+            time.sleep(0.1)
     subprocess.run(['launchctl','bootstrap',domain,str(path)],check=True)
     launcher='''#!/bin/bash
 set -euo pipefail
