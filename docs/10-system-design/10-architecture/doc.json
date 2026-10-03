@@ -238,7 +238,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The server talks to helpers over bounded JSON-lines pipes. Models warm at startup and stay loaded. The client contains no model helpers; it never starts or stops the server. Bun manages the JavaScript dependencies and compiles the server into a standalone executable. The native application and inference server have no Python runtime dependency. The Codecaine archive worker and Data viewer require Python 3.12 or later."
+          "insert": "The server talks to helpers over bounded JSON-lines pipes. Models warm at startup and stay loaded. The client contains no model helpers. The client never starts or stops the server. Bun manages the JavaScript dependencies and compiles the server into a standalone executable. The native application and inference server have no Python runtime dependency. The Codecaine archive worker and Data viewer require Python 3.12 or later."
         }
       ],
       "children": []
@@ -303,7 +303,7 @@
       },
       "text": [
         {
-          "insert": "Sealed recordings enter a FIFO processing queue. One job at a time runs Whisper, mechanical cleanup, dictionary rules, and list formatting. Optional Qwen output passes through dictionary rules and deterministic rewrite checks. Rejection or proofreading failure retains the pre-proofreading text. Cancelling one upload or queued job does not interrupt another."
+          "insert": "Sealed recordings enter a FIFO processing queue. One job at a time runs Whisper, mechanical cleanup, dictionary rules, and list formatting. Optional Qwen output passes through dictionary rules and deterministic rewrite checks. Rejection or proofreading failure keeps the pre-proofreading text. Cancelling one upload or queued job does not interrupt another."
         }
       ],
       "children": []
@@ -316,7 +316,7 @@
       },
       "text": [
         {
-          "insert": "NDJSON events carry progress and the saved final result for each generation. Each pending client take retains its original server connection and destination. The client serializes delivery attempts, verifies focus/caret safety, and reports each outcome separately from inference completion."
+          "insert": "NDJSON events carry progress and the saved final result for each generation. Each pending client take keeps its original server connection and destination. The client serializes delivery attempts, verifies focus/caret safety, and reports each outcome separately from inference completion."
         }
       ],
       "children": []
@@ -327,7 +327,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Interrupted partial uploads expire; a complete upload can finish after the client disconnects. Pending takes recover interrupted event streams by checking their saved generation and reconnecting. Opening history never pastes an old result. Restarting the server marks unfinished generations failed and retains completed history. There is no offline capture queue or automatic audio-upload retry."
+          "insert": "Interrupted partial uploads expire. A complete upload can finish after the client disconnects. Pending takes recover interrupted event streams by checking their saved generation and reconnecting. Opening history never pastes an old result. Restarting the server marks unfinished generations failed and keeps completed history. There is no offline capture queue or automatic audio-upload retry."
         }
       ],
       "children": []
@@ -556,7 +556,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Shared saves use revisions to reject stale concurrent edits. Settings are snapshotted when the server accepts a take; changes affect future recordings. Update shared settings through the UI/API rather than editing files while the server runs."
+          "insert": "Shared saves use revisions to reject stale concurrent edits. Settings are snapshotted when the server accepts a take. Changes affect future recordings. Update shared settings through the UI/API rather than editing files while the server runs."
         }
       ],
       "children": []
@@ -660,7 +660,7 @@
           }
         },
         {
-          "insert": " stores shortcut/microphone settings; "
+          "insert": " stores shortcut/microphone settings. "
         },
         {
           "insert": "client.json",
@@ -687,7 +687,7 @@
           }
         },
         {
-          "insert": " edits are reloaded; invalid files leave the last good configuration active."
+          "insert": " edits are reloaded. Invalid files leave the last good configuration active."
         }
       ],
       "children": []
@@ -773,7 +773,7 @@
       "props": {},
       "text": [
         {
-          "insert": "All clients read shared, paginated history. Deleting an inactive generation deletes its server artifacts. Failed takes can retain metadata and sealed audio; partial upload files are internal and cannot be downloaded. Client audio copies are temporary."
+          "insert": "All clients read shared, paginated history. Deleting an inactive generation deletes its server artifacts. Failed takes can keep metadata and sealed audio; partial upload files are internal and cannot be downloaded. Client audio copies are temporary."
         }
       ],
       "children": []

@@ -46,7 +46,7 @@
       "props": {},
       "text": [
         {
-          "insert": "This is the legacy upstream importer plan retained for provenance. The Codecaine migration uses the separate unlimited archive implementation."
+          "insert": "This is the legacy upstream importer plan kept for provenance. The Codecaine migration uses the separate unlimited archive implementation."
         }
       ],
       "children": []
@@ -99,7 +99,7 @@
           }
         },
         {
-          "insert": " without changing the source database, then archive the recoverable text, media, and source fields on the Sotto server. This is an archive import: it must not run Sotto's speech or cleanup models, paste old text, or delete source data."
+          "insert": " without changing the source database. Then archive the recoverable text, media, and source fields on the Sotto server. This is an archive import: it must not run Sotto's speech or cleanup models, paste old text, or delete source data."
         }
       ],
       "children": []
@@ -247,7 +247,7 @@
           }
         },
         {
-          "insert": " into Sotto's private temporary directory before parsing. Prefer SQLite's backup API; handle a live WAL correctly and report snapshot failures rather than silently reading an inconsistent file. Never write into Wispr Flow's application-support directory."
+          "insert": " into Sotto's private temporary directory before parsing. Prefer SQLite's backup API. Handle a live WAL correctly and report snapshot failures rather than silently reading an inconsistent file. Never write into Wispr Flow's application-support directory."
         }
       ],
       "children": []
@@ -260,7 +260,7 @@
       },
       "text": [
         {
-          "insert": "Build a preview with the source date range and separate counts for nonempty transcripts, empty-text/failed attempts, WAV audio, screenshots, dictionary entries, and already-imported source IDs. Show estimated transfer/storage bytes and the chosen destination server. Build the preview locally; a server deduplication check sends source IDs only, without transcript or context data."
+          "insert": "Build a preview with the source date range and separate counts for nonempty transcripts, empty-text/failed attempts, WAV audio, screenshots, dictionary entries, and already-imported source IDs. Show estimated transfer/storage bytes and the chosen destination server. Build the preview locally. A server deduplication check sends source IDs only, without transcript or context data."
         }
       ],
       "children": []
@@ -282,7 +282,7 @@
           }
         },
         {
-          "insert": "; prefer the current row for display and fill missing fields/media from older rows. A backup can restore media even when it adds no session IDs. Retain source row variants with their database provenance. Ignore incomplete "
+          "insert": ". Prefer the current row for display and fill missing fields/media from older rows. A backup can restore media even when it adds no session IDs. Keep source row variants with their database provenance. Ignore incomplete "
         },
         {
           "insert": ".tmp",
@@ -320,7 +320,7 @@
           }
         },
         {
-          "insert": " is a PNG blob when present; validate actual file headers, format, and size before archiving. Preserve "
+          "insert": " is a PNG blob when present. Validate actual file headers, format, and size before archiving. Preserve "
         },
         {
           "insert": "opusChunks",
@@ -365,7 +365,7 @@
           }
         },
         {
-          "insert": " with an optional source descriptor. Keep the existing live-recording fields compatible with old metadata; source status and settings must be labeled as "
+          "insert": " with an optional source descriptor. Keep the existing live-recording fields compatible with old metadata. Source status and settings must be labeled as "
         },
         {
           "insert": "Wispr Flow source data",
@@ -472,7 +472,7 @@
           }
         },
         {
-          "insert": ", is limited to 8 MiB; the archived dictionary JSON has the same limit and stops encoding before it grows beyond that bound. Sotto keeps one canonical WAV, Opus JSON, and PNG attachment per session and tries an older valid version if the newest media exceeds the limit. "
+          "insert": ", is limited to 8 MiB. The archived dictionary JSON has the same limit and stops encoding before it grows beyond that bound. Sotto keeps one canonical WAV, Opus JSON, and PNG attachment per session and tries an older valid version if the newest media exceeds the limit. "
         },
         {
           "insert": "source.json",
@@ -481,7 +481,7 @@
           }
         },
         {
-          "insert": " records each oversized, invalid, unavailable, or different backup media version with its source row, byte count, SHA-256 digest, and archive status; those alternate bytes are not stored. The recognized "
+          "insert": " records each oversized, invalid, unavailable, or different backup media version with its source row, byte count, SHA-256 digest, and archive status. Those alternate bytes are not stored. The recognized "
         },
         {
           "insert": "builtInAudio",
@@ -707,7 +707,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Verify with synthetic SQLite fixtures covering text-only rows, audio rows, metadata-only attempts, duplicate IDs across backups, a WAL-mode source, and reruns that enrich rather than duplicate. Confirm preview counts and media extraction against read-only local snapshots; leave the actual import to the user's explicit test. Preserve Sotto's existing "
+          "insert": "Verify with synthetic SQLite fixtures covering text-only rows, audio rows, metadata-only attempts, duplicate IDs across backups, a WAL-mode source, and reruns that enrich rather than duplicate. Confirm preview counts and media extraction against read-only local snapshots. Leave the actual import to the user's explicit test. Preserve Sotto's existing "
         },
         {
           "insert": "swift test",

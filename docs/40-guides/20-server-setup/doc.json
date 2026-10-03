@@ -260,7 +260,7 @@
           }
         },
         {
-          "insert": " defines the six-file size/hash manifest; the MLX helper verifies it before becoming ready. Use regular files, with no extra files or symlinks in the model directory."
+          "insert": " defines the six-file size/hash manifest. The MLX helper verifies it before becoming ready. Use regular files, with no extra files or symlinks in the model directory."
         }
       ],
       "children": []
@@ -330,7 +330,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Install Bun 1.4.2 and initialize submodules with "
+          "insert": "Install Bun 1.4.2. Initialize submodules with "
         },
         {
           "insert": "git submodule update --init --recursive",
@@ -339,7 +339,7 @@
           }
         },
         {
-          "insert": ". macOS requires Apple Silicon and full Xcode with its Metal compiler for the MLX helper; the complete client and helper build uses Xcode 26+ and Swift 6.2+. If Metal is missing, run "
+          "insert": ". macOS requires Apple Silicon and full Xcode with its Metal compiler for the MLX helper. The complete client and helper build uses Xcode 26+ and Swift 6.2+. If Metal is missing, run "
         },
         {
           "insert": "xcodebuild -downloadComponent MetalToolchain",
@@ -445,7 +445,7 @@
           }
         },
         {
-          "insert": " for the destination GPU. CPU support is useful for portable builds; validate CUDA support, memory, and dictation latency on the selected host."
+          "insert": " for the destination GPU. CPU support is useful for portable builds. Validate CUDA support, memory, and dictation latency on the selected host."
         }
       ],
       "children": []
@@ -522,7 +522,7 @@
           }
         },
         {
-          "insert": "; HTTP reachability alone does not mean inference is available. The "
+          "insert": ". HTTP reachability alone does not mean inference is available. The "
         },
         {
           "insert": "ready",
@@ -531,7 +531,7 @@
           }
         },
         {
-          "insert": " field means the server can accept a recording, including while other recordings are uploading or processing. Finished uploads queue for serial inference. Quitting a client does not stop this process. Use launchd, systemd, or container supervision for boot/restart behavior; the scripts do not install a service."
+          "insert": " field means the server can accept a recording, including while other recordings are uploading or processing. Finished uploads queue for serial inference. Quitting a client does not stop this process. Use launchd, systemd, or container supervision for boot/restart behavior. The scripts do not install a service."
         }
       ],
       "children": []
@@ -1183,7 +1183,7 @@
           }
         },
         {
-          "insert": "; Linux containers on a Mac do not have Metal access."
+          "insert": ". Linux containers on a Mac do not have Metal access."
         }
       ],
       "children": []

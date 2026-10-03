@@ -22,7 +22,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The implementation separates native dictation from portable archiving. Source references identify the owning modules; behavioral contracts remain in System Design."
+          "insert": "The implementation separates native dictation from portable archiving. Source references identify the owning modules. Behavioral contracts remain in System Design."
         }
       ],
       "children": []

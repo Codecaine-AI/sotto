@@ -166,7 +166,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Repeated records share archive folders when their source IDs match. Rows without valid IDs are retained; unidentified rows from different database files remain separate to avoid guessing that they are the same recording. Therefore, archive-entry counts are not a count of unique spoken utterances."
+          "insert": "Repeated records share archive folders when their source IDs match. Rows without valid IDs are kept. Unidentified rows from different database files remain separate to avoid guessing that they are the same recording. Therefore, archive-entry counts are not a count of unique spoken utterances."
         }
       ],
       "children": []
@@ -239,7 +239,7 @@
       "props": {},
       "text": [
         {
-          "insert": "There are 1,215 entries with audio and 190 with screenshots. Source versions retain original SQLite types, every History field, and streamed media references. The archive also preserves 92 export-level files, including dictionaries, manifests, indexes, and run reports."
+          "insert": "There are 1,215 entries with audio and 190 with screenshots. Source versions keep original SQLite types, every History field, and streamed media references. The archive also preserves 92 export-level files, including dictionaries, manifests, indexes, and run reports."
         }
       ],
       "children": []
@@ -443,7 +443,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Live microphone capture and insertion still require macOS permissions and a user dictation test. Startup at login is off; use the launcher after logging in."
+          "insert": "Live microphone capture and insertion still require macOS permissions and a user dictation test. Startup at login is off. Use the launcher after logging in."
         }
       ],
       "children": []

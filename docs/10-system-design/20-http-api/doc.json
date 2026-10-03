@@ -548,7 +548,7 @@
       },
       "text": [
         {
-          "insert": "A lost connection during capture/upload stops capture, clears client temporary buffers, and leaves the server to cancel/expire the partial generation. No offline queue or retry UI. Once upload is complete, server may finish independently; later viewing history does not paste."
+          "insert": "A lost connection during capture/upload stops capture and clears client temporary buffers. The lost connection leaves the server to cancel/expire the partial generation. No offline queue or retry UI. Once upload is complete, server may finish independently. Later viewing history does not paste."
         }
       ],
       "children": []
@@ -574,7 +574,7 @@
       },
       "text": [
         {
-          "insert": "Shared original-audio setting defaults on; inference audio always retained for completed generations. Changes affect future takes. Local server storage is a configurable persistent data directory; hosted deployments mount durable storage."
+          "insert": "Shared original-audio setting defaults on. Inference audio is always retained for completed generations. Changes affect future takes. Local server storage is a configurable persistent data directory. Hosted deployments mount durable storage."
         }
       ],
       "children": []

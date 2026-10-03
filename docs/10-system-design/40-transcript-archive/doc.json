@@ -34,7 +34,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The archive is the authoritative portable dataset for historical Wispr records and finished Transcriber recordings. Search uses a separate rebuildable SQLite cache; original files remain usable without the viewer."
+          "insert": "The archive is the authoritative portable dataset for historical Wispr records and finished Transcriber recordings. Search uses a separate rebuildable SQLite cache. Original files remain usable without the viewer."
         }
       ],
       "children": []
@@ -87,7 +87,7 @@
           }
         },
         {
-          "insert": ". Metadata distinguishes null from empty text, records the selected clean variant, and retains other variants."
+          "insert": ". Metadata distinguishes null from empty text, records the selected clean variant, and keeps other variants."
         }
       ],
       "children": []
@@ -100,7 +100,7 @@
       },
       "text": [
         {
-          "insert": "Source versions and attachments use SHA-256 names. Original SQLite types and all available History columns are retained. Repeated identical attachments share a file, with original names retained in metadata."
+          "insert": "Source versions and attachments use SHA-256 names. Original SQLite types and all available History columns are kept. Repeated identical attachments share a file, with original names kept in metadata."
         }
       ],
       "children": []
@@ -174,7 +174,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The server writes explicit raw and clean files before publishing terminal metadata. The worker uses metadata changes to discover updates. This is one writer on this Mac; synchronizing the folder does not establish multiwriter safety."
+          "insert": "The server writes explicit raw and clean files before publishing terminal metadata. The worker uses metadata changes to discover updates. This is one writer on this Mac. Synchronizing the folder does not establish multiwriter safety."
         }
       ],
       "children": []
@@ -342,7 +342,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Automatic backup is not configured. Dropbox is a proposed backup destination because Ford wants automatic off-device protection; permissions concerns favor keeping the working archive local. A home NAS is planned. Version retention, scheduling, backup-failure visibility, and a restore test still require implementation. No cloud upload or NAS setup has been completed."
+          "insert": "Automatic backup is not configured. Dropbox is a proposed backup destination because Ford wants automatic off-device protection. Permissions concerns favor keeping the working archive local. A home NAS is planned. Version retention, scheduling, backup-failure visibility, and a restore test still require implementation. No cloud upload or NAS setup has been completed."
         }
       ],
       "children": []

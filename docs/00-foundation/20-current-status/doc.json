@@ -52,7 +52,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The fork's source is merged with upstream V07 through PR #23, and the Transcriber cutover on this Mac is done. "
+          "insert": "The fork's source is merged with upstream V07 through PR #23. The Transcriber cutover on this Mac is done. "
         },
         {
           "insert": "/Applications/Transcriber.app",
@@ -61,7 +61,7 @@
           }
         },
         {
-          "insert": " is installed, has its macOS permissions, and completed an end-to-end dictation on 2026-09-30. The server runs a build of the merged source. This page records the current handoff. Dated evidence is retained in "
+          "insert": " is installed, has its macOS permissions, and completed an end-to-end dictation on 2026-09-30. The server runs a build of the merged source. This page records the current handoff. Dated evidence is kept in "
         },
         {
           "insert": "Work Record",
@@ -884,7 +884,7 @@
           }
         },
         {
-          "insert": ", and copy the server and archive plists into "
+          "insert": ". Copy the server and archive plists into "
         },
         {
           "insert": ".local",

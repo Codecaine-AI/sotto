@@ -96,7 +96,7 @@
           }
         },
         {
-          "insert": ". All dictionary lists are active. Each generation freezes the settings when the server accepts it; later edits apply to future takes."
+          "insert": ". All dictionary lists are active. Each generation freezes the settings when the server accepts it. Later edits apply to future takes."
         }
       ],
       "children": []
@@ -140,7 +140,7 @@
           }
         },
         {
-          "insert": "; a broad "
+          "insert": ". A broad "
         },
         {
           "insert": "off → auth",
@@ -149,7 +149,7 @@
           }
         },
         {
-          "insert": " also changes legitimate “turn off.”"
+          "insert": " also changes legitimate \"turn off.\""
         }
       ],
       "children": []
@@ -162,7 +162,7 @@
       },
       "text": [
         {
-          "insert": "Star priority terms to suggest them first. Whisper fits whole terms into its token budget; history shows included and omitted hints. Qwen has a separate bounded hint budget. Dictionary replacements still apply to terms omitted from model hints."
+          "insert": "Star priority terms to suggest them first. Whisper fits whole terms into its token budget. History shows included and omitted hints. Qwen has a separate bounded hint budget. Dictionary replacements still apply to terms omitted from model hints."
         }
       ],
       "children": []
@@ -244,7 +244,7 @@
           }
         },
         {
-          "insert": " loads a draft; "
+          "insert": " loads a draft. "
         },
         {
           "insert": "Save shared preferences",

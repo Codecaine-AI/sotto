@@ -130,7 +130,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Hold a key, speak, and release to insert your dictation. V07 is a native Swift macOS app backed by a Bun-compiled TypeScript/Fastify model server running on the same Mac, another Mac, or Linux. Audio uploads while you speak; the server returns progress and one finished transcript. You can start another take immediately. Finished recordings queue on the server, and each result returns to the client that recorded it."
+          "insert": "Hold a key, speak, and release to insert your dictation. V07 is a native Swift macOS app backed by a Bun-compiled TypeScript/Fastify model server running on the same Mac, another Mac, or Linux. Audio uploads while you speak. The server returns progress and one finished transcript. You can start another take immediately. Finished recordings queue on the server, and each result returns to the client that recorded it."
         }
       ],
       "children": []
@@ -333,7 +333,7 @@
           }
         },
         {
-          "insert": ", choose inputs under "
+          "insert": ", and choose inputs under "
         },
         {
           "insert": "Microphone",
@@ -342,7 +342,7 @@
           }
         },
         {
-          "insert": ", and edit shared cleanup instructions or dictionary entries under "
+          "insert": ". Edit shared cleanup instructions or dictionary entries under "
         },
         {
           "insert": "Server preferences",
@@ -368,7 +368,7 @@
           }
         },
         {
-          "insert": " shows a result in the app without inserting it. Fn/Globe is also supported; set macOS "
+          "insert": " shows a result in the app without inserting it. Fn/Globe is also supported. Set macOS "
         },
         {
           "insert": "Keyboard → Press Globe key to → Do Nothing",
@@ -752,7 +752,7 @@
       "props": {},
       "text": [
         {
-          "insert": "All connected Macs share history, tagged by device. Both original and inference audio are kept by default; "
+          "insert": "All connected Macs share history, tagged by device. Both original and inference audio are kept by default. "
         },
         {
           "insert": "Keep original microphone audio",
@@ -1169,7 +1169,7 @@
       "props": {},
       "text": [
         {
-          "insert": "After an identity change, System Settings can show an enabled switch while Transcriber still reports access denied. A toggle alone may retain the old code requirement. Use this repair only for that mismatch, not after every rebuild. The first Transcriber install is a new grant, not a repair. A password prompt is not required if Settings already permits the change."
+          "insert": "After an identity change, System Settings can show an enabled switch while Transcriber still reports access denied. A toggle alone may keep the old code requirement. Use this repair only for that mismatch, not after every rebuild. The first Transcriber install is a new grant, not a repair. A password prompt is not required if Settings already permits the change."
         }
       ],
       "children": []
@@ -1195,7 +1195,7 @@
       },
       "text": [
         {
-          "insert": "Click the plus button, select /Applications/Transcriber.app, and click Open. Ensure its switch is on and approve any macOS authentication prompt."
+          "insert": "Click the plus button, select /Applications/Transcriber.app, and click Open. Make sure its switch is on and approve any macOS authentication prompt."
         }
       ],
       "children": []
@@ -1267,7 +1267,7 @@
       "props": {},
       "text": [
         {
-          "insert": "On Ford's Mac, Transcriber was installed on 2026-09-30 with the certificate Sotto.app used. Its permissions log reports microphone, accessibility, inputMonitoring, and hotkey as true, and an end-to-end dictation worked. A changed-build replacement of Transcriber that keeps its grants has not been tested yet; that check passed earlier on Sotto.app. Full macOS reboot persistence remains untested. Evidence from the Sotto run is retained under "
+          "insert": "On Ford's Mac, Transcriber was installed on 2026-09-30 with the certificate Sotto.app used. Its permissions log reports microphone, accessibility, inputMonitoring, and hotkey as true. An end-to-end dictation worked. A changed-build replacement of Transcriber that keeps its grants has not been tested yet. That check passed earlier on Sotto.app. Full macOS reboot persistence remains untested. Evidence from the Sotto run is kept under "
         },
         {
           "insert": ".local/signing-validation/",
@@ -1311,7 +1311,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Each replacement retains the previous app in "
+          "insert": "Each replacement keeps the previous app in "
         },
         {
           "insert": ".local/install-backups/<timestamp>/Transcriber.app",

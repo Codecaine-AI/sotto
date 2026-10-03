@@ -85,7 +85,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Reviewed September 16, 2026. This is a read-only review and a proposed direction, not an implemented change."
+          "insert": "Reviewed September 16, 2026. This is a read-only review. This is a proposed direction, not an implemented change."
         }
       ],
       "children": []
@@ -275,7 +275,7 @@
           }
         },
         {
-          "insert": " files. It does not read the WisprSync export folder. Import is manually invoked from History and may be repeated; the PR does not add scheduled sync."
+          "insert": " files. It does not read the WisprSync export folder. Import is manually invoked from History and may be repeated. The PR does not add scheduled sync."
         }
       ],
       "children": []
@@ -299,7 +299,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The source Wispr ID is retained even though the generation directory receives a new Sotto UUID. Media files are conditional."
+          "insert": "The source Wispr ID is kept even though the generation directory receives a new Sotto UUID. Media files are conditional."
         }
       ],
       "children": []
@@ -420,7 +420,7 @@
       "props": {},
       "text": [
         {
-          "insert": "This is broader than a fixed field whitelist: the current live History table has 63 columns, and the reader attempts to preserve all of them. SQLite integers, reals, nulls, text, and blobs retain explicit types. Invalid UTF-8 text is stored as bytes. Nested JSON text remains the original string rather than WisprSync's parsed representation."
+          "insert": "This is broader than a fixed field allowlist: the current live History table has 63 columns, and the reader attempts to preserve all of them. SQLite integers, reals, nulls, text, and blobs keep explicit types. Invalid UTF-8 text is stored as bytes. Nested JSON text remains the original string rather than WisprSync's parsed representation."
         }
       ],
       "children": []
@@ -501,7 +501,7 @@
           }
         },
         {
-          "insert": " Their sizes are 9,344,300, 8,985,388, and 8,560,172 bytes. All exceed 8,388,608 bytes. The WisprSync export contains all three files at those sizes; the available Wispr backup has the same oversized lengths. A smaller backup WAV cannot recover them under this limit."
+          "insert": " Their sizes are 9,344,300, 8,985,388, and 8,560,172 bytes. All exceed 8,388,608 bytes. The WisprSync export contains all three files at those sizes. The available Wispr backup has the same oversized lengths. A smaller backup WAV cannot recover them under this limit."
         }
       ],
       "children": []
@@ -520,7 +520,7 @@
           }
         },
         {
-          "insert": " WisprSync retains them under its unknown-time structure. All 24 are already in the export, and none has a timestamp in the available backup. Sotto requires a usable date and would fail these records. These 24 exported records contain no ASR/formatted/edited/pasted text, but their metadata still belongs to the archive."
+          "insert": " WisprSync keeps them under its unknown-time structure. All 24 are already in the export, and none has a timestamp in the available backup. Sotto requires a usable date and would fail these records. These 24 exported records contain no ASR/formatted/edited/pasted text, but their metadata still belongs to the archive."
         }
       ],
       "children": []
@@ -558,7 +558,7 @@
           }
         },
         {
-          "insert": " The largest observed raw ASR field is 5,054 bytes. The largest nonmedia source field observed is 15,534 bytes. This checks individual live fields; it does not prove every combined versioned "
+          "insert": " The largest observed raw ASR field is 5,054 bytes. The largest nonmedia source field observed is 15,534 bytes. This checks individual live fields. This does not prove every combined versioned "
         },
         {
           "insert": "source.json",
@@ -687,7 +687,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Keep original source data separate from normalized fields and derived model output. Every normalized field should identify its source record/version. Retain observed media versions by content hash. A completeness report should count records, fields, files, bytes, and omissions for each import."
+          "insert": "Keep original source data separate from normalized fields and derived model output. Every normalized field should identify its source record/version. Keep observed media versions by content hash. A completeness report should count records, fields, files, bytes, and omissions for each import."
         }
       ],
       "children": []
@@ -844,7 +844,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Imported Wispr data and native Sotto recordings need a shared browsing contract, while retaining their source-specific fields. A field absent from Sotto's capture process must appear as unavailable; it must never be inferred from unrelated import-time settings."
+          "insert": "Imported Wispr data and native Sotto recordings need a shared browsing contract, while keeping their source-specific fields. A field absent from Sotto's capture process must appear as unavailable. It must never be inferred from unrelated import-time settings."
         }
       ],
       "children": []

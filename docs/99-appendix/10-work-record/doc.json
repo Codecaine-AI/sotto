@@ -185,7 +185,7 @@
           }
         },
         {
-          "insert": ". It found that the legacy importer could omit three WAVs above 8 MiB, reject undated records, skip invalid IDs, and omit WisprSync export evidence. The initial audit proposed named datasets; Ford selected one permanent raw/clean archive and a one-time Wispr migration instead."
+          "insert": ". It found that the legacy importer could omit three WAVs above 8 MiB, reject undated records, skip invalid IDs, and omit WisprSync export evidence. The initial audit proposed named datasets. Ford selected one permanent raw/clean archive and a one-time Wispr migration instead."
         }
       ],
       "children": []
@@ -238,7 +238,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The implementation added streamed unlimited-size archive files, all typed source fields, source and media versions, dictionary/export evidence, stable IDs, explicit null dates, a rebuildable local index, and a loopback Data viewer. The native app gained Data navigation; finished server records gained raw.txt and clean.txt artifacts."
+          "insert": "The implementation added streamed unlimited-size archive files, all typed source fields, source and media versions, dictionary/export evidence, stable IDs, explicit null dates, a rebuildable local index, and a loopback Data viewer. The native app gained Data navigation. Finished server records gained raw.txt and clean.txt artifacts."
         }
       ],
       "children": []
@@ -269,7 +269,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Six archive tests, fourteen server tests, app/server builds, and two isolated real-audio-to-archive tests passed. The previous installed app and server were retained in "
+          "insert": "Six archive tests, fourteen server tests, app/server builds, and two isolated real-audio-to-archive tests passed. The previous installed app and server were kept in "
         },
         {
           "insert": ".local/install-backups",
@@ -393,7 +393,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Relocation completed on September 16, 2026. The repository moved to /Users/Ford/Github Repos/Codecaine/utilities/sotto with identical HEAD and Git worktree state at the move boundary. Both submodules resolve. Old build caches were preserved in .local/relocation-backup/build-cache, and the next build uses fresh paths. Server and archive plists, launcher copies, archive installation metadata, setup outputs, and Docs discovery use the new path. The dataset stayed at /Users/Ford/Transcripts. All six archive tests passed after the move. Qwen required one retry after its first cold start; both inference engines and the archive worker then reported healthy. All 26 native Docs pages pass completion checks and the link checker reports zero stale references."
+          "insert": "Relocation completed on September 16, 2026. The repository moved to /Users/Ford/Github Repos/Codecaine/utilities/sotto with identical HEAD and Git worktree state at the move boundary. Both submodules resolve. Old build caches were preserved in .local/relocation-backup/build-cache, and the next build uses fresh paths. Server and archive plists, launcher copies, archive installation metadata, setup outputs, and Docs discovery use the new path. The dataset stayed at /Users/Ford/Transcripts. All six archive tests passed after the move. Qwen required one retry after its first cold start. Both inference engines and the archive worker then reported healthy. All 26 native Docs pages pass completion checks and the link checker reports zero stale references."
         }
       ],
       "children": []
@@ -988,7 +988,7 @@
           }
         },
         {
-          "insert": " gained a wait for launchd bootout; without it, bootstrap failed with I/O error 5 and left the service stopped."
+          "insert": " gained a wait for launchd bootout. Without the wait, bootstrap failed with I/O error 5 and left the service stopped."
         }
       ],
       "children": []

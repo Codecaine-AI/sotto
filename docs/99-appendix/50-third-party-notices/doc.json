@@ -61,7 +61,7 @@
           }
         },
         {
-          "insert": ". Linked statically into the native helper. Its bundled nlohmann/json and WAV decoder retain their upstream notices in source."
+          "insert": ". Linked statically into the native helper. Its bundled nlohmann/json and WAV decoder keep their upstream notices in source."
         }
       ],
       "children": []
@@ -162,7 +162,7 @@
           }
         },
         {
-          "insert": "; processing metadata identifies the full manifest. Apache-2.0 license text is in "
+          "insert": ". Processing metadata identifies the full manifest. Apache-2.0 license text is in "
         },
         {
           "insert": "Resources/Qwen-LICENSE.txt",
@@ -324,7 +324,7 @@
           }
         },
         {
-          "insert": "; the complete resolved graph and commit revisions are in "
+          "insert": ". The complete resolved graph and commit revisions are in "
         },
         {
           "insert": "TextEngine/Package.resolved",
@@ -648,7 +648,7 @@
           }
         },
         {
-          "insert": ". Linked into the Linux Qwen helper. Its source retains its bundled dependency notices, including nlohmann/json v3.12.0."
+          "insert": ". Linked into the Linux Qwen helper. Its source keeps its bundled dependency notices, including nlohmann/json v3.12.0."
         }
       ],
       "children": []
@@ -661,20 +661,7 @@
       },
       "text": [
         {
-          "insert": "Qwen3-4B-Instruct-2507 Q4",
-          "attributes": {
-            "bold": true
-          }
-        },
-        {
-          "insert": "K",
-          "attributes": {
-            "bold": true,
-            "italic": true
-          }
-        },
-        {
-          "insert": "M",
+          "insert": "Qwen3-4B-Instruct-2507 Q4_K_M",
           "attributes": {
             "bold": true
           }
@@ -689,7 +676,7 @@
           }
         },
         {
-          "insert": ". It is downloaded separately and verified by the server; see "
+          "insert": ". It is downloaded separately and verified by the server. See "
         },
         {
           "insert": "model setup",

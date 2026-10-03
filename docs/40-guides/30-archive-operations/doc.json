@@ -107,7 +107,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Metadata distinguishes missing text from empty text, records the chosen clean-text variant, and retains all available transcript variants. Unknown dates remain null; invalid or missing source IDs receive stable safe identifiers and remain represented in original source metadata. Files are copied in 1 MiB chunks with SHA-256 verification; this is a transfer buffer, not a file-size limit. Competing source versions and attachments are retained by hash. The database used for search lives in the local cache, outside a cloud-synced archive, and can be rebuilt from the files."
+          "insert": "Metadata distinguishes missing text from empty text, records the chosen clean-text variant, and keeps all available transcript variants. Unknown dates remain null. Invalid or missing source IDs receive stable safe identifiers and remain represented in original source metadata. Files are copied in 1 MiB chunks with SHA-256 verification. This is a transfer buffer, not a file-size limit. Competing source versions and attachments are kept by hash. The database used for search lives in the local cache, outside a cloud-synced archive, and can be rebuilt from the files."
         }
       ],
       "children": []
@@ -118,7 +118,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The portable archive is separate from the server's operational history. The server records raw.txt and clean.txt alongside each finished recording before publishing metadata. The archive worker then copies the complete metadata and audio. The Data page shows archive health and any copy failure. Closing the app does not stop the worker. The archive is intended for one writer on this Mac; sharing its folder does not make simultaneous writers safe."
+          "insert": "The portable archive is separate from the server's operational history. The server records raw.txt and clean.txt alongside each finished recording before publishing metadata. The archive worker then copies the complete metadata and audio. The Data page shows archive health and any copy failure. Closing the app does not stop the worker. The archive is intended for one writer on this Mac. Sharing its folder does not make simultaneous writers safe."
         }
       ],
       "children": []
@@ -153,7 +153,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Python 3.12 or later is required. Run from the repository root; replace the example paths."
+          "insert": "Python 3.12 or later is required. Run from the repository root. Replace the example paths."
         }
       ],
       "children": []
@@ -195,7 +195,7 @@
           }
         },
         {
-          "insert": " marked failed and can be retried; original sources are unchanged. Inspect verification before retiring the old exporter."
+          "insert": " marked failed and can be retried. Original sources are unchanged. Inspect verification before retiring the old exporter."
         }
       ],
       "children": []

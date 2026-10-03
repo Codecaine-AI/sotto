@@ -84,7 +84,7 @@
       },
       "text": [
         {
-          "insert": "The archive has no artifact-size cap. It must retain oversized audio, unknown dates, malformed source IDs, and source versions rather than silently omit them."
+          "insert": "The archive has no artifact-size cap. It must keep oversized audio, unknown dates, malformed source IDs, and source versions rather than silently omit them."
         }
       ],
       "children": []

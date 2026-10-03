@@ -283,7 +283,7 @@
       },
       "text": [
         {
-          "insert": "Request state is cleared after each correction. Cancellation of active work terminates the process. Quit, stdin EOF, and parent death release the model. The server retains idle warm helpers."
+          "insert": "Request state is cleared after each correction. Cancellation of active work terminates the process. Quit, stdin EOF, and parent death release the model. The server keeps idle warm helpers."
         }
       ],
       "children": []

@@ -94,7 +94,7 @@
           }
         },
         {
-          "insert": ". Send one UTF-8 JSON object per line on stdin; replies are flushed JSON lines on stdout. Diagnostics go to stderr without transcript text."
+          "insert": ". Send one UTF-8 JSON object per line on stdin. Replies are flushed JSON lines on stdout. Diagnostics go to stderr without transcript text."
         }
       ],
       "children": []
@@ -135,7 +135,7 @@
           }
         },
         {
-          "insert": "; "
+          "insert": ". "
         },
         {
           "insert": "auto",
@@ -352,7 +352,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Requests are bounded to 1 MiB. Vocabulary allows at most 8,192 terms, 16 KiB per term, and 384 KiB total; actual model hints usually fit much less. Silence returns a successful empty transcript."
+          "insert": "Requests are bounded to 1 MiB. Vocabulary allows at most 8,192 terms, 16 KiB per term, and 384 KiB total. Actual model hints usually fit much less. Silence returns a successful empty transcript."
         }
       ],
       "children": []
@@ -376,7 +376,7 @@
       "props": {},
       "text": [
         {
-          "insert": "A CPU Silero pass rejects nonspeech (threshold 0.5, minimum speech segment 120 ms). If speech is detected, Whisper receives the complete recording. Decoding uses beam search 5, temperature 0, and internal timestamp tokens; the returned transcript is plain text. Segments above Whisper's no-speech threshold are excluded. This remains probabilistic and can miss quiet speech."
+          "insert": "A CPU Silero pass rejects nonspeech (threshold 0.5, minimum speech segment 120 ms). If speech is detected, Whisper receives the complete recording. Decoding uses beam search 5, temperature 0, and internal timestamp tokens. The returned transcript is plain text. Segments above Whisper's no-speech threshold are excluded. This remains probabilistic and can miss quiet speech."
         }
       ],
       "children": []

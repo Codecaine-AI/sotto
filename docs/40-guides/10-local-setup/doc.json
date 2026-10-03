@@ -303,7 +303,7 @@
       "props": {},
       "text": [
         {
-          "insert": "The archive has no artifact-size cap. Its one-time Wispr migration bypasses the legacy upstream HTTP importer's 8 MiB restriction. The live dictation limit remains 180 seconds per take; this is separate from archive storage."
+          "insert": "The archive has no artifact-size cap. Its one-time Wispr migration bypasses the legacy upstream HTTP importer's 8 MiB restriction. The live dictation limit remains 180 seconds per take. This is separate from archive storage."
         }
       ],
       "children": []
@@ -711,7 +711,7 @@
       "props": {},
       "text": [
         {
-          "insert": "Transcriber is signed with the certificate that signed Sotto.app. Its permissions log reports microphone, accessibility, inputMonitoring, and hotkey as true. Microphone was allowed from the system prompt, and Accessibility was granted in System Settings. On 2026-09-30 an end-to-end dictation worked: hold fn, speak, and the text was inserted. A full macOS reboot has not been tested. Preserve the local certificate for future rebuilds."
+          "insert": "Transcriber is signed with the certificate that signed Sotto.app. Its permissions log reports microphone, accessibility, inputMonitoring, and hotkey as true. Microphone was allowed from the system prompt. Accessibility was granted in System Settings. On 2026-09-30 an end-to-end dictation worked: hold fn, speak, and the text was inserted. A full macOS reboot has not been tested. Preserve the local certificate for future rebuilds."
         }
       ],
       "children": []
